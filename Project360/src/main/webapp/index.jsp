@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
+   
     <head>
         <title>emergency department webpage</title>
         <meta charset="utf-8" />
@@ -18,7 +18,7 @@
 
     <body>
 
-        <form class="box" action="http://localhost:8080/project360/login" method="post">
+        <form class="box" action="http://localhost:8080/Project360/login" method="post">
             <h1>Welcome!</h1>
             <input type="text" name="username" value="" placeholder="Username">
             <input type="password" id="password" name="password" value="" placeholder="Password">
