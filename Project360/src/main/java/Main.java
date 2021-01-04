@@ -3,13 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 
 /**
  *
@@ -25,42 +18,50 @@ public class Main {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/", "root", "");
             Statement stmt = con.createStatement();
-            String create="CREATE DATABASE IF NOT EXISTS EMERGENCY_DEPARTMENT";
+            String create = "CREATE DATABASE IF NOT EXISTS EMERGENCY_DEPARTMENT";
 //here sonoo is database name, root is username and password  
             stmt.executeUpdate(create);
             con.close();
-             con = DriverManager.getConnection(
+            con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
-             stmt = con.createStatement();
+            stmt = con.createStatement();
             Doctor doc = new Doctor();
-            Nurses nurse=new Nurses();
-            Patients patient=new Patients();
-            Employees employee=new Employees();
-            Examinations exam=new Examinations();
-            Medicines med=new Medicines();
-            Visits visit=new Visits();
-            
+            Nurses nurse = new Nurses();
+            Patients patient = new Patients();
+            Employees employee = new Employees();
+            Examinations exam = new Examinations();
+            Medicines med = new Medicines();
+            Visits visit = new Visits();
+            LoginInfo kapoios = new LoginInfo();
+
             String createDoc = doc.createDoctor();
             stmt.executeUpdate(createDoc);
-            String createNurse=nurse.createNurse();
+            String createNurse = nurse.createNurse();
             stmt.executeUpdate(createNurse);
-            String createPatient=patient.createPatient();
+            String createPatient = patient.createPatient();
             stmt.executeUpdate(createPatient);
-            String createEmployee=employee.createEmployee();
+            String createEmployee = employee.createEmployee();
             stmt.executeUpdate(createEmployee);
-            String createExam=exam.createExam();
+            String createExam = exam.createExam();
             stmt.executeUpdate(createExam);
-            String createMed=med.createMedicine();
+            String createMed = med.createMedicine();
             stmt.executeUpdate(createMed);
-            String createVisit=visit.createVisit();
+            String createVisit = visit.createVisit();
             stmt.executeUpdate(createVisit);
-            
-            String insertDoc=doc.insertDoctor();
-            PreparedStatement pstmt=con.prepareStatement(insertDoc);
-            pstmt=doc.insertSpecial(pstmt, 2, "oli", "kati", 355);
+            String createLogin = kapoios.createInfo();
+            stmt.executeUpdate(createLogin);
+
+            String insertDoc = doc.insertDoctor();
+            PreparedStatement pstmt = con.prepareStatement(insertDoc);
+            pstmt = doc.insertSpecial(pstmt, 2, "oli", "kati", 355);
+            pstmt.executeUpdate();
+
+            String insertKapoion = kapoios.insertLoginInfo();
+            pstmt = con.prepareStatement(insertKapoion);
+            pstmt = kapoios.insertSpecial(pstmt, 3, "patient", "kate", "kate1234");
             pstmt.executeUpdate();
             //stmt.executeUpdate(insertDoc);
-            
+
             // ResultSet rs = stmt.executeQuery("select * from persons");
             //while (rs.next()) {
             //  System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
