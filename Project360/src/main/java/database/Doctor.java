@@ -26,21 +26,29 @@ public class Doctor {
         return doc;
     }
 
-    String insertDoctor() {
+   /* String insertDoctor() {
         String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?)";
         return doc;
-    }
+    }*/
 
-    PreparedStatement insertSpecial(PreparedStatement pstmt, int id, String name, String specialty, int phone) {
+    void insertDoctor( int id, String name, String specialty, int phone) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+            //stmt = con.createStatement();
+            String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?)";
+            PreparedStatement pstmt = con.prepareStatement(doc);
         try {
+            
             pstmt.setInt(1, id);
             pstmt.setString(2, name);
             pstmt.setString(3, specialty);
             pstmt.setInt(4, phone);
-            
+            pstmt.executeUpdate();
+            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return pstmt;
+        
     }
 }

@@ -29,21 +29,16 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
-            Statement stmt = con.createStatement();
+           
             // read form fields
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
-            String ret = info.check_role(username, password);
-            ResultSet rs = stmt.executeQuery(ret);
-            String r = null;
-            while (rs.next()) {
-                r = rs.getString("role");
-            }
-            System.out.println(r);
+            //String ret = info.check_role(username, password);
+            String role = null;
+             role = info.get_role(username,password);
+            
+            System.out.println(role);
 
             //System.out.println("username: " + username);
             // System.out.println("password: " + password);
@@ -51,19 +46,19 @@ public class login extends HttpServlet {
             HttpSession session = request.getSession(); //Creating a session
             session.setAttribute("username", username);
             session.setAttribute("password", password);
-            if (r.equals("patient")) {
+            if (role.equals("patient")) {
                 response.sendRedirect(request.getContextPath() + "/patient");
-            } else if (r.equals("doctor")) {
+            } else if (role.equals("doctor")) {
                 response.sendRedirect(request.getContextPath() + "/doctor");
-            } else if (r.equals("nurse")) {
+            } else if (role.equals("nurse")) {
                 response.sendRedirect(request.getContextPath() + "/nurse");
-            } else if (r.equals("employee")) {
+            } else if (role.equals("employee")) {
                 response.sendRedirect(request.getContextPath() + "/employee");
             } else {
                 response.sendRedirect(request.getContextPath() + "/employee");
             }
             //request.getRequestDispatcher("login.jsp").forward(request, response);
-            con.close();
+            //con.close();
         } catch (Exception e) {
             System.out.println(e);
             e.printStackTrace();

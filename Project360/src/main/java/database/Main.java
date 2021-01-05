@@ -54,15 +54,17 @@ public class Main {
             String createLogin = kapoios.createInfo();
             stmt.executeUpdate(createLogin);
 
-            String insertDoc = doc.insertDoctor();
-            PreparedStatement pstmt = con.prepareStatement(insertDoc);
-            pstmt = doc.insertSpecial(pstmt, 2, "oli", "kati", 355);
-            pstmt.executeUpdate();
+            //String insertDoc = doc.insertDoctor();
+           // PreparedStatement pstmt = con.prepareStatement(insertDoc);
+            doc.insertDoctor( 2, "oli", "kati", 355);
+            doc.insertDoctor(4, "kapoios", "kardiologos", 567);
+            //pstmt.executeUpdate();
 
-            String insertKapoion = kapoios.insertLoginInfo();
-            pstmt = con.prepareStatement(insertKapoion);
-            pstmt = kapoios.insertSpecial(pstmt, 3, "patient", "kate", "kate1234");
-            pstmt.executeUpdate();
+            kapoios.insertLoginInfo(3,"patient","kate","kate1234");
+            kapoios.insertLoginInfo(4,"doctor","oli","oli12");
+            //PreparedStatement pstmt = con.prepareStatement(insertKapoion);
+            //pstmt = kapoios.insertSpecial(pstmt, 3, "patient", "kate", "kate1234");
+            //pstmt.executeUpdate();
             //stmt.executeUpdate(insertDoc);
 
             // ResultSet rs = stmt.executeQuery("select * from persons");
