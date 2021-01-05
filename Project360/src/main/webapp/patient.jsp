@@ -14,10 +14,13 @@
         <%
             String username = (String) session.getAttribute("username");
         %>
+        <%
+            String password = (String) session.getAttribute("password");
+        %>
     </head>
     <body>
         <h2>Your username is: <%= username%> <br/>
-            Your password is:  </h2>
+            Your password is:  <%= password%> </h2>
         <input type="submit" onclick="patient()" name="" value="show_kati" >
 
     </body>

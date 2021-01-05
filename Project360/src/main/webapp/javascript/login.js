@@ -17,7 +17,7 @@ function sent_to_login() {
     console.log(document.getElementById("password").value);
 
     xhttp.onreadystatechange = function () {
-        if (this.readyState === XMLHttpRequest.DONE && this.status == 200) {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             // Typical action to be performed when the document is ready:
             //document.getElementById("demo").innerHTML = xhttp.responseText;
              // window.alert(xhttp.responseText);
