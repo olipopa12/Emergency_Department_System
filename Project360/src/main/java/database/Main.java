@@ -35,7 +35,7 @@ public class Main {
             Examinations exam = new Examinations();
             Medicines med = new Medicines();
             Visits visit = new Visits();
-            LoginInfo kapoios = new LoginInfo();
+            LoginInfo user = new LoginInfo();
 
             String createDoc = doc.createDoctor();
             stmt.executeUpdate(createDoc);
@@ -51,17 +51,19 @@ public class Main {
             stmt.executeUpdate(createMed);
             String createVisit = visit.createVisit();
             stmt.executeUpdate(createVisit);
-            String createLogin = kapoios.createInfo();
+            String createLogin = user.createInfo();
             stmt.executeUpdate(createLogin);
 
             //String insertDoc = doc.insertDoctor();
            // PreparedStatement pstmt = con.prepareStatement(insertDoc);
-            doc.insertDoctor( 2, "oli", "kati", 355);
-            doc.insertDoctor(4, "kapoios", "kardiologos", 567);
+            doc.insertDoctor( 2, "oli", "kati", "3553558970");
+            doc.insertDoctor(4, "kapoios", "kardiologos", "5675437865");
+            patient.insertPatient(6, "111111111111", "kapoios kati", "ika", "kapoy 34", "6953456789");
             //pstmt.executeUpdate();
-
-            kapoios.insertLoginInfo(3,"patient","kate","kate1234");
-            kapoios.insertLoginInfo(4,"doctor","oli","oli12");
+            nurse.insertNurse(7, "kapoios nurse", "6958907643");
+            user.insertLoginInfo(6,"patient","kate","kate1234");
+            user.insertLoginInfo(4,"doctor","oli","oli12");
+            user.insertLoginInfo(7, "nurse", "nurse1","nurse123" );
             //PreparedStatement pstmt = con.prepareStatement(insertKapoion);
             //pstmt = kapoios.insertSpecial(pstmt, 3, "patient", "kate", "kate1234");
             //pstmt.executeUpdate();

@@ -21,7 +21,7 @@ public class Doctor {
                 + "(docID INTEGER not NULL, "
                 + " name VARCHAR(255), "
                 + " specialty VARCHAR(255), "
-                + " phone INTEGER, "
+                + " phone VARCHAR(255), "
                 + " PRIMARY KEY ( docID ));";
         return doc;
     }
@@ -31,7 +31,7 @@ public class Doctor {
         return doc;
     }*/
 
-    void insertDoctor( int id, String name, String specialty, int phone) throws ClassNotFoundException, SQLException {
+    void insertDoctor( int id, String name, String specialty, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -43,7 +43,7 @@ public class Doctor {
             pstmt.setInt(1, id);
             pstmt.setString(2, name);
             pstmt.setString(3, specialty);
-            pstmt.setInt(4, phone);
+            pstmt.setString(4, phone);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
