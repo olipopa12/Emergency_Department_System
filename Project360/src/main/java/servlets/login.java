@@ -39,7 +39,11 @@ public class login extends HttpServlet {
 
             String ret = info.check_role(username, password);
             ResultSet rs = stmt.executeQuery(ret);
-            String r = rs.getString("role");
+            String r = null;
+            while (rs.next()) {
+                r = rs.getString("role");
+            }
+            System.out.println(r);
 
             //System.out.println("username: " + username);
             // System.out.println("password: " + password);
@@ -47,14 +51,13 @@ public class login extends HttpServlet {
             HttpSession session = request.getSession(); //Creating a session
             session.setAttribute("username", username);
             session.setAttribute("password", password);
-            System.out.println(ret);
-            if (r == "patient") {
+            if (r.equals("patient")) {
                 response.sendRedirect(request.getContextPath() + "/patient");
-            } else if (r == "doctor") {
+            } else if (r.equals("doctor")) {
                 response.sendRedirect(request.getContextPath() + "/doctor");
-            } else if (r == "nurse") {
+            } else if (r.equals("nurse")) {
                 response.sendRedirect(request.getContextPath() + "/nurse");
-            } else if (r == "employee") {
+            } else if (r.equals("employee")) {
                 response.sendRedirect(request.getContextPath() + "/employee");
             } else {
                 response.sendRedirect(request.getContextPath() + "/employee");
