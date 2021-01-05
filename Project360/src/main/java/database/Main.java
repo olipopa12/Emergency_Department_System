@@ -5,7 +5,6 @@ package database;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author olipo
@@ -55,15 +54,18 @@ public class Main {
             stmt.executeUpdate(createLogin);
 
             //String insertDoc = doc.insertDoctor();
-           // PreparedStatement pstmt = con.prepareStatement(insertDoc);
-            doc.insertDoctor( 2, "oli", "kati", "3553558970");
-            doc.insertDoctor(4, "kapoios", "kardiologos", "5675437865");
-            patient.insertPatient(6, "111111111111", "kapoios kati", "ika", "kapoy 34", "6953456789");
+            // PreparedStatement pstmt = con.prepareStatement(insertDoc);
+            doc.insertDoctor(4, "oli", "kati", "3553558970");
+            doc.insertDoctor(10, "kapoios", "kardiologos", "5675437865");
+
+            patient.insertPatient(6, "111111111111", "kate", "ika", "avyeniki 34", "6953456789");
             //pstmt.executeUpdate();
-            nurse.insertNurse(7, "kapoios nurse", "6958907643");
-            user.insertLoginInfo(6,"patient","kate","kate1234");
-            user.insertLoginInfo(4,"doctor","oli","oli12");
-            user.insertLoginInfo(7, "nurse", "nurse1","nurse123" );
+            nurse.insertNurse(7, "nurse1", "6958907643");
+
+            user.insertLoginInfo(6, "patient", "kate", "kate1234");
+            user.insertLoginInfo(10, "doctor", "kapoios", "kati");
+            user.insertLoginInfo(4, "doctor", "oli", "oli12");
+            user.insertLoginInfo(7, "nurse", "nurse1", "nurse123");
             //PreparedStatement pstmt = con.prepareStatement(insertKapoion);
             //pstmt = kapoios.insertSpecial(pstmt, 3, "patient", "kate", "kate1234");
             //pstmt.executeUpdate();
