@@ -1,6 +1,5 @@
 package database;
 
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -29,6 +28,11 @@ public class LoginInfo {
 
     String check_username_password(String user) {
         String id = "SELECT password FROM LOGIN_INFOS where username=" + user;
+        return id;
+    }
+
+    public String check_role(String user, String pass) {
+        String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         return id;
     }
 

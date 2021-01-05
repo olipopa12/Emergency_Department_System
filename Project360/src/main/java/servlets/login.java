@@ -5,8 +5,13 @@
  */
 package servlets;
 
-import database.Doctor;
+import java.sql.*;
+import database.LoginInfo;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,27 +24,47 @@ import javax.servlet.http.HttpSession;
  */
 public class login extends HttpServlet {
 
-    private Doctor doc;
+    private LoginInfo info = new LoginInfo();
 
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+            Statement stmt = con.createStatement();
+            // read form fields
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
 
-        // read form fields
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+            String ret = info.check_role(username, password);
+            ResultSet rs = stmt.executeQuery(ret);
+            String r = rs.getString("role");
 
-        //System.out.println("username: " + username);
-        // System.out.println("password: " + password);
-
-        
-        //gia na steiloume dedomena sthn login selida alla den mas xreiazetai pleon
-        HttpSession session = request.getSession(); //Creating a session
-        session.setAttribute("username", username);
-        session.setAttribute("password", password);
-        
-        
-        response.sendRedirect(request.getContextPath() + "/patient");
-        //request.getRequestDispatcher("login.jsp").forward(request, response);
+            //System.out.println("username: " + username);
+            // System.out.println("password: " + password);
+            //gia na steiloume dedomena sthn login selida alla den mas xreiazetai pleon
+            HttpSession session = request.getSession(); //Creating a session
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
+            System.out.println(ret);
+            if (r == "patient") {
+                response.sendRedirect(request.getContextPath() + "/patient");
+            } else if (r == "doctor") {
+                response.sendRedirect(request.getContextPath() + "/doctor");
+            } else if (r == "nurse") {
+                response.sendRedirect(request.getContextPath() + "/nurse");
+            } else if (r == "employee") {
+                response.sendRedirect(request.getContextPath() + "/employee");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/employee");
+            }
+            //request.getRequestDispatcher("login.jsp").forward(request, response);
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 
 }
