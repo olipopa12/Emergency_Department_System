@@ -45,7 +45,7 @@ public class emfanisi extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.getOutputStream().println("<p>lalalalalala   SKATAAAAAAAAAAAA lalalallla</p>"); //finish
+       response.getOutputStream().println("lalalalalala   SKATAAAAAAAAAAAA lalalallla"); //finish
       
     }
 

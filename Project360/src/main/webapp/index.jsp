@@ -10,9 +10,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="katerina petraki & olimpia popa" />
-        <link rel="stylesheet" href="mystyle.css">
-        <script type="text/javascript" src="login.js"></script>
-        <script type="text/javascript" src="main.js"></script>
+        <link rel="stylesheet" href="css/mystyle.css">
+        <script type="text/javascript" src="javascript/login.js"></script>
+        <script type="text/javascript" src="javascript/main.js"></script>
 
     </head>
 

@@ -10,15 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script type="text/javascript" src="request_patient.js"></script>
+        <script type="text/javascript" src="javascript/request_patient.js"></script>
         <%
-            String username = (String) session.getAttribute("username");    
+            String username = (String) session.getAttribute("username");
         %>
     </head>
     <body>
         <h2>Your username is: <%= username%> <br/>
             Your password is:  </h2>
-             <input type="submit" onclick="patient()" name="" value="show_kati" >
+        <input type="submit" onclick="patient()" name="" value="show_kati" >
 
     </body>
 </html>
