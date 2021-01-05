@@ -5,9 +5,9 @@
  */
 
 
-function patient() {
+function nurse() {
     var xhttp = new XMLHttpRequest();
-    var name = "poulos=skatoules";
+    var name = "kati_kanei";
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status == 200) {
@@ -17,7 +17,7 @@ function patient() {
             console.log(xhttp.responseText);
         }
     };
-    xhttp.open("POST", "http://localhost:8080/Project360/emfanisi");
+    xhttp.open("POST", "http://localhost:8080/Project360/nurse");
     //event.preventDefault();
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
     xhttp.send(name);

@@ -12,7 +12,7 @@
         <meta name="author" content="katerina petraki & olimpia popa" />
         <link rel="stylesheet" href="css/mystyle.css">
         <script type="text/javascript" src="javascript/login.js"></script>
-        <script type="text/javascript" src="javascript/main.js"></script>
+        <script type="text/javascript" src="javascript/koumpi_show.js"></script>
 
     </head>
 

@@ -33,8 +33,8 @@ public class LoginInfo {
     }
 
     String insertLoginInfo() {
-        String kapoios = "INSERT IGNORE INTO LOGIN_INFOS VALUES (?,?,?,?)";
-        return kapoios;
+        String atomo = "INSERT IGNORE INTO LOGIN_INFOS VALUES (?,?,?,?)";
+        return atomo;
     }
 
     PreparedStatement insertSpecial(PreparedStatement pstmt, int id, String role, String username, String password) {

@@ -28,15 +28,17 @@ public class login extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        System.out.println("username: " + username);
-        System.out.println("password: " + password);
+        //System.out.println("username: " + username);
+        // System.out.println("password: " + password);
 
+        
+        //gia na steiloume dedomena sthn login selida alla den mas xreiazetai pleon
         HttpSession session = request.getSession(); //Creating a session
-        //session.setAttribute("type", type); //setting session attribute
         session.setAttribute("username", username);
         session.setAttribute("password", password);
-
-        response.sendRedirect(request.getContextPath() + "/emfanisi");
+        
+        
+        response.sendRedirect(request.getContextPath() + "/patient");
         //request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 

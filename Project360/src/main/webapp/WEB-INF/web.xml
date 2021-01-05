@@ -9,8 +9,16 @@
         <servlet-class>servlets.doctor</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>emfanisi</servlet-name>
-        <servlet-class>servlets.emfanisi</servlet-class>
+        <servlet-name>employee</servlet-name>
+        <servlet-class>servlets.employee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>nurse</servlet-name>
+        <servlet-class>servlets.nurse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>patient</servlet-name>
+        <servlet-class>servlets.patient</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -21,8 +29,16 @@
         <url-pattern>/doctor</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>emfanisi</servlet-name>
-        <url-pattern>/emfanisi</url-pattern>
+        <servlet-name>employee</servlet-name>
+        <url-pattern>/employee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>nurse</servlet-name>
+        <url-pattern>/nurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>patient</servlet-name>
+        <url-pattern>/patient</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
