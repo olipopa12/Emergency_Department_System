@@ -12,12 +12,12 @@ import java.util.logging.Logger;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author olipo
  */
 public class Nurses {
+
     String createNurse() {
         String nurse = "CREATE TABLE IF NOT EXISTS NURSES "
                 + "(nurseID INTEGER not NULL, "
@@ -26,15 +26,16 @@ public class Nurses {
                 + " PRIMARY KEY ( nurseID ));";
         return nurse;
     }
-     void insertNurse( int id, String name, String phone) throws ClassNotFoundException, SQLException {
+
+    void insertNurse(int id, String name, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
-            //stmt = con.createStatement();
-            String nurse = "INSERT IGNORE INTO NURSES VALUES (?,?,?)";
-            PreparedStatement pstmt = con.prepareStatement(nurse);
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String nurse = "INSERT IGNORE INTO NURSES VALUES (?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(nurse);
         try {
-            
+
             pstmt.setInt(1, id);
             pstmt.setString(2, name);
             pstmt.setString(3, phone);
@@ -43,6 +44,6 @@ public class Nurses {
         } catch (SQLException ex) {
             Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 }

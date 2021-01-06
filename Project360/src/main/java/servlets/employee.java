@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class employee extends HttpServlet {
 
-   
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -30,7 +29,7 @@ public class employee extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      request.getRequestDispatcher("employee.jsp").forward(request, response);
+        request.getRequestDispatcher("employee.jsp").forward(request, response);
     }
 
     /**
@@ -44,10 +43,8 @@ public class employee extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.getOutputStream().println("employee"); //finish
-      
-    }
+        response.getOutputStream().println("employee"); //finish
 
-    
+    }
 
 }

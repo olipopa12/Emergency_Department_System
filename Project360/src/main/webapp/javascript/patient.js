@@ -9,6 +9,9 @@ function patient() {
     var xhttp = new XMLHttpRequest();
     var name = "kati_kanei";
 
+    document.getElementById('telephone').removeAttr("disabled");
+    document.getElementById('address').removeAttr("disabled");
+    document.getElementById('insurance').removeAttr("disabled");
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status == 200) {
             // Typical action to be performed when the document is ready:

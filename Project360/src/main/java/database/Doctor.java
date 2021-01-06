@@ -5,7 +5,6 @@ package database;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author olipo
@@ -26,20 +25,19 @@ public class Doctor {
         return doc;
     }
 
-   /* String insertDoctor() {
+    /* String insertDoctor() {
         String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?)";
         return doc;
     }*/
-
-    void insertDoctor( int id, String name, String specialty, String phone) throws ClassNotFoundException, SQLException {
+    void insertDoctor(int id, String name, String specialty, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
-            //stmt = con.createStatement();
-            String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?)";
-            PreparedStatement pstmt = con.prepareStatement(doc);
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(doc);
         try {
-            
+
             pstmt.setInt(1, id);
             pstmt.setString(2, name);
             pstmt.setString(3, specialty);
@@ -49,6 +47,6 @@ public class Doctor {
         } catch (SQLException ex) {
             Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 }

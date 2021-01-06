@@ -52,6 +52,21 @@
                 outline: none;
                 border-radius: 24px;
                 transition: 0.20s;
+                cursor: pointer;
+            }
+            .box input[type="submit"] {
+                border: 0;
+                background: none;
+                display: block;
+                margin: 20px auto;
+                text-align: center;
+                border: 2px solid #006d67;
+                padding: 14px 40px;
+                outline: none;
+                color: rgb(3, 2, 2);
+                border-radius: 24px;
+                transition: 0.20s;
+                cursor: pointer;
             }
         </style>
         <%

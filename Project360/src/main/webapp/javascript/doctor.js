@@ -8,6 +8,7 @@
 function doctor() {
     var xhttp = new XMLHttpRequest();
     var name = "kati_kanei";
+    document.getElementById('telephone').disabled = false;
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status == 200) {

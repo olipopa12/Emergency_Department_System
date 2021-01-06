@@ -5,12 +5,12 @@ package database;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author olipo
  */
 public class Visits {
+
     String createVisit() {
         String visit = "CREATE TABLE IF NOT EXISTS VISITS "
                 + "(visitID INTEGER not NULL, "

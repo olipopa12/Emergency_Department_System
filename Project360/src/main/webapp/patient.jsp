@@ -10,7 +10,7 @@
 
             .box {
                 width: 400px;
-                height: 500px;
+                height: 550px;
                 padding: 40px;
                 position: absolute;
                 top: 50%;
@@ -47,6 +47,21 @@
                 outline: none;
                 border-radius: 24px;
                 transition: 0.20s;
+                cursor: pointer;
+            }
+            .box input[type="submit"] {
+                border: 0;
+                background: none;
+                display: block;
+                margin: 10px auto;
+                text-align: center;
+                border: 2px solid #006d67;
+                padding: 10px 20px;
+                outline: none;
+                color: rgb(3, 2, 2);
+                border-radius: 24px;
+                transition: 0.20s;
+                cursor: pointer;
             }
         </style>
         <%

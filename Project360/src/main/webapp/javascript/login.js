@@ -7,11 +7,11 @@
 function sent_to_login() {
     var xhttp = new XMLHttpRequest();
     var name = "";
-    name+="username=";
-    name+=document.getElementById("name").value;
-    name+="&password=";
-    name+=document.getElementById("password").value;
-    
+    name += "username=";
+    name += document.getElementById("name").value;
+    name += "&password=";
+    name += document.getElementById("password").value;
+
     console.log(name);
     console.log(document.getElementById("name").value);
     console.log(document.getElementById("password").value);
@@ -20,7 +20,7 @@ function sent_to_login() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             // Typical action to be performed when the document is ready:
             //document.getElementById("demo").innerHTML = xhttp.responseText;
-             // window.alert(xhttp.responseText);
+            // window.alert(xhttp.responseText);
         }
     };
     xhttp.open("POST", "http://localhost:8080/Project360/login");

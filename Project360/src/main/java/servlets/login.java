@@ -24,15 +24,15 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         try {
-           
+
             // read form fields
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
             //String ret = info.check_role(username, password);
             String role = null;
-             role = info.get_role(username,password);
-            
+            role = info.get_role(username, password);
+
             System.out.println(role);
 
             //System.out.println("username: " + username);
