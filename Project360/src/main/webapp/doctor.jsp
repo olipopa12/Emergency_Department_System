@@ -104,6 +104,7 @@
                     <td align="right"></td>
                     <td align="center">   <input type="submit" onclick="doctor()" name="" value="change informations" /></td>
                 </tr>
+
             </table>
         </form>
 
