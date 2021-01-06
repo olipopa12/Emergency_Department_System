@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class LoginInfo {
 
-    String createInfo() {
+    public String createInfo() {
         String info = "CREATE TABLE IF NOT EXISTS LOGIN_INFOS "
                 + "(ID INTEGER not NULL, "
                 + " role VARCHAR(255), "
@@ -62,7 +62,7 @@ public class LoginInfo {
         return r;
     }
 
-    void insertLoginInfo(int id, String role, String user, String pass) throws ClassNotFoundException, SQLException {
+    public void insertLoginInfo(int id, String role, String user, String pass) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");

@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class Patients {
 
-    String createPatient() {
+    public String createPatient() {
         String patient = "CREATE TABLE IF NOT EXISTS PATIENTS "
                 + "(patientID INTEGER not NULL, "
                 + " AMKA VARCHAR(255) not NULL, "
@@ -31,7 +31,7 @@ public class Patients {
         return patient;
     }
 
-    void insertPatient(int id, String amka, String name, String ins, String address, String phone) throws ClassNotFoundException, SQLException {
+    public void insertPatient(int id, String amka, String name, String ins, String address, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");

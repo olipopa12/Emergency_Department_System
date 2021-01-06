@@ -14,6 +14,8 @@ import java.sql.*;
 
 public class Main {
 
+    public static int id = 7;
+
     public static void main(String args[]) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -57,33 +59,31 @@ public class Main {
 
             //String insertDoc = doc.insertDoctor();
             // PreparedStatement pstmt = con.prepareStatement(insertDoc);
-            doc.insertDoctor(4, "olimpia", "odontiatros", "3553558970");
-            doc.insertDoctor(10, "giorgos", "kardiologos", "5675437865");
+            doc.insertDoctor(3, "olimpia", "odontiatros", "3553558970");
+            doc.insertDoctor(2, "giorgos", "kardiologos", "5675437865");
 
-            patient.insertPatient(8, "008855223366", "nikolaos", "ika", "hraklio 56", "854125698562");
-            patient.insertPatient(6, "301100000000000000", "katerina", "ika", "avyeniki 34", "6953456789");
+            patient.insertPatient(5, "008855223366", "nikolaos", "ika", "hraklio 56", "854125698562");
+            patient.insertPatient(1, "301100000000000000", "katerina", "ika", "avyeniki 34", "6953456789");
             //pstmt.executeUpdate();
-            nurse.insertNurse(7, "giorgos", "6958907643");
+            nurse.insertNurse(4, "giorgos", "6958907643");
 
-            employee.insertEmployee(5, "manolhs", "6985888585466");
+            employee.insertEmployee(6, "manolhs", "6985888585466");
 
-            user.insertLoginInfo(6, "patient", "kate", "kate123");
-            user.insertLoginInfo(10, "doctor", "geo", "geof");
-            user.insertLoginInfo(4, "doctor", "oli", "oli12");
-            user.insertLoginInfo(7, "nurse", "geo", "kokol");
-            user.insertLoginInfo(8, "patient", "nikos", "fanou");
-            user.insertLoginInfo(5, "employee", "manos", "chatz");
-            
+            user.insertLoginInfo(1, "patient", "kate", "kate123");
+            user.insertLoginInfo(2, "doctor", "geo", "geof");
+            user.insertLoginInfo(3, "doctor", "oli", "oli12");
+            user.insertLoginInfo(4, "nurse", "geo", "kokol");
+            user.insertLoginInfo(5, "patient", "nikos", "fanou");
+            user.insertLoginInfo(6, "employee", "manos", "chatz");
+
             //PreparedStatement pstmt = con.prepareStatement(insertKapoion);
             //pstmt = kapoios.insertSpecial(pstmt, 3, "patient", "kate", "kate1234");
             //pstmt.executeUpdate();
             //stmt.executeUpdate(insertDoc);
-
             // ResultSet rs = stmt.executeQuery("select * from persons");
             //while (rs.next()) {
             //  System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
             //}
-            
             con.close();
         } catch (Exception e) {
             System.out.println(e);

@@ -8,14 +8,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Doctor</title>
+        <title>Error</title>
         <script type="text/javascript" src="javascript/doctor.js"></script>
         <style>
 
             .box {
                 width: 400px;
-                height: 400px;
-                padding: 40px;
+                height: 350px;
+                padding: 50px;
                 position: absolute;
                 top: 50%;
                 left: 50%;
@@ -34,14 +34,14 @@
             .box h1 {
                 color: rgb(3, 2, 2);
                 font-family: 'comic sans ms';
-                font-weight: 500;
+                font-weight: 100;
                 margin: 0px;
-                padding: 40px;
+                padding: 20px;
             }
             .box h2 {
                 color: rgb(3, 2, 2);
                 font-family: 'comic sans ms';
-                font-weight: 400;
+                font-weight: 100;
                 margin: 0px;
                 padding: 60px;
             }

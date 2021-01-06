@@ -1,19 +1,24 @@
+<%-- 
+    Document   : Register
+    Created on : 6 Ιαν 2021, 8:45:03 μμ
+    Author     : kater
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Employee</title>
-        <script type="text/javascript" src="javascript/employee.js"></script>
+        <title>Patient</title>
+        <script type="text/javascript" src="javascript/patient.js"></script>
         <style>
 
             .box {
-                width: 400px;
-                height: 300px;
+                width: 33%;
+                height: 100%;
                 padding: 40px;
                 position: absolute;
-                top: 50%;
+                top: 60%;
                 left: 50%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
@@ -42,7 +47,7 @@
                 margin: 15px auto;
                 text-align: center;
                 border: 2px solid #006d67;
-                padding: 15px 15px;
+                padding: 10px 15px;
                 width: 250px;
                 outline: none;
                 border-radius: 24px;
@@ -53,10 +58,10 @@
                 border: 0;
                 background: none;
                 display: block;
-                margin: 20px auto;
+                margin: 10px auto;
                 text-align: center;
                 border: 2px solid #006d67;
-                padding: 14px 40px;
+                padding: 10px 20px;
                 outline: none;
                 color: rgb(3, 2, 2);
                 border-radius: 24px;
@@ -68,30 +73,43 @@
                 border: 2px solid #123672;
             }
         </style>
-        <%
-            String name = (String) session.getAttribute("name");
-        %>
 
-        <%
-            String telephone = (String) session.getAttribute("telephone");
-        %>
     </head>
     <body>
-
-        <form class="box">
-            <h1>Στοιχεία Υπαλλήλου</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/newForm" >
+            <h1>Εγγραφή νέου Ασθενούς</h1>
             <table>
-                <tr>
-                    <td align="right">Name:</td>
-                    <td align="left"><input type="text" id="name" name="name" value="<%= name%>"  disabled/></td>
+                 <tr>
+                    <td align="right">Username:</td>
+                    <td align="left"><input type="text" id="username" name="username" value=""  /></td>
+                </tr>
+                 <tr>
+                    <td align="right">Password:</td>
+                    <td align="left"><input type="text" id="password" name="password" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Telephone</td>
-                    <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" disabled/></td>
+                    <td align="right">Name:</td>
+                    <td align="left"><input type="text" id="name" name="name" value=""  /></td>
+                </tr>
+                <tr>
+                    <td align="right">Telephone:</td>
+                    <td align="left"><input type="text" id="telephone" name="telephone" value="" /></td>
+                </tr>
+                <tr>
+                    <td align="right">Address:</td>
+                    <td align="left"> <input type="text" id="address" name="address" value="" /></td>
+                </tr>
+                <tr>
+                    <td align="right">AMKA:</td>
+                    <td align="left"> <input type="text" id="amka" name="amka" value="" /></td>
+                </tr>
+                <tr>
+                    <td align="right">Insurance:</td>
+                    <td align="left"> <input type="text" id="insurance" name="insurance" value="" /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>
-                    <td align="center">   <input type="submit" onclick="employee()" name="" value="change informations" /></td>
+                    <td align="center"> <input type="submit" name="" value="Ready"  /></td>
                 </tr>
             </table>
         </form>

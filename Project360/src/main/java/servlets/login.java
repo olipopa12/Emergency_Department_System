@@ -55,8 +55,7 @@ public class login extends HttpServlet {
                 System.out.println(role + " " + ID);
 
                 // System.out.println("password: " + password);
-                //gia na steiloume dedomena sthn login selida alla den mas xreiazetai pleon
-                HttpSession session = request.getSession(); //Creating a session
+                 HttpSession session = request.getSession(); //Creating a session
                 if (role.equals("patient")) {
                     session.setAttribute("name", patient.get_name(ID));
                     session.setAttribute("address", patient.get_address(ID));

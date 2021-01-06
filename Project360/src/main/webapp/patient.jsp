@@ -90,7 +90,7 @@
             <table>
                 <tr>
                     <td align="right">Name:</td>
-                    <td align="left"><input type="text" id="name" name="username" value="<%= name%>"  disabled/></td>
+                    <td align="left"><input type="text" id="name" name="name" value="<%= name%>"  disabled/></td>
                 </tr>
                 <tr>
                     <td align="right">Telephone:</td>
@@ -98,7 +98,7 @@
                 </tr>
                 <tr>
                     <td align="right">Address:</td>
-                    <td align="left"> <input type="text" id="address" name="username" value="<%= address%>" disabled/></td>
+                    <td align="left"> <input type="text" id="address" name="address" value="<%= address%>" disabled/></td>
                 </tr>
                 <tr>
                     <td align="right">AMKA:</td>
