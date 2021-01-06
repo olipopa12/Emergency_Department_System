@@ -46,15 +46,18 @@ public class LoginInfo {
             pstmt.setString(2, pass);
             // pstmt.setString(4, pass);
             //pstmt.executeUpdate();
-            ResultSet rs = pstmt.executeQuery();
 
+            ResultSet rs = pstmt.executeQuery();
+            if (rs == null) {
+                return null;
+            }
             while (rs.next()) {
                 r = rs.getString("role");
             }
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return r;
     }
@@ -75,10 +78,39 @@ public class LoginInfo {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LoginInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    public int get_id(String user, String pass) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String info = "SELECT id FROM LOGIN_INFOS WHERE username=? AND password=?";
+        PreparedStatement pstmt = con.prepareStatement(info);
+        int r = -1;
+        // ResultSet rs=null;
+        try {
+
+            //pstmt.setInt(1,id );
+            pstmt.setString(1, user);
+            pstmt.setString(2, pass);
+            // pstmt.setString(4, pass);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                r = rs.getInt("id");
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
     /* PreparedStatement insertSpecial(PreparedStatement pstmt, int id, String role, String username, String password) {
         try {
             pstmt.setInt(1, id);

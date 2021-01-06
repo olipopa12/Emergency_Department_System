@@ -63,15 +63,19 @@
                 transition: 0.20s;
                 cursor: pointer;
             }
+            .box input[type="submit"]:hover {
+                background: #123672;
+                border: 2px solid #123672;
+            }
         </style>
         <%
-            String username = (String) session.getAttribute("username");
+            String name = (String) session.getAttribute("name");
         %>
         <%
             String address = (String) session.getAttribute("address");
         %>
         <%
-            String AMKA = (String) session.getAttribute("AMKA");
+            String AMKA = (String) session.getAttribute("amka");
         %>
         <%
             String insurance = (String) session.getAttribute("insurance");
@@ -86,7 +90,7 @@
             <table>
                 <tr>
                     <td align="right">Name:</td>
-                    <td align="left"><input type="text" id="name" name="username" value="<%= username%>"  disabled/></td>
+                    <td align="left"><input type="text" id="name" name="username" value="<%= name%>"  disabled/></td>
                 </tr>
                 <tr>
                     <td align="right">Telephone:</td>

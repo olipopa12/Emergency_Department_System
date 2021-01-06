@@ -20,6 +20,8 @@ public class Main {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/", "root", "");
             Statement stmt = con.createStatement();
+            String delete = "DROP DATABASE IF EXISTS EMERGENCY_DEPARTMENT";
+            stmt.executeUpdate(delete);
             String create = "CREATE DATABASE IF NOT EXISTS EMERGENCY_DEPARTMENT";
 //here sonoo is database name, root is username and password  
             stmt.executeUpdate(create);
@@ -55,17 +57,23 @@ public class Main {
 
             //String insertDoc = doc.insertDoctor();
             // PreparedStatement pstmt = con.prepareStatement(insertDoc);
-            doc.insertDoctor(4, "oli", "kati", "3553558970");
-            doc.insertDoctor(10, "kapoios", "kardiologos", "5675437865");
+            doc.insertDoctor(4, "olimpia", "odontiatros", "3553558970");
+            doc.insertDoctor(10, "giorgos", "kardiologos", "5675437865");
 
-            patient.insertPatient(6, "111111111111", "kate", "ika", "avyeniki 34", "6953456789");
+            patient.insertPatient(8, "008855223366", "nikolaos", "ika", "hraklio 56", "854125698562");
+            patient.insertPatient(6, "301100000000000000", "katerina", "ika", "avyeniki 34", "6953456789");
             //pstmt.executeUpdate();
-            nurse.insertNurse(7, "nurse1", "6958907643");
+            nurse.insertNurse(7, "giorgos", "6958907643");
 
-            user.insertLoginInfo(6, "patient", "kate", "kate1234");
-            user.insertLoginInfo(10, "doctor", "kapoios", "kati");
+            employee.insertEmployee(5, "manolhs", "6985888585466");
+
+            user.insertLoginInfo(6, "patient", "kate", "kate123");
+            user.insertLoginInfo(10, "doctor", "geo", "geof");
             user.insertLoginInfo(4, "doctor", "oli", "oli12");
-            user.insertLoginInfo(7, "nurse", "nurse1", "nurse123");
+            user.insertLoginInfo(7, "nurse", "geo", "kokol");
+            user.insertLoginInfo(8, "patient", "nikos", "fanou");
+            user.insertLoginInfo(5, "employee", "manos", "chatz");
+            
             //PreparedStatement pstmt = con.prepareStatement(insertKapoion);
             //pstmt = kapoios.insertSpecial(pstmt, 3, "patient", "kate", "kate1234");
             //pstmt.executeUpdate();
@@ -75,8 +83,7 @@ public class Main {
             //while (rs.next()) {
             //  System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
             //}
-            String delete = "DROP DATABASE EMERGENCY_DEPARTMENT";
-            //stmt.executeUpdate(delete);
+            
             con.close();
         } catch (Exception e) {
             System.out.println(e);
