@@ -1,5 +1,12 @@
 package database;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,5 +27,25 @@ public class Visits {
                 + " PRIMARY KEY ( visitID ), "
                 + " FOREIGN KEY(patientID) REFERENCES PATIENTS(patientID));";
         return visit;
+    }
+    void insertVisit(int id, int pid, String date, String symptoms) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String visit = "INSERT IGNORE INTO VISITS VALUES (?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(visit);
+        try {
+
+            pstmt.setInt(1, id);
+            pstmt.setInt(2, pid);
+            pstmt.setString(3, date);
+            pstmt.setString(4, symptoms);
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

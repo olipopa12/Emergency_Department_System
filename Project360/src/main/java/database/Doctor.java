@@ -18,7 +18,8 @@ public class Doctor {
     String createDoctor() {
         String doc = "CREATE TABLE IF NOT EXISTS DOCTORS "
                 + "(docID INTEGER not NULL, "
-                + " name VARCHAR(255), "
+                + " firstname VARCHAR(255), "
+                + " lastname VARCHAR(255), "
                 + " specialty VARCHAR(255), "
                 + " phone VARCHAR(255), "
                 + " PRIMARY KEY ( docID ));";
@@ -29,19 +30,20 @@ public class Doctor {
         String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?)";
         return doc;
     }*/
-    void insertDoctor(int id, String name, String specialty, String phone) throws ClassNotFoundException, SQLException {
+    void insertDoctor(int id, String fname,String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?)";
+        String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
         PreparedStatement pstmt = con.prepareStatement(doc);
         try {
 
             pstmt.setInt(1, id);
-            pstmt.setString(2, name);
-            pstmt.setString(3, specialty);
-            pstmt.setString(4, phone);
+            pstmt.setString(2, fname);
+            pstmt.setString(3, lname);
+            pstmt.setString(4, specialty);
+            pstmt.setString(5, phone);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
@@ -50,13 +52,13 @@ public class Doctor {
 
     }
 
-    public String get_name(int id) throws ClassNotFoundException, SQLException {
+    public String get_firstname(int id) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String name = "SELECT name FROM DOCTORS WHERE docID=?";
+        String name = "SELECT firstname FROM DOCTORS WHERE docID=?";
         PreparedStatement pstmt = con.prepareStatement(name);
         String r = null;
         // ResultSet rs=null;
@@ -69,7 +71,36 @@ public class Doctor {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                r = rs.getString("name");
+                r = rs.getString("firstname");
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
+
+    public String get_lastname(int id) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String name = "SELECT lastname FROM DOCTORS WHERE docID=?";
+        PreparedStatement pstmt = con.prepareStatement(name);
+        String r = null;
+        // ResultSet rs=null;
+        try {
+
+            pstmt.setInt(1, id);
+            // pstmt.setString(1, name);
+            // pstmt.setString(4, pass);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                r = rs.getString("lastname");
             }
             // System.out.println(r);
             con.close();

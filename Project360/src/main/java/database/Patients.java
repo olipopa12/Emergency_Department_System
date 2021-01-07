@@ -23,7 +23,8 @@ public class Patients {
         String patient = "CREATE TABLE IF NOT EXISTS PATIENTS "
                 + "(patientID INTEGER not NULL, "
                 + " AMKA VARCHAR(255) not NULL, "
-                + " name VARCHAR(255), "
+                + " firstname VARCHAR(255), "
+                + " lastname VARCHAR(255), "
                 + " insurance VARCHAR(255), "
                 + " address VARCHAR(255), "
                 + " phone VARCHAR(255), "
@@ -31,21 +32,22 @@ public class Patients {
         return patient;
     }
 
-    public void insertPatient(int id, String amka, String name, String ins, String address, String phone) throws ClassNotFoundException, SQLException {
+    public void insertPatient(int id, String amka, String fname,String lname, String ins, String address, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String patient = "INSERT IGNORE INTO PATIENTS VALUES (?,?,?,?,?,?)";
+        String patient = "INSERT IGNORE INTO PATIENTS VALUES (?,?,?,?,?,?,?)";
         PreparedStatement pstmt = con.prepareStatement(patient);
         try {
 
             pstmt.setInt(1, id);
             pstmt.setString(2, amka);
-            pstmt.setString(3, name);
-            pstmt.setString(4, ins);
-            pstmt.setString(5, address);
-            pstmt.setString(6, phone);
+            pstmt.setString(3, fname);
+            pstmt.setString(4, lname);
+            pstmt.setString(5, ins);
+            pstmt.setString(6, address);
+            pstmt.setString(7, phone);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
@@ -54,13 +56,13 @@ public class Patients {
 
     }
 
-    public String get_name(int id) throws ClassNotFoundException, SQLException {
+    public String get_firstname(int id) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String name = "SELECT name FROM PATIENTS WHERE patientID=?";
+        String name = "SELECT firstname FROM PATIENTS WHERE patientID=?";
         PreparedStatement pstmt = con.prepareStatement(name);
         String r = null;
         // ResultSet rs=null;
@@ -73,7 +75,35 @@ public class Patients {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                r = rs.getString("name");
+                r = rs.getString("firstname");
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Patients.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
+     public String get_lastname(int id) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String name = "SELECT lastname FROM PATIENTS WHERE patientID=?";
+        PreparedStatement pstmt = con.prepareStatement(name);
+        String r = null;
+        // ResultSet rs=null;
+        try {
+
+            pstmt.setInt(1, id);
+            // pstmt.setString(1, name);
+            // pstmt.setString(4, pass);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                r = rs.getString("lastname");
             }
             // System.out.println(r);
             con.close();
