@@ -7,7 +7,7 @@
 
 function doctor() {
     var xhttp = new XMLHttpRequest();
-    var name = "kati_kanei";
+    //var name = "kati_kanei";
   
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status == 200) {
@@ -20,5 +20,5 @@ function doctor() {
     xhttp.open("POST", "http://localhost:8080/Project360/doctor");
     //event.preventDefault();
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
-    xhttp.send(name);
+    //xhttp.send(name);
 }

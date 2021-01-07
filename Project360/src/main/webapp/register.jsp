@@ -79,17 +79,21 @@
         <form class="box" method="post" action="http://localhost:8080/Project360/newForm" >
             <h1>Εγγραφή νέου Ασθενούς</h1>
             <table>
-                 <tr>
+                <tr>
                     <td align="right">Username:</td>
                     <td align="left"><input type="text" id="username" name="username" value=""  /></td>
                 </tr>
-                 <tr>
+                <tr>
                     <td align="right">Password:</td>
                     <td align="left"><input type="text" id="password" name="password" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Name:</td>
-                    <td align="left"><input type="text" id="name" name="name" value=""  /></td>
+                    <td align="right">First Name:</td>
+                    <td align="left"><input type="text" id="firstname" name="firstname" value=""  disabled/></td>
+                </tr>
+                <tr>
+                    <td align="right">Last Name:</td>
+                    <td align="left"><input type="text" id="lastname" name="lastname" value=""  disabled/></td>
                 </tr>
                 <tr>
                     <td align="right">Telephone:</td>

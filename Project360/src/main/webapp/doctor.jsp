@@ -74,7 +74,10 @@
             }
         </style>
         <%
-            String name = (String) session.getAttribute("name");
+            String firstname = (String) session.getAttribute("firstname");
+        %>
+          <%
+            String lastname = (String) session.getAttribute("lastname");
         %>
         <%
             String specialty = (String) session.getAttribute("specialty");
@@ -89,8 +92,12 @@
             <h1>Στοιχεία Γιατρού</h1>
             <table>
                 <tr>
-                    <td align="right">Name:</td>
-                    <td align="left"><input type="text" id="name" name="name" value="<%= name%>"  disabled/></td>
+                    <td align="right">First Name:</td>
+                    <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  disabled/></td>
+                </tr>
+                 <tr>
+                    <td align="right">Last Name:</td>
+                    <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  disabled/></td>
                 </tr>
                 <tr>
                     <td align="right">Specialty:</td>

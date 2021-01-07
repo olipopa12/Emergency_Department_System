@@ -7,8 +7,8 @@
 
 function employee() {
     var xhttp = new XMLHttpRequest();
-    var name = "kati_kanei";
-   xhttp.onreadystatechange = function () {
+    // var name = "kati_kanei";
+    xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status == 200) {
             // Typical action to be performed when the document is ready:
             //document.getElementById("demo").innerHTML = xhttp.responseText;
@@ -19,5 +19,5 @@ function employee() {
     xhttp.open("POST", "http://localhost:8080/Project360/employee");
     //event.preventDefault();
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
-    xhttp.send(name);
+    // xhttp.send(name);
 }

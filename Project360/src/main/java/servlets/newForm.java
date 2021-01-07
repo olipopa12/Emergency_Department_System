@@ -5,11 +5,8 @@
  */
 package servlets;
 
-import database.Doctor;
-import database.Employees;
 import database.LoginInfo;
 import database.Main;
-import database.Nurses;
 import database.Patients;
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,7 +16,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,7 +36,8 @@ public class newForm extends HttpServlet {
             // read form fields
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            String name = request.getParameter("name");
+            String firstname = request.getParameter("firstname");
+            String lastname = request.getParameter("lastname");
             String address = request.getParameter("address");
             String amka = request.getParameter("amka");
             String telephone = request.getParameter("telephone");
@@ -58,7 +55,7 @@ public class newForm extends HttpServlet {
             String createPatient = patient.createPatient();
             stmt.executeUpdate(createPatient);
             user.insertLoginInfo(Main.id, "patient", username, password);
-            patient.insertPatient(Main.id, amka, name, insurance, address, telephone);
+            patient.insertPatient(Main.id, amka, firstname, lastname, insurance, address, telephone);
             Main.id++;
             request.getRequestDispatcher("index.jsp").forward(request, response);
             //con.close();
