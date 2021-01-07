@@ -10,5 +10,11 @@ package database;
  * @author olipo
  */
 public class Shift {
-    
+     String createShift() {
+        String shift = "CREATE TABLE IF NOT EXISTS SHIFTS "
+                + "(shiftID INTEGER not NULL, "
+                + " date VARCHAR(255), "
+                + " PRIMARY KEY ( shiftID ));";
+        return shift;
+    }
 }

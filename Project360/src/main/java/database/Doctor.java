@@ -26,11 +26,7 @@ public class Doctor {
         return doc;
     }
 
-    /* String insertDoctor() {
-        String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?)";
-        return doc;
-    }*/
-    void insertDoctor(int id, String fname,String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
+    void insertDoctor(int id, String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -44,6 +40,35 @@ public class Doctor {
             pstmt.setString(3, lname);
             pstmt.setString(4, specialty);
             pstmt.setString(5, phone);
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    void updateDoctor(int id, String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String update = new String(
+                "UPDATE DOCTORS"
+                + " SET firstname= ?,"
+                + " lastname= ?,"
+                + " specialty= ?,"
+                + " phone= ?"
+                + " WHERE docID= ?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(update);
+        try {
+
+            pstmt.setString(1, fname);
+            pstmt.setString(2, lname);
+            pstmt.setString(3, specialty);
+            pstmt.setString(4, phone);
+            pstmt.setInt(5, id);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {

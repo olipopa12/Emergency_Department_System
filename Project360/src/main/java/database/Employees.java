@@ -28,7 +28,32 @@ public class Employees {
                 + " PRIMARY KEY ( employeeID ));";
         return employee;
     }
+void updateEmployee(int id, String fname, String lname, String phone) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String update = new String(
+                "UPDATE EMPLOYEES"
+                + " SET firstname= ?,"
+                + " lastname= ?,"              
+                + " phone= ?"
+                + " WHERE employeeID= ?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(update);
+        try {
 
+            pstmt.setString(1, fname);
+            pstmt.setString(2, lname);
+            pstmt.setString(3, phone);
+            pstmt.setInt(4, id);
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
     void insertEmployee(int id, String firstname, String lastname,
             String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");

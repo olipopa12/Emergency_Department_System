@@ -39,6 +39,7 @@ public class Main {
             Medicines med = new Medicines();
             Visits visit = new Visits();
             LoginInfo user = new LoginInfo();
+            Symptoms sym=new Symptoms();
 
             String createDoc = doc.createDoctor();
             stmt.executeUpdate(createDoc);
@@ -56,20 +57,26 @@ public class Main {
             stmt.executeUpdate(createVisit);
             String createLogin = user.createInfo();
             stmt.executeUpdate(createLogin);
+            String createSym=sym.createSymptom();
+            stmt.executeUpdate(createSym);
 
             //String insertDoc = doc.insertDoctor();
             // PreparedStatement pstmt = con.prepareStatement(insertDoc);
-            doc.insertDoctor(3, "olimpia","popa", "odontiatros", "3553558970");
-            doc.insertDoctor(2, "giorgos","kati", "kardiologos", "5675437865");
-
-            patient.insertPatient(5, "008855223366", "nikolaos","papadakis", "ika", "hraklio 56", "854125698562");
-            patient.insertPatient(1, "301100000000000000", "katerina","petraki", "ika", "avyeniki 34", "6953456789");
+            sym.insertSymptom(5, "bhxas");
+            sym.insertSymptom(3, "pyretos");
+            doc.insertDoctor(3, "olimpia", "popa", "odontiatros", "3553558970");
+            doc.insertDoctor(2, "giorgos", "kati", "kardiologos", "5675437865");
+            doc.updateDoctor(3, "oli", "popa", "odontiatros", "6946942351");
+            patient.insertPatient(5, "008855223366", "nikolaos", "papadakis", "ika", "hraklio",56,2134, "854125698562");
+            patient.insertPatient(1, "301100000000000000", "katerina", "petraki", "ika", "avyeniki",34,9876, "6953456789");
             //pstmt.executeUpdate();
-            nurse.insertNurse(4, "giorgos","kokolakis", "6958907643");
-med.insertMedicine(8,"ntepon","hapi",135);
-visit.insertVisit(34, 1, "25/1/2020", "ponokoilos,pyretos,zalada");
-            employee.insertEmployee(6, "manolhs","chatzakis", "6985888585466");
-
+            nurse.insertNurse(4, "giorgos", "kokolakis", "6958907643");
+            med.insertMedicine(8, "ntepon", "hapi", 135);
+            visit.insertVisit(34, 1, "25/1/2020", "ponokoilos,pyretos,zalada");
+            employee.insertEmployee(6, "manolhs", "chatzakis", "6985888585466");
+//nurse.updateNurse(4, "giorgos", "papadakis", "6969696969");
+patient.updatePatient(5, "66666666", "nikos", "pap", "ika", "hraklio", 56, 2134, "6969696969");
+employee.updateEmployee(6, "manos", "chatzakis", "6969696969");
             user.insertLoginInfo(1, "patient", "kate", "kate123");
             user.insertLoginInfo(2, "doctor", "geo", "geof");
             user.insertLoginInfo(3, "doctor", "oli", "oli12");
