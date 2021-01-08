@@ -15,7 +15,7 @@
 
             .box {
                 width: 400px;
-                height: 550px;
+                height: 570px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;

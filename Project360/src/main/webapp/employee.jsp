@@ -133,21 +133,21 @@
                 </form>
             </div>
             <div class="lboxes " style="margin-top:2.5%; margin-left:5%; text-align: center; ">
-                <form class="lbox" style='top:25%' method="get" action="http://localhost:8080/Project360/registerEmployee">
+                <form class="lbox" style='top:25%' method="post" action="http://localhost:8080/Project360/registerEmployee">
                     <p> Add new employee:</p>
                     <input type="submit" name="" value="add">
                 </form>
             </div>
 
             <div class="lboxes " style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class="lbox" style='top:45%' method="get" action="http://localhost:8080/Project360/registerDoctor">
+                <form class="lbox" style='top:45%' method="post" action="http://localhost:8080/Project360/registerDoctor">
                     <p> Add new doctor:</p>
                     <input type="submit" name="" value="add">
                 </form>
             </div>
 
             <div class="lboxes " style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class="lbox" style='top:65%' method="get" action="http://localhost:8080/Project360/registerNurse">
+                <form class="lbox" style='top:65%' method="post" action="http://localhost:8080/Project360/registerNurse">
                     <p> Add new nurse: </p>
                     <input type="submit" name="" value="add">
                 </form>
