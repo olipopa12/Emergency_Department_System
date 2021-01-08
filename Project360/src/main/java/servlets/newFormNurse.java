@@ -39,15 +39,12 @@ public class newFormNurse extends HttpServlet {
 
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
-            String createLogin = user.createInfo();
-            stmt.executeUpdate(createLogin);
 
-            user.insertLoginInfo(Main.id, "nurse", username, password);
-
-            String createNurse = nurse.createNurse();
-            stmt.executeUpdate(createNurse);
-            nurse.insertNurse(Main.id, firstname, lastname, telephone);
-            Main.id++;
+            int w = user.insertLoginInfo(Main.id, "nurse", username, password);
+            if (w == 1) {
+                nurse.insertNurse(Main.id, firstname, lastname, telephone);
+                Main.id++;
+            }
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
 

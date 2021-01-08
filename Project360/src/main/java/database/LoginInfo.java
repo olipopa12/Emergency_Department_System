@@ -64,25 +64,27 @@ public class LoginInfo {
         return r;
     }
 
-    public void insertLoginInfo(int id, String role, String user, String pass) throws ClassNotFoundException, SQLException {
+    public int insertLoginInfo(int id, String role, String user, String pass) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
         String info = "INSERT IGNORE INTO LOGIN_INFOS VALUES (?,?,?,?)";
         PreparedStatement pstmt = con.prepareStatement(info);
+        int w = -1;
         try {
 
             pstmt.setInt(1, id);
             pstmt.setString(2, role);
             pstmt.setString(3, user);
             pstmt.setString(4, pass);
-            pstmt.executeUpdate();
+            w = pstmt.executeUpdate();
 
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(LoginInfo.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return w;
     }
 
     public int get_id(String user, String pass) throws ClassNotFoundException, SQLException {
