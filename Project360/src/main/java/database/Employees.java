@@ -25,6 +25,7 @@ public class Employees {
                 + " firstname VARCHAR(255), "
                 + " lastname VARCHAR(255), "
                 + " phone VARCHAR(255), "
+                + " UNIQUE (phone),"
                 + " PRIMARY KEY ( employeeID ));";
         return employee;
     }
@@ -99,6 +100,37 @@ public class Employees {
             Logger.getLogger(Employees.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public int get_id(String first, String last, String telephone) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String id_ = "SELECT employeeID FROM EMPLOYEES WHERE firstname=? AND lastname=? AND phone=?";
+        PreparedStatement pstmt = con.prepareStatement(id_);
+        int r = -1;
+        // ResultSet rs=null;
+        try {
+
+            pstmt.setString(1, first);
+            pstmt.setString(2, last);
+            pstmt.setString(3, telephone);
+            // pstmt.setString(1, name);
+            // pstmt.setString(4, pass);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                r = rs.getInt("employeeID");
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Employees.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
     }
 
     public String get_firstname(int id) throws ClassNotFoundException, SQLException {

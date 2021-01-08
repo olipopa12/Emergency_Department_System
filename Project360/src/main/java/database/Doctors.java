@@ -21,7 +21,7 @@ public class Doctors {
                 + " firstname VARCHAR(255), "
                 + " lastname VARCHAR(255), "
                 + " specialty VARCHAR(255), "
-                + " UNIQUE(phone) VARCHAR(255), "
+                + " phone VARCHAR(255), "
                 + " UNIQUE(phone) , "
                 + " PRIMARY KEY ( docID ));";
         return doc;
@@ -77,6 +77,7 @@ public class Doctors {
         }
 
     }
+
     public void deleteDoctor(int id, String fname, String lname) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -128,22 +129,24 @@ public class Doctors {
         }
         return r;
     }
-     public int get_id(String first) throws ClassNotFoundException, SQLException {
+
+    public int get_id(String first, String last, String telephone) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-       // String id = "SELECT docID FROM DOCTORS WHERE firstname=? AND lastname=? AND phone=?";
-        String id = "SELECT docID FROM DOCTORS WHERE firstname= ? ";
-        PreparedStatement pstmt = con.prepareStatement(id);
-        int r = 0;
+        String id_ = "SELECT docID FROM DOCTORS WHERE firstname=? AND lastname=? AND phone=?";
+        PreparedStatement pstmt = con.prepareStatement(id_);
+        int r = -1;
         // ResultSet rs=null;
         try {
 
             pstmt.setString(1, first);
-             //pstmt.setString(2, last);
-             //pstmt.setString(3, phone);
+            pstmt.setString(2, last);
+            pstmt.setString(3, telephone);
+            // pstmt.setString(1, name);
+            // pstmt.setString(4, pass);
             //pstmt.executeUpdate();
             ResultSet rs = pstmt.executeQuery();
 

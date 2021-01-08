@@ -30,6 +30,8 @@ public class Patients {
                 + " number INTEGER, "
                 + " tk INTEGER, "
                 + " phone VARCHAR(255), "
+                + " UNIQUE (phone),"
+                + " UNIQUE (amka),"
                 + " PRIMARY KEY ( patientID ));";
         return patient;
     }
@@ -261,6 +263,37 @@ public class Patients {
 
             while (rs.next()) {
                 r = rs.getInt("tk");
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Patients.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
+
+    public int get_id(String first, String last, String telephone) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String id_ = "SELECT patientID FROM PATIENTS WHERE firstname=? AND lastname=? AND phone=?";
+        PreparedStatement pstmt = con.prepareStatement(id_);
+        int r = -1;
+        // ResultSet rs=null;
+        try {
+
+            pstmt.setString(1, first);
+            pstmt.setString(2, last);
+            pstmt.setString(3, telephone);
+            // pstmt.setString(1, name);
+            // pstmt.setString(4, pass);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                r = rs.getInt("patientID");
             }
             // System.out.println(r);
             con.close();

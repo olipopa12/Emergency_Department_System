@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Doctor</title>
         <script type="text/javascript" src="javascript/doctor.js"></script>
+        <script type="text/javascript" src="javascript/changeDoctor.js"></script>
         <style>
 
             .box {
@@ -39,6 +40,7 @@
                 margin: 0px;
                 padding: 0px;
             }
+
             input[type="text"] {
                 color: rgb(3, 2, 2);
                 font-family: 'comic sans ms';
@@ -72,11 +74,34 @@
                 background: #123672;
                 border: 2px solid #123672;
             }
+
+            .lboxes input[type="submit"] {
+                background: none;
+                border: 2px solid #006d67;
+                outline: none;
+                color: rgb(3, 2, 2);
+                border-radius: 24px;
+                padding:4px 15px;
+                transition: 0.20s;
+                cursor: pointer;
+            }
+            .lboxes {
+                background: #97c984;
+                border-radius: 50px;
+
+                width: 17%;
+                height: 10vh;
+            }
+            .lboxes input[type="submit"]:hover {
+                background: #123672;
+                border: 2px solid #123672;
+            }
+
         </style>
         <%
             String firstname = (String) session.getAttribute("firstname");
         %>
-          <%
+        <%
             String lastname = (String) session.getAttribute("lastname");
         %>
         <%
@@ -88,32 +113,35 @@
 
     </head>
     <body>
-        <form class="box">
-            <h1>Στοιχεία Γιατρού</h1>
-            <table>
-                <tr>
-                    <td align="right">First Name:</td>
-                    <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
-                </tr>
-                 <tr>
-                    <td align="right">Last Name:</td>
-                    <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
-                </tr>
-                <tr>
-                    <td align="right">Specialty:</td>
-                    <td align="left"> <input type="text" id="specialty" name="specialty" value="<%= specialty%>" /></td>
-                </tr>
-                <tr>
-                    <td align="right">Telephone:</td>
-                    <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
-                </tr>
-                <tr>
-                    <td align="right"></td>
-                    <td align="center">   <input type="submit" onclick="doctor()" name="" value="change informations" /></td>
-                </tr>
+        <div class="container">
+            <form class="box">
+                <h1>Στοιχεία Γιατρού</h1>
+                <table>
+                    <tr>
+                        <td align="right">First Name:</td>
+                        <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Last Name:</td>
+                        <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Specialty:</td>
+                        <td align="left"> <input type="text" id="specialty" name="specialty" value="<%= specialty%>" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Telephone:</td>
+                        <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
+                    </tr>
 
-            </table>
-        </form>
-
+                </table>
+            </form>
+            <div class="lboxes" style="margin-top:7%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   >
+                    </br>
+                    <input type="submit" name="" onclick="changeDoctor()"  value="change informations">
+                </form> 
+            </div>
+        </div>
     </body>
 </html>

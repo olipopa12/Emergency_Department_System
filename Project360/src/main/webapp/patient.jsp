@@ -6,11 +6,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Patient</title>
         <script type="text/javascript" src="javascript/patient.js"></script>
+        <script type="text/javascript" src="javascript/changePatient.js"></script>
         <style>
 
             .box {
                 width: 400px;
-                height: 850px;
+                height: 780px;
                 padding: 40px;
                 position: absolute;
 
@@ -92,6 +93,28 @@
                 background: #123672;
                 border: 2px solid #123672;
             }
+
+            .lboxes input[type="submit"] {
+                background: none;
+                border: 2px solid #006d67;
+                outline: none;
+                color: rgb(3, 2, 2);
+                border-radius: 24px;
+                padding:4px 15px;
+                transition: 0.20s;
+                cursor: pointer;
+            }
+            .lboxes {
+                background: #97c984;
+                border-radius: 50px;
+
+                width: 17%;
+                height: 10vh;
+            }
+            .lboxes input[type="submit"]:hover {
+                background: #123672;
+                border: 2px solid #123672;
+            }
         </style>
         <%
             String firstname = (String) session.getAttribute("firstname");
@@ -119,47 +142,51 @@
         %>
     </head>
     <body>
-        <form class="box">
-            <h1>Στοιχεία Ασθενή</h1>
-            <table>
-                <tr>
-                    <td align="right">First Name:</td>
-                    <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
-                </tr>
-                <tr>
-                    <td align="right">Last Name:</td>
-                    <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
-                </tr>
-                <tr>
-                    <td align="right">Telephone:</td>
-                    <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
-                </tr>
-                <tr>
-                    <td align="right">TK:</td>
-                    <td align="left"> <input type="text" id="tk" name="tk" value="<%= tk%>"/></td>
-                </tr>
-                <tr>
-                    <td align="right">Road:</td>
-                    <td align="left"> <input type="text" id="road" name="road" value="<%= road%>" /></td>
-                </tr>
-                <tr>
-                    <td align="right">Number:</td>
-                    <td align="left"> <input type="text" id="number" name="number" value="<%= number%>" /></td>
-                </tr>
-                <tr>
-                    <td align="right">AMKA:</td>
-                    <td align="left"> <input type="text" id="amka" name="amka" value="<%= AMKA%>" /></td>
-                </tr>
-                <tr>
-                    <td align="right">Insurance:</td>
-                    <td align="left"> <input type="text" id="insurance" name="insurance" value="<%= insurance%>" /></td>
-                </tr>
-                <tr>
-                    <td align="right"></td>
-                    <td align="center">   <input type="submit" onclick="patient()" name="" value="change informations" /></td>
-                </tr>
-            </table>
-        </form>
+        <div class="container">
+            <form class="box">
+                <h1>Στοιχεία Ασθενή</h1>
+                <table>
+                    <tr>
+                        <td align="right">First Name:</td>
+                        <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Last Name:</td>
+                        <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Telephone:</td>
+                        <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">TK:</td>
+                        <td align="left"> <input type="text" id="tk" name="tk" value="<%= tk%>"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Road:</td>
+                        <td align="left"> <input type="text" id="road" name="road" value="<%= road%>" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Number:</td>
+                        <td align="left"> <input type="text" id="number" name="number" value="<%= number%>" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">AMKA:</td>
+                        <td align="left"> <input type="text" id="amka" name="amka" value="<%= AMKA%>" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Insurance:</td>
+                        <td align="left"> <input type="text" id="insurance" name="insurance" value="<%= insurance%>" /></td>
+                    </tr>
 
+                </table>
+            </form>
+            <div class="lboxes" style="margin-top:7%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/changePatient">
+                    </br>
+                    <input type="submit" name="" onclick="changePatient()"  value="change informations">
+                </form>
+            </div>
+        </div>
     </body>
 </html>
