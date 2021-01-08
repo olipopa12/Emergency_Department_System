@@ -21,7 +21,8 @@ public class Doctors {
                 + " firstname VARCHAR(255), "
                 + " lastname VARCHAR(255), "
                 + " specialty VARCHAR(255), "
-                + " phone VARCHAR(255), "
+                + " UNIQUE(phone) VARCHAR(255), "
+                + " UNIQUE(phone) , "
                 + " PRIMARY KEY ( docID ));";
         return doc;
     }
@@ -76,6 +77,28 @@ public class Doctors {
         }
 
     }
+    public void deleteDoctor(int id, String fname, String lname) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String delete = new String(
+                "DELETE FROM DOCTORS"
+                + " WHERE docID= ? AND firstname= ? AND lastname= ?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(delete);
+        try {
+            pstmt.setInt(1, id);
+            pstmt.setString(2, fname);
+            pstmt.setString(3, lname);
+
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public String get_firstname(int id) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
@@ -97,6 +120,35 @@ public class Doctors {
 
             while (rs.next()) {
                 r = rs.getString("firstname");
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
+     public int get_id(String first) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+       // String id = "SELECT docID FROM DOCTORS WHERE firstname=? AND lastname=? AND phone=?";
+        String id = "SELECT docID FROM DOCTORS WHERE firstname= ? ";
+        PreparedStatement pstmt = con.prepareStatement(id);
+        int r = 0;
+        // ResultSet rs=null;
+        try {
+
+            pstmt.setString(1, first);
+             //pstmt.setString(2, last);
+             //pstmt.setString(3, phone);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                r = rs.getInt("docID");
             }
             // System.out.println(r);
             con.close();

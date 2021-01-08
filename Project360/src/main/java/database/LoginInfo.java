@@ -86,6 +86,26 @@ public class LoginInfo {
         }
         return w;
     }
+    public void deleteLoginInfo( String username) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String delete = new String(
+                "DELETE FROM LOGIN_INFOS"
+                + " WHERE username= ?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(delete);
+        try {
+            pstmt.setString(1, username);
+            
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginInfo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public int get_id(String user, String pass) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";

@@ -78,6 +78,29 @@ public class Employees {
 
     }
 
+    public void deleteEmployee(int id, String fname, String lname) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String delete = new String(
+                "DELETE FROM EMPLOYEES"
+                + " WHERE employeeID= ? AND firstname= ? AND lastname= ?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(delete);
+        try {
+            pstmt.setInt(1, id);
+            pstmt.setString(2, fname);
+            pstmt.setString(3, lname);
+
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Employees.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     public String get_firstname(int id) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
