@@ -28,13 +28,13 @@ public class Patients {
                 + " insurance VARCHAR(255), "
                 + " road VARCHAR(255), "
                 + " number INTEGER, "
-                + " TK INTEGER, "
+                + " tk INTEGER, "
                 + " phone VARCHAR(255), "
                 + " PRIMARY KEY ( patientID ));";
         return patient;
     }
 
-    void updatePatient(int id, String amka, String fname, String lname, String ins, String road, int num, int TK, String phone) throws ClassNotFoundException, SQLException {
+    public void updatePatient(int id, String amka, String fname, String lname, String ins, String road, int num, int TK, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -65,7 +65,7 @@ public class Patients {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Patients.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -212,14 +212,14 @@ public class Patients {
         return r;
     }
 
-    public String get_address(int id) throws ClassNotFoundException, SQLException {
+    public String get_road(int id) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String address = "SELECT address FROM PATIENTS WHERE patientID=?";
-        PreparedStatement pstmt = con.prepareStatement(address);
+        String road = "SELECT road FROM PATIENTS WHERE patientID=?";
+        PreparedStatement pstmt = con.prepareStatement(road);
         String r = null;
         // ResultSet rs=null;
         try {
@@ -231,7 +231,65 @@ public class Patients {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                r = rs.getString("address");
+                r = rs.getString("road");
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Patients.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
+
+    public int get_tk(int id) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String tk = "SELECT tk FROM PATIENTS WHERE patientID=?";
+        PreparedStatement pstmt = con.prepareStatement(tk);
+        int r = -1;
+        // ResultSet rs=null;
+        try {
+
+            pstmt.setInt(1, id);
+            // pstmt.setString(1, name);
+            // pstmt.setString(4, pass);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                r = rs.getInt("tk");
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Patients.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return r;
+    }
+
+    public int get_number(int id) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String number = "SELECT number FROM PATIENTS WHERE patientID=?";
+        PreparedStatement pstmt = con.prepareStatement(number);
+        int r = -1;
+        // ResultSet rs=null;
+        try {
+
+            pstmt.setInt(1, id);
+            // pstmt.setString(1, name);
+            // pstmt.setString(4, pass);
+            //pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                r = rs.getInt("number");
             }
             // System.out.println(r);
             con.close();

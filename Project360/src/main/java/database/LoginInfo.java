@@ -22,10 +22,12 @@ public class LoginInfo {
     public String createInfo() {
         String info = "CREATE TABLE IF NOT EXISTS LOGIN_INFOS "
                 + "(ID INTEGER not NULL, "
-                + " role VARCHAR(255), "
+                + " role VARCHAR(255) not NULL, "
                 + " username VARCHAR(255) not NULL, "
                 + " password VARCHAR(255) not NULL,"
+                + " UNIQUE (username),"
                 + " PRIMARY KEY ( ID ));";
+
         return info;
     }
 
@@ -76,6 +78,7 @@ public class LoginInfo {
             pstmt.setString(3, user);
             pstmt.setString(4, pass);
             pstmt.executeUpdate();
+
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(LoginInfo.class.getName()).log(Level.SEVERE, null, ex);

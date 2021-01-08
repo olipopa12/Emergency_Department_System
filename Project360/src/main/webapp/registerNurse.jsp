@@ -1,30 +1,31 @@
 <%-- 
-    Document   : Register
-    Created on : 6 Ιαν 2021, 8:45:03 μμ
+    Document   : registerNurse
+    Created on : 8 Ιαν 2021, 3:10:41 πμ
     Author     : kater
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Patient</title>
-        <script type="text/javascript" src="javascript/patient.js"></script>
+        <script type="text/javascript" src="javascript/registerNurse.js"></script>
+        <title>Register Nurse</title>
         <style>
 
             .box {
-                width: 33%;
-                height: 100%;
+                width: 400px;
+                height: 500px;
                 padding: 40px;
                 position: absolute;
-                top: 60%;
-                left: 50%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
+                top:75%;
+                left: 50%;
                 text-align: center;
             }
+
             body { background: url(back.jpg) no-repeat fixed;
                    -webkit-background-size: cover;
                    -moz-background-size: cover;
@@ -76,8 +77,8 @@
 
     </head>
     <body>
-        <form class="box" method="post" action="http://localhost:8080/Project360/newForm" >
-            <h1>Εγγραφή νέου Ασθενούς</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/newFormNurse" >
+            <h1>Εγγραφή νέου Νοσοκόμου</h1>
             <table>
                 <tr>
                     <td align="right">Username:</td>
@@ -89,27 +90,15 @@
                 </tr>
                 <tr>
                     <td align="right">First Name:</td>
-                    <td align="left"><input type="text" id="firstname" name="firstname" value=""  disabled/></td>
+                    <td align="left"><input type="text" id="firstname" name="firstname" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right">Last Name:</td>
-                    <td align="left"><input type="text" id="lastname" name="lastname" value=""  disabled/></td>
+                    <td align="left"><input type="text" id="lastname" name="lastname" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right">Telephone:</td>
-                    <td align="left"><input type="text" id="telephone" name="telephone" value="" /></td>
-                </tr>
-                <tr>
-                    <td align="right">Address:</td>
-                    <td align="left"> <input type="text" id="address" name="address" value="" /></td>
-                </tr>
-                <tr>
-                    <td align="right">AMKA:</td>
-                    <td align="left"> <input type="text" id="amka" name="amka" value="" /></td>
-                </tr>
-                <tr>
-                    <td align="right">Insurance:</td>
-                    <td align="left"> <input type="text" id="insurance" name="insurance" value="" /></td>
+                    <td align="left"><input type="text" id="telephone" name="telephone" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>

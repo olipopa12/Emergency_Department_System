@@ -13,9 +13,9 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Doctor {
+public class Doctors {
 
-    String createDoctor() {
+    public String createDoctor() {
         String doc = "CREATE TABLE IF NOT EXISTS DOCTORS "
                 + "(docID INTEGER not NULL, "
                 + " firstname VARCHAR(255), "
@@ -26,7 +26,7 @@ public class Doctor {
         return doc;
     }
 
-    void insertDoctor(int id, String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
+    public void insertDoctor(int id, String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -43,12 +43,12 @@ public class Doctor {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-    void updateDoctor(int id, String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
+    public void updateDoctor(int id, String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -72,7 +72,7 @@ public class Doctor {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -101,7 +101,7 @@ public class Doctor {
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
         return r;
     }
@@ -130,7 +130,7 @@ public class Doctor {
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
         return r;
     }
@@ -159,7 +159,7 @@ public class Doctor {
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
         return r;
     }
@@ -188,7 +188,7 @@ public class Doctor {
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
         return r;
     }

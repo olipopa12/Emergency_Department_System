@@ -1,30 +1,31 @@
 <%-- 
-    Document   : doctor
-    Created on : 5 Ιαν 2021, 6:41:10 μμ
+    Document   : registerEmployee
+    Created on : 8 Ιαν 2021, 3:10:41 πμ
     Author     : kater
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Doctor</title>
-        <script type="text/javascript" src="javascript/doctor.js"></script>
+        <script type="text/javascript" src="javascript/registerEmployee.js"></script>
+        <title>Register Employee</title>
         <style>
 
             .box {
                 width: 400px;
-                height: 470px;
+                height: 500px;
                 padding: 40px;
                 position: absolute;
-                top: 50%;
-                left: 50%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
+                top:75%;
+                left: 50%;
                 text-align: center;
             }
+
             body { background: url(back.jpg) no-repeat fixed;
                    -webkit-background-size: cover;
                    -moz-background-size: cover;
@@ -47,7 +48,7 @@
                 margin: 15px auto;
                 text-align: center;
                 border: 2px solid #006d67;
-                padding: 15px 15px;
+                padding: 10px 15px;
                 width: 250px;
                 outline: none;
                 border-radius: 24px;
@@ -58,10 +59,10 @@
                 border: 0;
                 background: none;
                 display: block;
-                margin: 20px auto;
+                margin: 10px auto;
                 text-align: center;
                 border: 2px solid #006d67;
-                padding: 14px 40px;
+                padding: 10px 20px;
                 outline: none;
                 color: rgb(3, 2, 2);
                 border-radius: 24px;
@@ -73,45 +74,36 @@
                 border: 2px solid #123672;
             }
         </style>
-        <%
-            String firstname = (String) session.getAttribute("firstname");
-        %>
-          <%
-            String lastname = (String) session.getAttribute("lastname");
-        %>
-        <%
-            String specialty = (String) session.getAttribute("specialty");
-        %>
-        <%
-            String telephone = (String) session.getAttribute("telephone");
-        %>
 
     </head>
     <body>
-        <form class="box">
-            <h1>Στοιχεία Γιατρού</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/newFormEmployee" >
+            <h1>Εγγραφή νέου Υπαλλήλου</h1>
             <table>
                 <tr>
-                    <td align="right">First Name:</td>
-                    <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
-                </tr>
-                 <tr>
-                    <td align="right">Last Name:</td>
-                    <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
+                    <td align="right">Username:</td>
+                    <td align="left"><input type="text" id="username" name="username" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Specialty:</td>
-                    <td align="left"> <input type="text" id="specialty" name="specialty" value="<%= specialty%>" /></td>
+                    <td align="right">Password:</td>
+                    <td align="left"><input type="text" id="password" name="password" value=""  /></td>
+                </tr>
+                <tr>
+                    <td align="right">First Name:</td>
+                    <td align="left"><input type="text" id="firstname" name="firstname" value=""  /></td>
+                </tr>
+                <tr>
+                    <td align="right">Last Name:</td>
+                    <td align="left"><input type="text" id="lastname" name="lastname" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right">Telephone:</td>
-                    <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
+                    <td align="left"><input type="text" id="telephone" name="telephone" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>
-                    <td align="center">   <input type="submit" onclick="doctor()" name="" value="change informations" /></td>
+                    <td align="center"> <input type="submit" name="" value="Ready"  /></td>
                 </tr>
-
             </table>
         </form>
 

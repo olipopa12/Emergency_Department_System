@@ -25,16 +25,36 @@
         <servlet-class>servlets.error</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>registerDoctor</servlet-name>
+        <servlet-class>servlets.registerDoctor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>registerPatient</servlet-name>
+        <servlet-class>servlets.registerPatient</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>registerNurse</servlet-name>
+        <servlet-class>servlets.registerNurse</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>errorUser</servlet-name>
         <servlet-class>servlets.errorUser</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>register</servlet-name>
-        <servlet-class>servlets.register</servlet-class>
+        <servlet-name>newFormPatient</servlet-name>
+        <servlet-class>servlets.newFormPatient</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>newForm</servlet-name>
-        <servlet-class>servlets.newForm</servlet-class>
+        <servlet-name>newFormNurse</servlet-name>
+        <servlet-class>servlets.newFormNurse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>newFormEmployee</servlet-name>
+        <servlet-class>servlets.newFormEmployee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>newFormDoctor</servlet-name>
+        <servlet-class>servlets.newFormDoctor</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -61,16 +81,36 @@
         <url-pattern>/error</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>registerDoctor</servlet-name>
+        <url-pattern>/registerDoctor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registerPatient</servlet-name>
+        <url-pattern>/registerPatient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registerNurse</servlet-name>
+        <url-pattern>/registerNurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>errorUser</servlet-name>
         <url-pattern>/errorUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>register</servlet-name>
-        <url-pattern>/register</url-pattern>
+        <servlet-name>newFormPatient</servlet-name>
+        <url-pattern>/newFormPatient</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>newForm</servlet-name>
-        <url-pattern>/newForm</url-pattern>
+        <servlet-name>newFormNurse</servlet-name>
+        <url-pattern>/newFormNurse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>newFormEmployee</servlet-name>
+        <url-pattern>/newFormEmployee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>newFormDoctor</servlet-name>
+        <url-pattern>/newFormDoctor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

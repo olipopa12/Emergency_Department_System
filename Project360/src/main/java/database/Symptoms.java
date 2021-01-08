@@ -22,9 +22,10 @@ public class Symptoms {
         String symptom = "CREATE TABLE IF NOT EXISTS SYMPTOMS "
                 + "(visitID INTEGER not NULL, "
                 + " symptom VARCHAR(255), "
-                + " FOREIGN KEY ( visitID ));";
+                + " FOREIGN KEY ( visitID ) REFERENCES VISITS(visitID));";
         return symptom;
     }
+
     void insertSymptom(int id, String sym) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -39,7 +40,7 @@ public class Symptoms {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Symptoms.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

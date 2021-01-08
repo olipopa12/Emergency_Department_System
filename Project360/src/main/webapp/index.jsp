@@ -96,32 +96,7 @@
                 background: #123672;
                 border: 2px solid #123672;
             }
-            .new{
-                padding: 1% ;
-                margin:  2.5% ;
-                position: absolute;
-                font-size: 150%;
-                transform: translate(0%, -10%);
-                top: 78%;
-                left: 38%;
-            }
-            .new input[type="submit"]{
-                border: 0;
-                background: #97c984;
-                display: block;
-                margin: 0px auto;
-                border: 2px solid #123672;
-                padding: 7% 12%;
-                outline: none;
-                color: rgb(3, 2, 2);
-                border-radius: 24px;
-                transition: 0.20s;
-                cursor: pointer;
-            }
-            .new input[type="submit"]:hover{
-                background: #123672;
-                border: 2px solid #123672;
-            }
+           
         </style>
     </head>
 
@@ -135,15 +110,7 @@
             <input type="checkbox" onclick="pass(this)">
             <input type="submit" name="" value="Login" > 
         </form>
-        <form class="new" method="post" action="http://localhost:8080/Project360/register">
-            <table>
-                <tr>
-                    <td align="right">New Member?</td>
-                    <td align="left">   <input type="submit" name="" value="Sign Up"  /></td>
-                </tr>
-
-            </table>
-        </form>
+        
     </body>
 
 </html>

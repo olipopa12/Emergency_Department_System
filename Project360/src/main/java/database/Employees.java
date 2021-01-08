@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class Employees {
 
-    String createEmployee() {
+    public String createEmployee() {
         String employee = "CREATE TABLE IF NOT EXISTS EMPLOYEES "
                 + "(employeeID INTEGER not NULL, "
                 + " firstname VARCHAR(255), "
@@ -28,7 +28,8 @@ public class Employees {
                 + " PRIMARY KEY ( employeeID ));";
         return employee;
     }
-void updateEmployee(int id, String fname, String lname, String phone) throws ClassNotFoundException, SQLException {
+
+    public void updateEmployee(int id, String fname, String lname, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -36,7 +37,7 @@ void updateEmployee(int id, String fname, String lname, String phone) throws Cla
         String update = new String(
                 "UPDATE EMPLOYEES"
                 + " SET firstname= ?,"
-                + " lastname= ?,"              
+                + " lastname= ?,"
                 + " phone= ?"
                 + " WHERE employeeID= ?");
         //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
@@ -50,11 +51,12 @@ void updateEmployee(int id, String fname, String lname, String phone) throws Cla
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Employees.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
-    void insertEmployee(int id, String firstname, String lastname,
+
+    public void insertEmployee(int id, String firstname, String lastname,
             String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(

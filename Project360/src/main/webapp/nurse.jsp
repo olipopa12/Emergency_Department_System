@@ -10,7 +10,7 @@
 
             .box {
                 width: 400px;
-                height: 300px;
+                height: 370px;
                 padding: 40px;
                 position: absolute;
                 top: 50%;
@@ -25,7 +25,6 @@
                    -moz-background-size: cover;
                    -o-background-size: cover;
                    background-size: cover;
-
             }
             .box h1 {
                 color: rgb(3, 2, 2);
@@ -85,15 +84,15 @@
             <table>
                 <tr>
                     <td align="right">First Name:</td>
-                    <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  disabled/></td>
+                    <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
                 </tr>
                 <tr>
                     <td align="right">Last Name:</td>
-                    <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  disabled/></td>
+                    <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
                 </tr>
                 <tr>
                     <td align="right">Telephone</td>
-                    <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" disabled/></td>
+                    <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>

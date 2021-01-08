@@ -9,7 +9,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Error</title>
-        <script type="text/javascript" src="javascript/doctor.js"></script>
         <style>
 
             .box {

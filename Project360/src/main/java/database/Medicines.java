@@ -43,7 +43,7 @@ public class Medicines {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Medicines.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

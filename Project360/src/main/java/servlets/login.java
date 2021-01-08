@@ -5,7 +5,7 @@
  */
 package servlets;
 
-import database.Doctor;
+import database.Doctors;
 import database.Employees;
 import database.LoginInfo;
 import database.Nurses;
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 public class login extends HttpServlet {
 
     private LoginInfo info = new LoginInfo();
-    private Doctor doctor = new Doctor();
+    private Doctors doctor = new Doctors();
     private Nurses nurse = new Nurses();
     private Employees employee = new Employees();
     private Patients patient = new Patients();
@@ -36,19 +36,25 @@ public class login extends HttpServlet {
             // read form fields
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            System.out.println("password: " + password);
-            System.out.println("name: " + username);
-            //String ret = info.check_role(username, password);
+            System.out.println("password:" + password+"hgfd");
+            System.out.println("username:" + username+"htgfd");
+            
+            if (username.equals(" ") || password.equals(" ")) {
+                response.sendRedirect(request.getContextPath() + "/errorUser");
+            }
             String role = null;
             String telephone = null;
             String firstname = null;
             String lastname = null;
-            String address = null;
+            String road = null;
+            int number = -1;
+            int tk = -1;
             String amka = null;
             String insurance = null;
             String specialty = null;
             int ID = -1;
             role = info.get_role(username, password);
+            System.out.println(role);
             if (role != null) {
                 ID = info.get_id(username, password);
 
@@ -56,13 +62,22 @@ public class login extends HttpServlet {
 
                 // System.out.println("password: " + password);
                 HttpSession session = request.getSession(); //Creating a session
+
                 if (role.equals("patient")) {
                     session.setAttribute("firstname", patient.get_firstname(ID));
                     session.setAttribute("lastname", patient.get_lastname(ID));
-                    session.setAttribute("address", patient.get_address(ID));
+                    session.setAttribute("road", patient.get_road(ID));
+                    session.setAttribute("number", patient.get_number(ID));
+                    session.setAttribute("tk", patient.get_tk(ID));
                     session.setAttribute("amka", patient.get_amka(ID));
                     session.setAttribute("insurance", patient.get_insurance(ID));
                     session.setAttribute("telephone", patient.get_telephone(ID));
+                    System.out.println("amka: " + patient.get_amka(ID));
+                    System.out.println("tk: " + patient.get_tk(ID));
+                    System.out.println("road: " + patient.get_road(ID));
+                    System.out.println("number: " + patient.get_number(ID));
+                    System.out.println("insurance: " + patient.get_insurance(ID));
+                    System.out.println("telephone: " + patient.get_telephone(ID));
                     response.sendRedirect(request.getContextPath() + "/patient");
                 } else if (role.equals("doctor")) {
                     session.setAttribute("specialty", doctor.get_specialty(ID));

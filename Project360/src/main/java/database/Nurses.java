@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public class Nurses {
 
-    String createNurse() {
+    public String createNurse() {
         String nurse = "CREATE TABLE IF NOT EXISTS NURSES "
                 + "(nurseID INTEGER not NULL, "
                 + " firstname VARCHAR(255), "
@@ -29,7 +29,7 @@ public class Nurses {
         return nurse;
     }
 
-    void insertNurse(int id, String firstname, String lastname, String phone) throws ClassNotFoundException, SQLException {
+    public void insertNurse(int id, String firstname, String lastname, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -49,7 +49,8 @@ public class Nurses {
         }
 
     }
-void updateNurse(int id, String fname, String lname, String phone) throws ClassNotFoundException, SQLException {
+
+    public void updateNurse(int id, String fname, String lname, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -71,10 +72,11 @@ void updateNurse(int id, String fname, String lname, String phone) throws ClassN
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Nurses.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+
     public String get_firstname(int id) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -123,7 +125,7 @@ void updateNurse(int id, String fname, String lname, String phone) throws ClassN
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                r = rs.getString("firstname");
+                r = rs.getString("lastname");
             }
             // System.out.println(r);
             con.close();

@@ -44,7 +44,7 @@ public class Visits {
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Symptoms.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
