@@ -120,7 +120,7 @@
     </head>
     <body>
         <form class="box">
-            <h1>Στοιχεία Ασθενούς</h1>
+            <h1>Στοιχεία Ασθενή</h1>
             <table>
                 <tr>
                     <td align="right">First Name:</td>
