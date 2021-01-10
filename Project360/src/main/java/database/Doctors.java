@@ -129,6 +129,40 @@ public class Doctors {
         }
         return r;
     }
+    public void get_Doctors() throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement(
+        String med = "SELECT * FROM DOCTORS";
+        PreparedStatement pstmt = con.prepareStatement(med);
+        int id = 0;
+        String first= null;
+        String last= null;
+        String specialty = null;
+        String phone = null;
+
+        // ResultSet rs=null;
+        try {
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                id = rs.getInt("docID");
+                first = rs.getString("firstname");
+                last = rs.getString("lastname");
+                specialty = rs.getString("specialty");
+                phone = rs.getString("phone");
+                System.out.println(id + " " +first + " " + last + " " + specialty + " " + phone);
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public int get_id(String first, String last, String telephone) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";

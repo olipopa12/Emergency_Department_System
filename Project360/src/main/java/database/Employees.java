@@ -78,6 +78,38 @@ public class Employees {
         }
 
     }
+public void get_Employees() throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String employee = "SELECT * FROM EMPLOYEES";
+        PreparedStatement pstmt = con.prepareStatement(employee);
+        int id = 0;
+        String first = null;
+        String last = null;
+        String phone = null;
+
+        // ResultSet rs=null;
+        try {
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                id = rs.getInt("employeeID");
+                first = rs.getString("firstname");
+                last = rs.getString("lastname");
+                phone = rs.getString("phone");
+                System.out.println(id + " " + first + " " + last + " " + phone);
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Employees.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public void deleteEmployee(int id, String fname, String lname) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");

@@ -10,5 +10,13 @@ package database;
  * @author olipo
  */
 public class DocInShift {
-    
+
+    String createDocsInShift() {
+        String sql = "CREATE TABLE IF NOT EXISTS DOCS_IN_SHIFT "
+                + "(docID INTEGER not NULL, "
+                + " shiftID INTEGER not NULL, "
+                + " FOREIGN KEY(shiftID) REFERENCES SHIFTS(shiftID), "
+                + " FOREIGN KEY(docID) REFERENCES DOCTORS(docID));";
+        return sql;
+    }
 }

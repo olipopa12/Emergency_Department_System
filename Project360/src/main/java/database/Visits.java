@@ -23,7 +23,7 @@ public class Visits {
                 + "(visitID INTEGER not NULL, "
                 + " patientID INTEGER not NULL, "
                 + " date VARCHAR(255), "
-                + " symtoms VARCHAR(255), "
+                + " diagnosis VARCHAR(255), "
                 + " PRIMARY KEY ( visitID ), "
                 + " FOREIGN KEY(patientID) REFERENCES PATIENTS(patientID));";
         return visit;
