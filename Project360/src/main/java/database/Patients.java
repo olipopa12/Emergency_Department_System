@@ -21,7 +21,7 @@ public class Patients {
 
     public String createPatient() {
         String patient = "CREATE TABLE IF NOT EXISTS PATIENTS "
-                + "(patientID INTEGER not NULL, "
+                + "(patientID INTEGER not NULL AUTO_INCREMENT, "
                 + " AMKA VARCHAR(255) not NULL, "
                 + " firstname VARCHAR(255), "
                 + " lastname VARCHAR(255), "
@@ -72,24 +72,46 @@ public class Patients {
 
     }
 
-    public void insertPatient(int id, String amka, String fname, String lname, String ins, String road, int num, int TK, String phone) throws ClassNotFoundException, SQLException {
+    public void insertPatient( String amka, String fname, String lname, String ins, String road, int num, int TK, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String patient = "INSERT IGNORE INTO PATIENTS VALUES (?,?,?,?,?,?,?,?,?)";
+        String patient = "INSERT IGNORE INTO PATIENTS VALUES (default,?,?,?,?,?,?,?,?)";
         PreparedStatement pstmt = con.prepareStatement(patient);
         try {
 
+            //pstmt.setInt(1, id);
+            pstmt.setString(1, amka);
+            pstmt.setString(2, fname);
+            pstmt.setString(3, lname);
+            pstmt.setString(4, ins);
+            pstmt.setString(5, road);
+            pstmt.setInt(6, num);
+            pstmt.setInt(7, TK);
+            pstmt.setString(8, phone);
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Patients.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    public void deletePatient(int id) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String delete = new String(
+                "DELETE FROM PATIENTS"
+                + " WHERE patientID= ?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(delete);
+        try {
             pstmt.setInt(1, id);
-            pstmt.setString(2, amka);
-            pstmt.setString(3, fname);
-            pstmt.setString(4, lname);
-            pstmt.setString(5, ins);
-            pstmt.setString(6, road);
-            pstmt.setInt(7, num);
-            pstmt.setInt(8, TK);
-            pstmt.setString(9, phone);
+            //pstmt.setString(2, fname);
+            //pstmt.setString(3, lname);
+
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {

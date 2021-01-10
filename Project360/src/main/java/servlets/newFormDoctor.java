@@ -42,10 +42,10 @@ public class newFormDoctor extends HttpServlet {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
-            int w = user.insertLoginInfo(Main.id, "doctor", username, password);
+            int w = user.insertLoginInfo(doctor.get_id(firstname, lastname, telephone), "doctor", username, password);
             if (w == 1) {
-                doctor.insertDoctor(Main.id, firstname, lastname, specialty, telephone);
-                Main.id++;
+                doctor.insertDoctor( firstname, lastname, specialty, telephone);
+                //Main.id++;
             }
 
             request.getRequestDispatcher("index.jsp").forward(request, response);

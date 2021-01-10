@@ -21,7 +21,7 @@ public class Employees {
 
     public String createEmployee() {
         String employee = "CREATE TABLE IF NOT EXISTS EMPLOYEES "
-                + "(employeeID INTEGER not NULL, "
+                + "(employeeID INTEGER not NULL AUTO_INCREMENT, "
                 + " firstname VARCHAR(255), "
                 + " lastname VARCHAR(255), "
                 + " phone VARCHAR(255), "
@@ -57,20 +57,20 @@ public class Employees {
 
     }
 
-    public void insertEmployee(int id, String firstname, String lastname,
+    public void insertEmployee( String firstname, String lastname,
             String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String empl = "INSERT IGNORE INTO EMPLOYEES VALUES (?,?,?,?)";
+        String empl = "INSERT IGNORE INTO EMPLOYEES VALUES (default,?,?,?)";
         PreparedStatement pstmt = con.prepareStatement(empl);
         try {
 
-            pstmt.setInt(1, id);
-            pstmt.setString(2, firstname);
-            pstmt.setString(3, lastname);
-            pstmt.setString(4, phone);
+            //pstmt.setInt(1, id);
+            pstmt.setString(1, firstname);
+            pstmt.setString(2, lastname);
+            pstmt.setString(3, phone);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {

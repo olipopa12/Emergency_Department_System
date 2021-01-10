@@ -43,11 +43,12 @@ public class newFormEmployee extends HttpServlet {
 
             String createLogin = user.createInfo();
             stmt.executeUpdate(createLogin);
+            
 
-            int w = user.insertLoginInfo(Main.id, "employee", username, password);
+            int w = user.insertLoginInfo(employee.get_id(firstname, lastname, telephone), "employee", username, password);
             if (w == 1) {
-                employee.insertEmployee(Main.id, firstname, lastname, telephone);
-                Main.id++;
+                employee.insertEmployee( firstname, lastname, telephone);
+               // Main.id++;
             }
 
             request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -40,9 +40,9 @@ public class newFormNurse extends HttpServlet {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
-            int w = user.insertLoginInfo(Main.id, "nurse", username, password);
+            int w = user.insertLoginInfo(nurse.get_id(firstname, lastname, telephone), "nurse", username, password);
             if (w == 1) {
-                nurse.insertNurse(Main.id, firstname, lastname, telephone);
+                nurse.insertNurse( firstname, lastname, telephone);
                 Main.id++;
             }
 

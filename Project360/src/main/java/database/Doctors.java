@@ -17,7 +17,7 @@ public class Doctors {
 
     public String createDoctor() {
         String doc = "CREATE TABLE IF NOT EXISTS DOCTORS "
-                + "(docID INTEGER not NULL, "
+                + "(docID INTEGER not NULL AUTO_INCREMENT, "
                 + " firstname VARCHAR(255), "
                 + " lastname VARCHAR(255), "
                 + " specialty VARCHAR(255), "
@@ -27,20 +27,20 @@ public class Doctors {
         return doc;
     }
 
-    public void insertDoctor(int id, String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
+    public void insertDoctor( String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        String doc = "INSERT IGNORE INTO DOCTORS VALUES (default,?,?,?,?)";
         PreparedStatement pstmt = con.prepareStatement(doc);
         try {
 
-            pstmt.setInt(1, id);
-            pstmt.setString(2, fname);
-            pstmt.setString(3, lname);
-            pstmt.setString(4, specialty);
-            pstmt.setString(5, phone);
+            //pstmt.setInt(1, id);
+            pstmt.setString(1, fname);
+            pstmt.setString(2, lname);
+            pstmt.setString(3, specialty);
+            pstmt.setString(4, phone);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {

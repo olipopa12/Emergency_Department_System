@@ -17,6 +17,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.html.HTML;
+import static javax.swing.text.html.HTML.Tag.SELECT;
 
 /**
  *
@@ -45,12 +47,19 @@ public class newFormPatient extends HttpServlet {
 
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
+//patient->lastInsertId();
 
-            int w = user.insertLoginInfo(Main.id, "patient", username, password);
-            if (w == 1) {
-                patient.insertPatient(Main.id, amka, firstname, lastname, insurance, road, Integer.parseInt(number), Integer.parseInt(tk), telephone);
-                Main.id++;
-            }
+            int w=0;
+           // w = user.insertLoginInfo(0,0,0,l, "patient", username, password);
+            
+                patient.insertPatient( amka, firstname, lastname, insurance, road, Integer.parseInt(number), Integer.parseInt(tk), telephone);
+                //Main.id++;
+                
+                w = user.insertLoginInfo(patient.get_id(firstname, lastname, telephone), "patient", username, password);
+                if(w!=1){
+                    patient.deletePatient(patient.get_id(firstname, lastname, telephone));
+                }
+            
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
