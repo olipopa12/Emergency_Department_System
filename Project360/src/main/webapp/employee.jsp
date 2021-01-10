@@ -7,12 +7,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Employee</title>
-        <script type="text/javascript" src="javascript/employee.js"></script>
-        <script type="text/javascript" src="javascript/registerPatient.js"></script>
-        <script type="text/javascript" src="javascript/registerDoctor.js"></script>
-        <script type="text/javascript" src="javascript/registerNurse.js"></script>
-        <script type="text/javascript" src="javascript/registerEmployee.js"></script>
-        <script type="text/javascript" src="javascript/changeEmployee.js"></script>
+        <script type="text/javascript" src="javascript/all_entities.js"></script>
+        <script type="text/javascript" src="javascript/registers.js"></script>
+        <script type="text/javascript" src="javascript/updates.js"></script>
         <style>
             .box {
                 border-radius: 50px;
@@ -78,21 +75,18 @@
             }
 
             .lboxes input[type="submit"] {
-                background: none;
+                background: #97c984;
                 border: 2px solid #006d67;
-                outline: none;
                 color: rgb(3, 2, 2);
                 border-radius: 24px;
-                padding:4px 15px;
+                outline: none;
+                padding:7px 18px;
                 transition: 0.20s;
                 cursor: pointer;
             }
             .lboxes {
-                background: #97c984;
-                border-radius: 50px;
-
-                width: 15%;
-                height: 10vh;
+                width: 5%;
+                height: 5vh;
             }
             .lboxes input[type="submit"]:hover {
                 background: #123672;
@@ -101,7 +95,6 @@
 
             <% String firstname = (String) session.getAttribute("firstname"); %>
             <%String lastname = (String) session.getAttribute("lastname");  %>
-
             <%String telephone = (String) session.getAttribute("telephone");%>
         </style>
 
@@ -131,47 +124,67 @@
             </form>
 
 
-
-            <div class="lboxes" style="margin-top:3%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"  action="http://localhost:8080/Project360/registerPatient">
-                    <p>Add new visit: </p>
-                    <input type="submit" name="" value="add">
-                </form>
-            </div>
-            <div class="lboxes " style="margin-top:5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"   style='top:5%' action="http://localhost:8080/Project360/registerPatient">
-                    <p>Add new patient: </p>
-                    <input type="submit" name=""  onclick="registerPatient()" value="add">
-                </form>
-            </div>
-            <div class="lboxes " style="margin-top:2.5%; margin-left:5%; text-align: center; ">
-                <form class="lbox" style='top:25%' method="post" action="http://localhost:8080/Project360/registerEmployee">
-                    <p> Add new employee:</p>
-                    <input type="submit" name=""  onclick="registerEmployee()" value="add">
+            <div class="lboxes" style="margin-top:1.5%; margin-left:5%; text-align: center;">
+                <form  method="post"  action="http://localhost:8080/Project360/changeEmployee">
+                    <input type="submit" name=""  value="Change my info">
                 </form>
             </div>
 
-            <div class="lboxes " style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class="lbox" style='top:45%' method="post" action="http://localhost:8080/Project360/registerDoctor">
-                    <p> Add new doctor:</p>
-                    <input type="submit" name=""  onclick="registerDoctor()" value="add">
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                    <input type="submit" name=""  value="See patients' info">
                 </form>
             </div>
 
-            <div class="lboxes " style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class="lbox" style='top:65%' method="post" action="http://localhost:8080/Project360/registerNurse">
-                    <p> Add new nurse: </p>
-                    <input type="submit" name=""  onclick="registerNurse()" value="add">
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post"  action="http://localhost:8080/Project360/changeEmployee">
+                    <input type="submit" name=""  value="See doctors' info">
                 </form>
             </div>
-            <div class="lboxes" style="margin-top:3%; margin-left:45%; text-align: center;">
-                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/changeEmployee">
-                    </br>
-                    <input type="submit" name="" onclick="changeEmployee()"  value="change informations">
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post"  action="http://localhost:8080/Project360/changeEmployee">
+                    <input type="submit" name=""  value="See employees' info">
+                </form>
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post"  action="http://localhost:8080/Project360/changeEmployee">
+                    <input type="submit" name=""  value="See nurses' info">
+                </form>
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post"  action="http://localhost:8080/Project360/registerVisit">
+                    <input type="submit"  name="" value="Add new visit ">
+                </form>
+            </div>
+            <div class="lboxes " style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post"    action="http://localhost:8080/Project360/registerPatient">
+                    <input type="submit" name=""  value="Add new patient">
+                </form>
+            </div>
+            <div class="lboxes " style="margin-top:2%; margin-left:5%; text-align: center; ">
+                <form   method="post" action="http://localhost:8080/Project360/registerEmployee">
+                    <input type="submit" name=""  value="Add new employee">
                 </form>
             </div>
 
+            <div class="lboxes " style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/registerDoctor">
+                    <input type="submit" name=""   value="Add new doctor">
+                </form>
+            </div>
+
+            <div class="lboxes " style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form   method="post" action="http://localhost:8080/Project360/registerNurse">
+                    <input type="submit" name=""  value="Add new nurse">
+                </form>
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                    <input type="submit" name=""  value="Add new shift">
+                </form> 
+            </div>
         </div>
+
     </body>
 
 </html>

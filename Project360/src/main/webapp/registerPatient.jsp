@@ -9,7 +9,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="javascript/registerPatient.js"></script>
+        <script type="text/javascript" src="javascript/registers.js"></script>
         <title>Register Patient</title>
         <style>
 

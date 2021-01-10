@@ -23,28 +23,27 @@ public class Visits {
                 + "(visitID INTEGER not NULL, "
                 + " patientID INTEGER not NULL, "
                 + " date VARCHAR(255), "
-                + " diagnosis VARCHAR(255), "
                 + " PRIMARY KEY ( visitID ), "
                 + " FOREIGN KEY(patientID) REFERENCES PATIENTS(patientID));";
         return visit;
     }
-    void insertVisit(int id, int pid, String date, String symptoms) throws ClassNotFoundException, SQLException {
+
+    public void insertVisit(int id, int pid, String date) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String visit = "INSERT IGNORE INTO VISITS VALUES (?,?,?,?)";
+        String visit = "INSERT IGNORE INTO VISITS VALUES (?,?,?)";
         PreparedStatement pstmt = con.prepareStatement(visit);
         try {
 
             pstmt.setInt(1, id);
             pstmt.setInt(2, pid);
             pstmt.setString(3, date);
-            pstmt.setString(4, symptoms);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Symptoms.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Visits.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

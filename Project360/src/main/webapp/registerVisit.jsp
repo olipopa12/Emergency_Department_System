@@ -1,6 +1,6 @@
 <%-- 
-    Document   : registerNurse
-    Created on : 8 Ιαν 2021, 3:10:41 πμ
+    Document   : registerVisit
+    Created on : 10 Ιαν 2021, 3:21:59 μμ
     Author     : kater
 --%>
 
@@ -10,18 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="javascript/registers.js"></script>
-        <title>Register Nurse</title>
+        <title>Register Visit</title>
         <style>
 
             .box {
                 width: 400px;
-                height: 500px;
+                height: 320px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
-                 top:50%;
+                top:50%;
                 left: 50%;
                 text-align: center;
             }
@@ -77,28 +77,20 @@
 
     </head>
     <body>
-        <form class="box" method="post" action="http://localhost:8080/Project360/newFormNurse" >
-            <h1>Εγγραφή νέου Νοσοκόμου</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/newFormVisit" >
+            <h1>Εγγραφή νέας Επίσκεψης</h1>
             <table>
                 <tr>
-                    <td align="right">Username:</td>
-                    <td align="left"><input type="text" id="username" name="username" value=""  /></td>
+                    <td align="right">Patient ID:</td>
+                    <td align="left"><input type="text" id="pid" name="pid" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Password:</td>
-                    <td align="left"><input type="text" id="password" name="password" value=""  /></td>
+                    <td align="right">Date:</td>
+                    <td align="left"><input type="text" id="date" name="date" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">First Name:</td>
-                    <td align="left"><input type="text" id="firstname" name="firstname" value=""  /></td>
-                </tr>
-                <tr>
-                    <td align="right">Last Name:</td>
-                    <td align="left"><input type="text" id="lastname" name="lastname" value=""  /></td>
-                </tr>
-                <tr>
-                    <td align="right">Telephone:</td>
-                    <td align="left"><input type="text" id="telephone" name="telephone" value=""  /></td>
+                    <td align="right">Symptoms:</td>
+                    <td align="left"><input type="text" id="symptoms" name="symptoms" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>

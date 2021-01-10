@@ -14,7 +14,8 @@ import java.sql.*;
 
 public class Main {
 
-    public static int id = 7;
+    public static int id = 36;
+    public static int id_visit = 2;
 
     public static void main(String args[]) {
         try {
@@ -96,7 +97,7 @@ public class Main {
             nurse.insertNurse(14, "Manolis", "Koyridakis", "6989904443");
             nurse.insertNurse(15, "Iwanna", "Metaxa", "6958987543");
 
-            employee.insertEmployee(16, "Katerina", "Diamanti", "6985888585");
+            employee.insertEmployee(16, "Lina", "Diamanti", "6985888585");
             employee.insertEmployee(17, "Paylos", "Athanasioy", "6985678580");
             employee.insertEmployee(18, "Stratos", "Papadakis", "6995845590");
             employee.insertEmployee(19, "Alexis", "Nikiforoy", "6989088545");
@@ -106,7 +107,7 @@ public class Main {
             doc.insertDoctor(22, "George", "Papadakis", "Dermatologist", "6967543212");
             doc.insertDoctor(23, "John", "Papadopoylos", "Gastroenterologist", "6967903213");
             doc.insertDoctor(24, "Manos", "Aggelidakis", "Neurologist", "6950543234");
-            doc.insertDoctor(25, "Katerina", "Petraki", "Pathologist", "6967543212");
+            doc.insertDoctor(25, "Katerina", "Petraki", "Pathologist", "6967543213");
             doc.insertDoctor(26, "Petros", "Dimitrioy", "Surgeon", "6969544517");
             doc.insertDoctor(27, "Aggeliki", "Nikolaoy", "Pulmonologist", "6965443172");
             doc.insertDoctor(28, "Dimitris", "Papadakos", "Neurologist", "6968943902");
@@ -121,7 +122,7 @@ public class Main {
             user.insertLoginInfo(1, "patient", "kwstas", "kwstas123");
             user.insertLoginInfo(2, "patient", "mixalis", "mixalis123");
             user.insertLoginInfo(3, "patient", "anastasia", "anastasia123");
-            user.insertLoginInfo(4, "patient", "grogoris", "grogoris123");
+            user.insertLoginInfo(4, "patient", "grigoris", "grigoris123");
             user.insertLoginInfo(5, "patient", "natasa", "natasa123");
 
             user.insertLoginInfo(6, "nurse", "giannis", "giannis123");
@@ -135,7 +136,7 @@ public class Main {
             user.insertLoginInfo(14, "nurse", "manolis", "manolis123");
             user.insertLoginInfo(15, "nurse", "iwanna", "iwanna123");
 
-            user.insertLoginInfo(16, "employee", "katerina", "katerina123");
+            user.insertLoginInfo(16, "employee", "lina", "lina123");
             user.insertLoginInfo(17, "employee", "paylos", "paylos123");
             user.insertLoginInfo(18, "employee", "stratos", "stratos123");
             user.insertLoginInfo(19, "employee", "alexis", "alexis123");
@@ -157,7 +158,7 @@ public class Main {
             user.insertLoginInfo(34, "doctor", "dimitra", "dimitra123");
             user.insertLoginInfo(35, "doctor", "anna", "anna123");
 
-           // user.get_Info();
+            // user.get_Info();
             employee.get_Employees();
             dis.insertDisease(1, "Stroke");
             dis.insertDisease(2, "Covid-19");
@@ -180,12 +181,12 @@ public class Main {
             //pstmt.executeUpdate();
             //System.out.println(doc.get_id("oli"));
             //doc.deleteDoctor(3, "oli", "popa");
-            sym.insertSymptom(5, "bhxas");
-            sym.insertSymptom(3, "pyretos");
+            //sym.insertSymptom(5, "bhxas");
+            //sym.insertSymptom(3, "pyretos");
             //nurse.insertNurse(4, "giorgos", "kokolakis", "6958907643");
             //employee.insertEmployee(6, "manolhs", "chatzakis", "6985888585466");
             //med.insertMedicine(8, "ntepon", "hapi", 135, 23);
-            visit.insertVisit(7, 1, "25/1/2020", "ponokoilos,pyretos,zalada");
+            visit.insertVisit(1, 1, "25/1/2020");
             //nurse.updateNurse(4, "giorgos", "papadakis", "6969696969");
             //employee.deleteEmployee(6, "manolhs", "chatzakis");
             //nurse.deleteNurse(4, "giorgos", "kokolakis");

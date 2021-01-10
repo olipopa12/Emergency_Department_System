@@ -26,7 +26,7 @@ public class Symptoms {
         return symptom;
     }
 
-    void insertSymptom(int id, String sym) throws ClassNotFoundException, SQLException {
+    public void insertSymptom(int id, String sym) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");

@@ -5,8 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nurse</title>
-        <script type="text/javascript" src="javascript/nurse.js"></script>
-        <script type="text/javascript" src="javascript/changeNurse.js"></script>
+       <script type="text/javascript" src="javascript/all_entities.js"></script>
+        <script type="text/javascript" src="javascript/updates.js"></script>
         <style>
 
             .box {
@@ -67,27 +67,25 @@
                 background: #123672;
                 border: 2px solid #123672;
             }
-            .lboxes input[type="submit"] {
-                background: none;
+           .lboxes input[type="submit"] {
+                background: #97c984;
                 border: 2px solid #006d67;
-                outline: none;
                 color: rgb(3, 2, 2);
                 border-radius: 24px;
-                padding:4px 15px;
+                outline: none;
+                padding:7px 18px;
                 transition: 0.20s;
                 cursor: pointer;
             }
             .lboxes {
-                background: #97c984;
-                border-radius: 50px;
-
-                width: 17%;
-                height: 10vh;
+                width: 5%;
+                height: 5vh;
             }
             .lboxes input[type="submit"]:hover {
                 background: #123672;
                 border: 2px solid #123672;
             }
+
         </style>
         <%
             String firstname = (String) session.getAttribute("firstname");
@@ -120,10 +118,22 @@
                     </tr>
                 </table>
             </form>
-            <div class="lboxes" style="margin-top:7%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/changeNurse">
+            <div class="lboxes" style="margin-top:15%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"  >
                     </br>
-                    <input type="submit" name="" onclick="changeNurse()"  value="change informations">
+                    <input type="submit" name="" onclick="changeNurse()"  value="Change my infos">
+                </form>
+            </div>
+                    <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"  >
+                    </br>
+                    <input type="submit" name="" onclick="changeNurse()"  value="Add new clinic examination">
+                </form>
+            </div>
+                     <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"  >
+                    </br>
+                    <input type="submit" name="" onclick="changeNurse()"  value="See patients' infos">
                 </form>
             </div>
         </div>

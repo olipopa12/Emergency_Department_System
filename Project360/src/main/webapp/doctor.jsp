@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Doctor</title>
-        <script type="text/javascript" src="javascript/doctor.js"></script>
+        <script type="text/javascript" src="javascript/all_entities.js"></script>
         <script type="text/javascript" src="javascript/changeDoctor.js"></script>
         <style>
 
@@ -76,21 +76,18 @@
             }
 
             .lboxes input[type="submit"] {
-                background: none;
+                background: #97c984;
                 border: 2px solid #006d67;
-                outline: none;
                 color: rgb(3, 2, 2);
                 border-radius: 24px;
-                padding:4px 15px;
+                outline: none;
+                padding:7px 18px;
                 transition: 0.20s;
                 cursor: pointer;
             }
             .lboxes {
-                background: #97c984;
-                border-radius: 50px;
-
-                width: 17%;
-                height: 10vh;
+                width: 5%;
+                height: 5vh;
             }
             .lboxes input[type="submit"]:hover {
                 background: #123672;
@@ -136,12 +133,37 @@
 
                 </table>
             </form>
-            <div class="lboxes" style="margin-top:7%; margin-left:5%; text-align: center;">
+            <div class="lboxes" style="margin-top:8%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   >
-                    </br>
-                    <input type="submit" name="" onclick="changeDoctor()"  value="change informations">
+                    <input type="submit" name="" onclick="changeDoctor()"  value="Change my infos">
                 </form> 
             </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   >
+                    <input type="submit" name="" onclick="changeDoctor()"  value="Add new examination">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   >
+                    <input type="submit" name="" onclick="changeDoctor()"  value="Add new re-examination">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   >
+                    <input type="submit" name="" onclick="changeDoctor()"  value="Order clinic examination">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   >
+                    <input type="submit" name="" onclick="changeDoctor()"  value="See list of medicines">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   >
+                    <input type="submit" name="" onclick="changeDoctor()"  value="See patient's infos">
+                </form> 
+            </div>
+
         </div>
     </body>
 </html>

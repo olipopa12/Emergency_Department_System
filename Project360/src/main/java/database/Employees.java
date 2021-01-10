@@ -101,7 +101,7 @@ public void get_Employees() throws ClassNotFoundException, SQLException {
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
                 phone = rs.getString("phone");
-                System.out.println(id + " " + first + " " + last + " " + phone);
+                //System.out.println(id + " " + first + " " + last + " " + phone);
             }
             // System.out.println(r);
             con.close();

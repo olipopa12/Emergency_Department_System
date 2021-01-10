@@ -5,8 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Patient</title>
-        <script type="text/javascript" src="javascript/patient.js"></script>
-        <script type="text/javascript" src="javascript/changePatient.js"></script>
+        <script type="text/javascript" src="javascript/all_entities.js"></script>
+        <script type="text/javascript" src="javascript/updates.js"></script>
         <style>
 
             .box {
@@ -14,38 +14,15 @@
                 height: 780px;
                 padding: 40px;
                 position: absolute;
-
+                top: 65%;
+                left: 50%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
                 text-align: center;
             }
-            @media (max-width: 992px) { 
-                .box{
-                    top: 60%;
-                    left: 50%;
-                }
-            }
-            @media (min-width: 992px) { 
-                .box{
-                    top: 50%;
-                    left: 50%;
-                }
-            }
-            @media (min-width: 1200px) { 
-                .box{
-                    top: 60%;
-                    left: 50%;
-                }
-            }
 
-            @media (min-width: 1359px) {
-                .box{
-                    top: 80%;
-                    left: 50%;
-                }
 
-            }
             body { background: url(back.jpg) no-repeat fixed;
                    -webkit-background-size: cover;
                    -moz-background-size: cover;
@@ -95,26 +72,24 @@
             }
 
             .lboxes input[type="submit"] {
-                background: none;
+                background: #97c984;
                 border: 2px solid #006d67;
-                outline: none;
                 color: rgb(3, 2, 2);
                 border-radius: 24px;
-                padding:4px 15px;
+                outline: none;
+                padding:7px 18px;
                 transition: 0.20s;
                 cursor: pointer;
             }
             .lboxes {
-                background: #97c984;
-                border-radius: 50px;
-
-                width: 17%;
-                height: 10vh;
+                width: 5%;
+                height: 5vh;
             }
             .lboxes input[type="submit"]:hover {
                 background: #123672;
                 border: 2px solid #123672;
             }
+
         </style>
         <%
             String firstname = (String) session.getAttribute("firstname");
@@ -181,10 +156,14 @@
 
                 </table>
             </form>
-            <div class="lboxes" style="margin-top:7%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/changePatient">
-                    </br>
-                    <input type="submit" name="" onclick="changePatient()"  value="change informations">
+            <div class="lboxes" style="margin-top:25%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   >
+                    <input type="submit" name="" onclick="changePatient()"  value="Change my infos">
+                </form>
+            </div>
+            <div class="lboxes" style="margin-top:5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   >
+                    <input type="submit" name="" onclick="changePatient()"  value="See my history">
                 </form>
             </div>
         </div>

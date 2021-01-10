@@ -9,7 +9,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="javascript/registerDoctor.js"></script>
+        <script type="text/javascript" src="javascript/registers.js"></script>
         <title>Register Doctor</title>
         <style>
 
@@ -21,7 +21,7 @@
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
-                top:75%;
+                top:50%;
                 left: 50%;
                 text-align: center;
             }
