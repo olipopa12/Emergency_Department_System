@@ -34,10 +34,13 @@ public class changeNurse extends HttpServlet {
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
             String telephone = request.getParameter("telephone");
-
+            /*String oldfirstname = request.getParameter("oldfirstname");
+            String oldlastname = request.getParameter("oldlastname");
+            String oldtelephone = request.getParameter("oldtelephone");*/
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
+            //int ID = nurse.get_id(oldfirstname, oldlastname, oldtelephone);
             int ID = nurse.get_id(firstname, lastname, telephone);
             nurse.updateNurse(ID, firstname, lastname, telephone);
 

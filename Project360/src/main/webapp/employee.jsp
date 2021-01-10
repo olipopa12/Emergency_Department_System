@@ -8,8 +8,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Employee</title>
         <script type="text/javascript" src="javascript/all_entities.js"></script>
-        <script type="text/javascript" src="javascript/registers.js"></script>
         <script type="text/javascript" src="javascript/updates.js"></script>
+        <script type="text/javascript" src="javascript/registers.js"></script>
         <style>
             .box {
                 border-radius: 50px;
@@ -92,15 +92,11 @@
                 background: #123672;
                 border: 2px solid #123672;
             }
-
-            <% String firstname = (String) session.getAttribute("firstname"); %>
-            <%String lastname = (String) session.getAttribute("lastname");  %>
-            <%String telephone = (String) session.getAttribute("telephone");%>
         </style>
 
     </head>
 
-    <body>
+    <body onload="Employee()">
         <div class="container ">
 
             <form class="box">
@@ -108,15 +104,15 @@
                 <table>
                     <tr>
                         <td align="right">First Name:</td>
-                        <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"   /></td>
+                        <td align="left"><input type="text" id="firstname" name="firstname" value=""   /></td>
                     </tr>
                     <tr>
                         <td align="right">Last Name:</td>
-                        <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /> </td>  
+                        <td align="left"><input type="text" id="lastname" name="lastname" value=""  /> </td>  
                     </tr>
                     <tr>
                         <td align="right">Telephone:</td>
-                        <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /> </td>
+                        <td align="left"><input type="text" id="telephone" name="telephone" value="" /> </td>
                     </tr>
                     </br>
 
@@ -125,8 +121,8 @@
 
 
             <div class="lboxes" style="margin-top:1.5%; margin-left:5%; text-align: center;">
-                <form  method="post"  action="http://localhost:8080/Project360/changeEmployee">
-                    <input type="submit" name=""  value="Change my info">
+                <form  method="post" >
+                    <input type="submit" name="" onclick="changeEmployee()" value="Change my info">
                 </form>
             </div>
 

@@ -36,7 +36,7 @@ public class login extends HttpServlet {
             // read form fields
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            
+
             if (username.equals(" ") || password.equals(" ")) {
                 response.sendRedirect(request.getContextPath() + "/errorUser");
             }
@@ -52,12 +52,11 @@ public class login extends HttpServlet {
             String specialty = null;
             int ID = -1;
             role = info.get_role(username, password);
-            
+
             if (role != null) {
                 ID = info.get_id(username, password);
 
-               //System.out.println(role + " " + ID);
-
+                //System.out.println(role + " " + ID);
                 // System.out.println("password: " + password);
                 HttpSession session = request.getSession(); //Creating a session
 

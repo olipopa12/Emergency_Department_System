@@ -48,7 +48,6 @@ public class newFormEmployee extends HttpServlet {
             int w = user.insertLoginInfo(employee.get_id(firstname, lastname, telephone), "employee", username, password);
             if (w == 1) {
                 employee.insertEmployee( firstname, lastname, telephone);
-               // Main.id++;
             }
 
             request.getRequestDispatcher("index.jsp").forward(request, response);

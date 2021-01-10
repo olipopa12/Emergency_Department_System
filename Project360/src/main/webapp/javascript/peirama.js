@@ -4,7 +4,7 @@ function getElementById()
      document.getElementById("demo").innerHTML =
      "The text from the intro paragraph is " + myElement.innerHTML;*/
     var xhttp = new XMLHttpRequest();
-    var name = "";
+    //var name = "";
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             //esteila post request sto servlet kai mou apanthse me string
@@ -18,5 +18,5 @@ function getElementById()
     xhttp.open("POST", "http://localhost:8080/Project360/peirama");
     //event.preventDefault();
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
-    xhttp.send(name);
+    //xhttp.send(name);
 }

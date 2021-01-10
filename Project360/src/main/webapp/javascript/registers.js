@@ -7,15 +7,15 @@ function registerDoctor() {
     var xhttp = new XMLHttpRequest();
     var name = "";
     name += "username=";
-    name += document.getElementById("name").value;
+    name += document.getElementById("username").value;
     name += "&password=";
     name += document.getElementById("password").value;
-    name += "&telephone=";
-    name += document.getElementById("telephone").value;
     name += "&firstname=";
     name += document.getElementById("firstname").value;
     name += "&lastname=";
     name += document.getElementById("lastname").value;
+    name += "&telephone=";
+    name += document.getElementById("telephone").value;
     name += "&specialty=";
     name += document.getElementById("specialty").value;
     xhttp.onreadystatechange = function () {
@@ -36,16 +36,15 @@ function registerEmployee() {
     var xhttp = new XMLHttpRequest();
     var name = "";
     name += "username=";
-    name += document.getElementById("name").value;
+    name += document.getElementById("username").value;
     name += "&password=";
     name += document.getElementById("password").value;
-    name += "&telephone=";
-    name += document.getElementById("telephone").value;
     name += "&firstname=";
     name += document.getElementById("firstname").value;
     name += "&lastname=";
     name += document.getElementById("lastname").value;
-
+    name += "&telephone=";
+    name += document.getElementById("telephone").value;
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             // Typical action to be performed when the document is ready:
@@ -64,16 +63,15 @@ function registerNurse() {
     var xhttp = new XMLHttpRequest();
     var name = "";
     name += "username=";
-    name += document.getElementById("name").value;
+    name += document.getElementById("username").value;
     name += "&password=";
     name += document.getElementById("password").value;
-    name += "&telephone=";
-    name += document.getElementById("telephone").value;
     name += "&firstname=";
     name += document.getElementById("firstname").value;
     name += "&lastname=";
     name += document.getElementById("lastname").value;
-
+    name += "&telephone=";
+    name += document.getElementById("telephone").value;
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             // Typical action to be performed when the document is ready:
@@ -92,26 +90,25 @@ function registerPatient() {
     var xhttp = new XMLHttpRequest();
     var name = "";
     name += "username=";
-    name += document.getElementById("name").value;
+    name += document.getElementById("username").value;
     name += "&password=";
     name += document.getElementById("password").value;
-    name += "&telephone=";
-    name += document.getElementById("telephone").value;
     name += "&firstname=";
     name += document.getElementById("firstname").value;
     name += "&lastname=";
     name += document.getElementById("lastname").value;
-    name += "&amka=";
-    name += document.getElementById("amka").value;
+    name += "&telephone=";
+    name += document.getElementById("telephone").value;
     name += "&insurance=";
     name += document.getElementById("insurance").value;
+    name += "&amka=";
+    name += document.getElementById("amka").value;
     name += "&road=";
     name += document.getElementById("road").value;
     name += "&tk=";
     name += document.getElementById("tk").value;
     name += "&number=";
     name += document.getElementById("number").value;
-
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             // Typical action to be performed when the document is ready:

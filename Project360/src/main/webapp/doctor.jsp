@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Doctor</title>
         <script type="text/javascript" src="javascript/all_entities.js"></script>
-        <script type="text/javascript" src="javascript/changeDoctor.js"></script>
+        <script type="text/javascript" src="javascript/updates.js"></script>
         <style>
 
             .box {
@@ -95,47 +95,36 @@
             }
 
         </style>
-        <%
-            String firstname = (String) session.getAttribute("firstname");
-        %>
-        <%
-            String lastname = (String) session.getAttribute("lastname");
-        %>
-        <%
-            String specialty = (String) session.getAttribute("specialty");
-        %>
-        <%
-            String telephone = (String) session.getAttribute("telephone");
-        %>
+
 
     </head>
-    <body>
+    <body onload="Doctor()">
         <div class="container">
             <form class="box">
                 <h1>Στοιχεία Γιατρού</h1>
                 <table>
                     <tr>
                         <td align="right">First Name:</td>
-                        <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
+                        <td align="left"><input type="text" id="firstname" name="firstname" value=""  /></td>
                     </tr>
                     <tr>
                         <td align="right">Last Name:</td>
-                        <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
+                        <td align="left"><input type="text" id="lastname" name="lastname" value=""  /></td>
                     </tr>
                     <tr>
                         <td align="right">Specialty:</td>
-                        <td align="left"> <input type="text" id="specialty" name="specialty" value="<%= specialty%>" /></td>
+                        <td align="left"> <input type="text" id="specialty" name="specialty" value="" /></td>
                     </tr>
                     <tr>
                         <td align="right">Telephone:</td>
-                        <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
+                        <td align="left"><input type="text" id="telephone" name="telephone" value="" /></td>
                     </tr>
 
                 </table>
             </form>
             <div class="lboxes" style="margin-top:8%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   >
-                    <input type="submit" name="" onclick="changeDoctor()"  value="Change my infos">
+                    <input type="submit" name="" onclick="changeDoctor()" value="Change my infos">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">

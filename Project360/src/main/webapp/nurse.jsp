@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nurse</title>
-       <script type="text/javascript" src="javascript/all_entities.js"></script>
+        <script type="text/javascript" src="javascript/all_entities.js"></script>
         <script type="text/javascript" src="javascript/updates.js"></script>
         <style>
 
@@ -67,7 +67,7 @@
                 background: #123672;
                 border: 2px solid #123672;
             }
-           .lboxes input[type="submit"] {
+            .lboxes input[type="submit"] {
                 background: #97c984;
                 border: 2px solid #006d67;
                 color: rgb(3, 2, 2);
@@ -87,34 +87,25 @@
             }
 
         </style>
-        <%
-            String firstname = (String) session.getAttribute("firstname");
-        %>
-        <%
-            String lastname = (String) session.getAttribute("lastname");
-        %>
 
-        <%
-            String telephone = (String) session.getAttribute("telephone");
-        %>
     </head>
-    <body>
+    <body onload="Nurse()">
         <div class="container">
             <form class="box">
                 <h1>Στοιχεία Νοσοκόμου</h1>
                 <table>
                     <tr>
                         <td align="right">First Name:</td>
-                        <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
+                        <td align="left"><input type="text" id="firstname" name="firstname" value=""  /></td>
                     </tr>
                     <tr>
                         <td align="right">Last Name:</td>
-                        <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
+                        <td align="left"><input type="text" id="lastname" name="lastname" value=""  /></td>
                     </tr>
                     </br>
                     <tr>
                         <td align="right">Telephone</td>
-                        <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
+                        <td align="left"><input type="text" id="telephone" name="telephone" value="" /></td>
                     </tr>
                 </table>
             </form>
@@ -124,13 +115,13 @@
                     <input type="submit" name="" onclick="changeNurse()"  value="Change my infos">
                 </form>
             </div>
-                    <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"  >
                     </br>
                     <input type="submit" name="" onclick="changeNurse()"  value="Add new clinic examination">
                 </form>
             </div>
-                     <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"  >
                     </br>
                     <input type="submit" name="" onclick="changeNurse()"  value="See patients' infos">

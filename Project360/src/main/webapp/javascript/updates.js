@@ -7,7 +7,7 @@
 function changePatient() {
     var xhttp = new XMLHttpRequest();
     var name = "";
-   
+
     name += "telephone=";
     name += document.getElementById("telephone").value;
     name += "&firstname=";
@@ -24,7 +24,7 @@ function changePatient() {
     name += document.getElementById("tk").value;
     name += "&number=";
     name += document.getElementById("number").value;
-    
+
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             // Typical action to be performed when the document is ready:
@@ -98,7 +98,7 @@ function changeDoctor() {
     name += document.getElementById("firstname").value;
     name += "&lastname=";
     name += document.getElementById("lastname").value;
-     name += "&specialty=";
+    name += "&specialty=";
     name += document.getElementById("specialty").value;
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -106,6 +106,9 @@ function changeDoctor() {
             //document.getElementById("demo").innerHTML = xhttp.responseText;
             // window.alert(xhttp.responseText);
             //console.log(xhttp.responseText);
+            var myElement = xhttp.responseText;
+            console.log(myElement);
+            document.getElementById("demo").innerHTML = myElement;
         }
     };
     xhttp.open("POST", "http://localhost:8080/Project360/changeDoctor");

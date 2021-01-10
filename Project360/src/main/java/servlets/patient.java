@@ -6,10 +6,12 @@
 package servlets;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,6 +31,14 @@ public class patient extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        /*String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String telephone = request.getParameter("telephone");
+        String specialty = request.getParameter("specialty");
+        System.out.println((String) firstname);
+        System.out.println((String) lastname);
+        System.out.println((String) telephone);
+        System.out.println((String) specialty);*/
         request.getRequestDispatcher("patient.jsp").forward(request, response);
     }
 
@@ -43,7 +53,23 @@ public class patient extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.getOutputStream().println("patient"); //finish
+        String all = "";
+        all += request.getSession(false).getAttribute("firstname");
+        all += ",";
+        all += request.getSession(false).getAttribute("lastname");
+        all += ",";
+        all += request.getSession(false).getAttribute("telephone");
+        all += ",";
+        all += request.getSession(false).getAttribute("insurance");
+        all += ",";
+        all += request.getSession(false).getAttribute("amka");
+        all += ",";
+        all += request.getSession(false).getAttribute("tk");
+        all += ",";
+        all += request.getSession(false).getAttribute("road");
+        all += ",";
+        all += request.getSession(false).getAttribute("number");
+        String arr = URLEncoder.encode(all, "utf-8");
+        response.getOutputStream().println(all); //finish
     }
-
 }

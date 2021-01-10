@@ -91,67 +91,44 @@
             }
 
         </style>
-        <%
-            String firstname = (String) session.getAttribute("firstname");
-        %>
-        <%
-            String lastname = (String) session.getAttribute("lastname");
-        %>
-        <%
-            int number = (Integer) session.getAttribute("number");
-        %>
-        <%
-            int tk = (Integer) session.getAttribute("tk");
-        %>
-        <%
-            String road = (String) session.getAttribute("road");
-        %>
-        <%
-            String AMKA = (String) session.getAttribute("amka");
-        %>
-        <%
-            String insurance = (String) session.getAttribute("insurance");
-        %>
-        <%
-            String telephone = (String) session.getAttribute("telephone");
-        %>
+
     </head>
-    <body>
+    <body onload="Patient()">
         <div class="container">
             <form class="box">
                 <h1>Στοιχεία Ασθενή</h1>
                 <table>
                     <tr>
                         <td align="right">First Name:</td>
-                        <td align="left"><input type="text" id="firstname" name="firstname" value="<%= firstname%>"  /></td>
+                        <td align="left"><input type="text" id="firstname" name="firstname" value=""  /></td>
                     </tr>
                     <tr>
                         <td align="right">Last Name:</td>
-                        <td align="left"><input type="text" id="lastname" name="lastname" value="<%= lastname%>"  /></td>
+                        <td align="left"><input type="text" id="lastname" name="lastname" value=""  /></td>
                     </tr>
                     <tr>
                         <td align="right">Telephone:</td>
-                        <td align="left"><input type="text" id="telephone" name="telephone" value="<%= telephone%>" /></td>
+                        <td align="left"><input type="text" id="telephone" name="telephone" value="" /></td>
                     </tr>
                     <tr>
                         <td align="right">TK:</td>
-                        <td align="left"> <input type="text" id="tk" name="tk" value="<%= tk%>"/></td>
+                        <td align="left"> <input type="text" id="tk" name="tk" value=""/></td>
                     </tr>
                     <tr>
                         <td align="right">Road:</td>
-                        <td align="left"> <input type="text" id="road" name="road" value="<%= road%>" /></td>
+                        <td align="left"> <input type="text" id="road" name="road" value="" /></td>
                     </tr>
                     <tr>
                         <td align="right">Number:</td>
-                        <td align="left"> <input type="text" id="number" name="number" value="<%= number%>" /></td>
+                        <td align="left"> <input type="text" id="number" name="number" value="" /></td>
                     </tr>
                     <tr>
                         <td align="right">AMKA:</td>
-                        <td align="left"> <input type="text" id="amka" name="amka" value="<%= AMKA%>" /></td>
+                        <td align="left"> <input type="text" id="amka" name="amka" value="" /></td>
                     </tr>
                     <tr>
                         <td align="right">Insurance:</td>
-                        <td align="left"> <input type="text" id="insurance" name="insurance" value="<%= insurance%>" /></td>
+                        <td align="left"> <input type="text" id="insurance" name="insurance" value="" /></td>
                     </tr>
 
                 </table>

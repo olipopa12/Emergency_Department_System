@@ -6,10 +6,12 @@
 package servlets;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,6 +31,7 @@ public class employee extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         request.getRequestDispatcher("employee.jsp").forward(request, response);
     }
 
@@ -43,8 +46,13 @@ public class employee extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.getOutputStream().println("employee"); //finish
-
+        String all = "";
+        all += request.getSession(false).getAttribute("firstname");
+        all += ",";
+        all += request.getSession(false).getAttribute("lastname");
+        all += ",";
+        all += request.getSession(false).getAttribute("telephone");
+        String arr = URLEncoder.encode(all, "utf-8");
+        response.getOutputStream().println(all); //finish
     }
-
 }

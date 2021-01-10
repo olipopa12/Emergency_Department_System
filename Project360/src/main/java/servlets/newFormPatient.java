@@ -53,7 +53,6 @@ public class newFormPatient extends HttpServlet {
            // w = user.insertLoginInfo(0,0,0,l, "patient", username, password);
             
                 patient.insertPatient( amka, firstname, lastname, insurance, road, Integer.parseInt(number), Integer.parseInt(tk), telephone);
-                //Main.id++;
                 
                 w = user.insertLoginInfo(patient.get_id(firstname, lastname, telephone), "patient", username, password);
                 if(w!=1){

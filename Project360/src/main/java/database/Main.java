@@ -15,7 +15,6 @@ import static java.sql.JDBCType.NULL;
 
 public class Main {
 
-    public static int id = 36;
     public static int id_visit = 2;
 
     public static void main(String args[]) {
@@ -81,60 +80,59 @@ public class Main {
             String createCdisease = chronicDis.createChronicDisease();
             stmt.executeUpdate(createCdisease);
 
-            patient.insertPatient( "12119912345", "Kwstas", "Papadopoylos", "IKA", "Knosoy", 56, 21346, "6987453290");
-            patient.insertPatient( "28019812945", "Mixalis", "Sifakis", "OGA", "Smyrnis", 34, 16100, "6987883670");
-            patient.insertPatient( "19017912348", "Anastasia", "Fanoyraki", "IKA", "Mesologgioy", 78, 56789, "6935456790");
-            patient.insertPatient( "09081012325", "Grigoris", "Spyroy", "IKA", "Eirinis", 90, 25604, "6997477294");
-            patient.insertPatient( "18070012341", "Natasa", "Polaki", "OGA", "Papandreoy", 2, 81347, "6987422299");
+            patient.insertPatient("12119912345", "Kwstas", "Papadopoylos", "IKA", "Knosoy", 56, 21346, "6987453290");
+            patient.insertPatient("28019812945", "Mixalis", "Sifakis", "OGA", "Smyrnis", 34, 16100, "6987883670");
+            patient.insertPatient("19017912348", "Anastasia", "Fanoyraki", "IKA", "Mesologgioy", 78, 56789, "6935456790");
+            patient.insertPatient("09081012325", "Grigoris", "Spyroy", "IKA", "Eirinis", 90, 25604, "6997477294");
+            patient.insertPatient("18070012341", "Natasa", "Polaki", "OGA", "Papandreoy", 2, 81347, "6987422299");
 
-          //  patient.insertPatient(NULL create, create, create, create, create, id, id, create);
-            
-            nurse.insertNurse( "Giannis", "Xristoy", "6958907643");
-            nurse.insertNurse( "Kwstantina", "Papa", "6925907673");
-            nurse.insertNurse( "Afroditi", "Dimoy", "6969990640");
-            nurse.insertNurse( "Lazaros", "Dimitriadis", "6900907993");
-            nurse.insertNurse( "Andreas", "Melas", "6932907743");
-            nurse.insertNurse( "Ilias", "Georgioy", "6958897699");
-            nurse.insertNurse( "Ermioni", "Anastasopoyloy", "6958557644");
-            nurse.insertNurse( "Vasilis", "Vasileioy", "6933900643");
-            nurse.insertNurse( "Manolis", "Koyridakis", "6989904443");
-            nurse.insertNurse( "Iwanna", "Metaxa", "6958987543");
+            //  patient.insertPatient(NULL create, create, create, create, create, id, id, create);
+            nurse.insertNurse("Giannis", "Xristoy", "6958907643");
+            nurse.insertNurse("Kwstantina", "Papa", "6925907673");
+            nurse.insertNurse("Afroditi", "Dimoy", "6969990640");
+            nurse.insertNurse("Lazaros", "Dimitriadis", "6900907993");
+            nurse.insertNurse("Andreas", "Melas", "6932907743");
+            nurse.insertNurse("Ilias", "Georgioy", "6958897699");
+            nurse.insertNurse("Ermioni", "Anastasopoyloy", "6958557644");
+            nurse.insertNurse("Vasilis", "Vasileioy", "6933900643");
+            nurse.insertNurse("Manolis", "Koyridakis", "6989904443");
+            nurse.insertNurse("Iwanna", "Metaxa", "6958987543");
 
-            employee.insertEmployee( "Lina", "Diamanti", "6985888585");
-            employee.insertEmployee( "Paylos", "Athanasioy", "6985678580");
-            employee.insertEmployee( "Stratos", "Papadakis", "6995845590");
-            employee.insertEmployee( "Alexis", "Nikiforoy", "6989088545");
-            employee.insertEmployee( "Pelagia", "Dimitrioy", "6985558576");
+            employee.insertEmployee("Lina", "Diamanti", "6985888585");
+            employee.insertEmployee("Paylos", "Athanasioy", "6985678580");
+            employee.insertEmployee("Stratos", "Papadakis", "6995845590");
+            employee.insertEmployee("Alexis", "Nikiforoy", "6989088545");
+            employee.insertEmployee("Pelagia", "Dimitrioy", "6985558576");
 
-            doc.insertDoctor( "Olimpia", "Popa", "Cardiologist", "6980765432");
-            doc.insertDoctor( "George", "Papadakis", "Dermatologist", "6967543212");
-            doc.insertDoctor( "John", "Papadopoylos", "Gastroenterologist", "6967903213");
-            doc.insertDoctor( "Manos", "Aggelidakis", "Neurologist", "6950543234");
-            doc.insertDoctor( "Katerina", "Petraki", "Pathologist", "6967543213");
-            doc.insertDoctor( "Petros", "Dimitrioy", "Surgeon", "6969544517");
-            doc.insertDoctor( "Aggeliki", "Nikolaoy", "Pulmonologist", "6965443172");
-            doc.insertDoctor( "Dimitris", "Papadakos", "Neurologist", "6968943902");
-            doc.insertDoctor( "Maria", "Spyropoyloy", "Dermatologist", "6965693632");
-            doc.insertDoctor( "Eleni", "Nomikoy", "Pulmonologist", "6965421169");
-            doc.insertDoctor( "Kwstantinos", "Paylidis", "Cardiologist", "6965003152");
-            doc.insertDoctor( "Nikolaos", "Panagiwtakis", "Gastroenterologist", "6969443145");
-            doc.insertDoctor( "Leyteris", "Papapetroy", "Surgeon", "6965446869");
-            doc.insertDoctor( "Dimitra", "Diakatoy", "Pathologist", "6965673175");
-            doc.insertDoctor( "Anna", "Alexioy", "Cardiologist", "6962343170");
+            doc.insertDoctor("Olimpia", "Popa", "Cardiologist", "6980765432");
+            doc.insertDoctor("George", "Papadakis", "Dermatologist", "6967543212");
+            doc.insertDoctor("John", "Papadopoylos", "Gastroenterologist", "6967903213");
+            doc.insertDoctor("Manos", "Aggelidakis", "Neurologist", "6950543234");
+            doc.insertDoctor("Katerina", "Petraki", "Pathologist", "6967543213");
+            doc.insertDoctor("Petros", "Dimitrioy", "Surgeon", "6969544517");
+            doc.insertDoctor("Aggeliki", "Nikolaoy", "Pulmonologist", "6965443172");
+            doc.insertDoctor("Dimitris", "Papadakos", "Neurologist", "6968943902");
+            doc.insertDoctor("Maria", "Spyropoyloy", "Dermatologist", "6965693632");
+            doc.insertDoctor("Eleni", "Nomikoy", "Pulmonologist", "6965421169");
+            doc.insertDoctor("Kwstantinos", "Paylidis", "Cardiologist", "6965003152");
+            doc.insertDoctor("Nikolaos", "Panagiwtakis", "Gastroenterologist", "6969443145");
+            doc.insertDoctor("Leyteris", "Papapetroy", "Surgeon", "6965446869");
+            doc.insertDoctor("Dimitra", "Diakatoy", "Pathologist", "6965673175");
+            doc.insertDoctor("Anna", "Alexioy", "Cardiologist", "6962343170");
 
             user.insertLoginInfo(1, "patient", "kwstas", "kwstas123");
             user.insertLoginInfo(2, "patient", "mixalis", "mixalis123");
             user.insertLoginInfo(3, "patient", "anastasia", "anastasia123");
             user.insertLoginInfo(4, "patient", "grigoris", "grigoris123");
             user.insertLoginInfo(5, "patient", "natasa", "natasa123");
-            
+
             user.insertLoginInfo(1, "employee", "lina", "lina123");
             user.insertLoginInfo(2, "employee", "paylos", "paylos123");
             user.insertLoginInfo(3, "employee", "stratos", "stratos123");
             user.insertLoginInfo(4, "employee", "alexis", "alexis123");
             user.insertLoginInfo(5, "employee", "pelagia", "pelagia123");
 
-             user.insertLoginInfo(1, "doctor", "oli", "oli123");
+            user.insertLoginInfo(1, "doctor", "oli", "oli123");
             user.insertLoginInfo(2, "doctor", "george", "george123");
             user.insertLoginInfo(3, "doctor", "john", "john123");
             user.insertLoginInfo(4, "doctor", "manos", "manos123");
@@ -161,8 +159,7 @@ public class Main {
             user.insertLoginInfo(9, "nurse", "manolis", "manolis123");
             user.insertLoginInfo(10, "nurse", "iwanna", "iwanna123");
 
-         
-             //user.get_Info();
+            //user.get_Info();
             employee.get_Employees();
             dis.insertDisease(1, "Stroke");
             dis.insertDisease(2, "Covid-19");

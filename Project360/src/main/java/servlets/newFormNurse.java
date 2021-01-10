@@ -43,7 +43,6 @@ public class newFormNurse extends HttpServlet {
             int w = user.insertLoginInfo(nurse.get_id(firstname, lastname, telephone), "nurse", username, password);
             if (w == 1) {
                 nurse.insertNurse( firstname, lastname, telephone);
-                Main.id++;
             }
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
