@@ -35,7 +35,7 @@
                 color: white;
             }
             .box {
-                width: 750px;
+                width: 850px;
                 height: 1000px;
                 padding: 40px;
                 position: absolute;

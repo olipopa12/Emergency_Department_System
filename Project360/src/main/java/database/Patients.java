@@ -138,8 +138,8 @@ public class Patients {
         int num = 0;
         int tk = 0;
         String phone = null;
-        String pat=null;
-        String allPatients=null;
+        String pat = null;
+        String allPatients = null;
 
         // ResultSet rs=null;
         try {
@@ -156,21 +156,21 @@ public class Patients {
                 num = rs.getInt("number");
                 tk = rs.getInt("tk");
                 phone = rs.getString("phone");
-                pat=(String.valueOf(id) + " " + amka + " " + first + " " + last + " " + insurance + " " + road + " " + String.valueOf(num) + " " + String.valueOf(tk) + " " + phone+",");
-            if(allPatients==null){
-                allPatients=pat;
-            }else{
-                allPatients=allPatients+pat;
-            }
+                pat = (String.valueOf(id) + " " + amka + " " + first + " " + last + " " + insurance + " " + road + " " + String.valueOf(num) + " " + String.valueOf(tk) + " " + phone + ",");
+                if (allPatients == null) {
+                    allPatients = pat;
+                } else {
+                    allPatients = allPatients + pat;
+                }
                 //System.out.println(id + " " + amka + " " + first + " " + last + " " + insurance + " " + road + " " + num + " " + tk + " " + phone);
             }
-            
+
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Patients.class.getName()).log(Level.SEVERE, null, ex);
         }
-return allPatients;
+        return allPatients;
     }
 
     public String get_firstname(int id) throws ClassNotFoundException, SQLException {
