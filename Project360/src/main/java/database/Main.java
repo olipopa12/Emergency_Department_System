@@ -198,7 +198,7 @@ public class Main {
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
-            System.out.println(patientInShift.get_PatientsInShift());
+            System.out.println(patient.get_Patients());
             //chronicDis.get_Cdiseases();
             //sym.get_Symptoms();
             //patient.get_Patients();

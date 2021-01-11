@@ -121,7 +121,7 @@ public class Patients {
 
     }
 
-    public void get_Patients() throws ClassNotFoundException, SQLException {
+    public String get_Patients() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -138,6 +138,8 @@ public class Patients {
         int num = 0;
         int tk = 0;
         String phone = null;
+        String pat=null;
+        String allPatients=null;
 
         // ResultSet rs=null;
         try {
@@ -154,14 +156,21 @@ public class Patients {
                 num = rs.getInt("number");
                 tk = rs.getInt("tk");
                 phone = rs.getString("phone");
-                System.out.println(id + " " + amka + " " + first + " " + last + " " + insurance + " " + road + " " + num + " " + tk + " " + phone);
+                pat=(String.valueOf(id) + " " + amka + " " + first + " " + last + " " + insurance + " " + road + " " + String.valueOf(num) + " " + String.valueOf(tk) + " " + phone+",");
+            if(allPatients==null){
+                allPatients=pat;
+            }else{
+                allPatients=allPatients+pat;
             }
+                //System.out.println(id + " " + amka + " " + first + " " + last + " " + insurance + " " + road + " " + num + " " + tk + " " + phone);
+            }
+            
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+return allPatients;
     }
 
     public String get_firstname(int id) throws ClassNotFoundException, SQLException {
