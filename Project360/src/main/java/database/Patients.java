@@ -119,6 +119,48 @@ public class Patients {
         }
 
     }
+     public void get_Patients() throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement(
+        String med = "SELECT * FROM PATIENTS";
+        PreparedStatement pstmt = con.prepareStatement(med);
+        int id = 0;
+        String amka=null;
+        String first= null;
+        String last= null;
+        String insurance = null;
+        String road=null;
+        int num=0;
+        int tk=0;
+        String phone = null;
+
+        // ResultSet rs=null;
+        try {
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                id = rs.getInt("patientID");
+                amka=rs.getString("AMKA");
+                first = rs.getString("firstname");
+                last = rs.getString("lastname");
+                insurance=rs.getString("insurance");
+                road = rs.getString("road");
+                num = rs.getInt("number");
+                tk = rs.getInt("tk");
+                phone = rs.getString("phone");
+                System.out.println(id + " "+amka+" " +first + " " + last + " " + insurance +" "+road+" "+num+" "+tk+ " " + phone);
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public String get_firstname(int id) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";

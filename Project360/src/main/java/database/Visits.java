@@ -20,7 +20,7 @@ public class Visits {
 
     String createVisit() {
         String visit = "CREATE TABLE IF NOT EXISTS VISITS "
-                + "(visitID INTEGER not NULL, "
+                + "(visitID INTEGER not NULL AUTO_INCREMENT, "
                 + " patientID INTEGER not NULL, "
                 + " date VARCHAR(255), "
                 + " PRIMARY KEY ( visitID ), "
@@ -28,18 +28,18 @@ public class Visits {
         return visit;
     }
 
-    public void insertVisit(int id, int pid, String date) throws ClassNotFoundException, SQLException {
+    public void insertVisit( int pid, String date) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String visit = "INSERT IGNORE INTO VISITS VALUES (?,?,?)";
+        String visit = "INSERT IGNORE INTO VISITS VALUES (default,?,?)";
         PreparedStatement pstmt = con.prepareStatement(visit);
         try {
 
-            pstmt.setInt(1, id);
-            pstmt.setInt(2, pid);
-            pstmt.setString(3, date);
+            //pstmt.setInt(1, id);
+            pstmt.setInt(1, pid);
+            pstmt.setString(2, date);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {

@@ -175,6 +175,19 @@ public class Main {
             med.insertMedicine(5, 6, "Betadine", "Gel", 150);
             med.insertMedicine(6, 4, "Alamycin", "Injectable", 100);
 
+            
+             visit.insertVisit( 1, "25/1/2020");
+             
+            sym.insertSymptom(1, "vixas");
+            sym.insertSymptom(1, "pyretos");
+            sym.insertSymptom(1, "ponolaimos");
+            
+            chronicDis.insertCdisease(2, "Asthma");
+            chronicDis.insertCdisease(2, "Diabetes");
+            chronicDis.insertCdisease(3, "Osteoarthritis");
+            chronicDis.get_Cdiseases();
+            //sym.get_Symptoms();
+            //patient.get_Patients();
             //med.get_Medicines();
             //doc.updateDoctor(3, "oli", "popa", "odontiatros", "6946942351");
             //patient.insertPatient(5, "008855223366", "nikolaos", "papadakis", "ika", "hraklio", 56, 2134, "854125698562");
@@ -187,7 +200,7 @@ public class Main {
             //nurse.insertNurse(4, "giorgos", "kokolakis", "6958907643");
             //employee.insertEmployee(6, "manolhs", "chatzakis", "6985888585466");
             //med.insertMedicine(8, "ntepon", "hapi", 135, 23);
-            visit.insertVisit(1, 1, "25/1/2020");
+           
             //nurse.updateNurse(4, "giorgos", "papadakis", "6969696969");
             //employee.deleteEmployee(6, "manolhs", "chatzakis");
             //nurse.deleteNurse(4, "giorgos", "kokolakis");

@@ -48,8 +48,8 @@ public class newFormVisit extends HttpServlet {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
-            visit.insertVisit(Main.id_visit, Integer.parseInt(pid), date);
-            Main.id_visit++;
+            visit.insertVisit( Integer.parseInt(pid), date);
+           // Main.id_visit++;
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
