@@ -8,6 +8,7 @@ package servlets;
 import database.Doctors;
 import database.LoginInfo;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -28,28 +29,33 @@ public class changeDoctor extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         try {
-
+            String oldfirstname = "";
+            String oldlastname = "";
+            String oldtelephone = "";
+            oldfirstname += request.getSession(false).getAttribute("firstname");
+            oldlastname += request.getSession(false).getAttribute("lastname");
+            oldtelephone += request.getSession(false).getAttribute("telephone");
             // read form fields
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
             String telephone = request.getParameter("telephone");
             String specialty = request.getParameter("specialty");
-
-            System.out.println("firstname: " + firstname);
+            /* System.out.println("firstname: " + firstname);
             System.out.println("lastname: " + lastname);
             System.out.println("telephone: " + telephone);
             System.out.println("specialty: " + specialty);
+            System.out.println("oldfirstname: " + oldfirstname);
+            System.out.println("oldlastname: " + oldlastname);
+            System.out.println("oldtelephone: " + oldtelephone);*/
 
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
-            int ID = doctor.get_id(firstname, lastname, telephone);
+            //int ID = doctor.get_id(firstname, lastname, telephone);
+            int ID = doctor.get_id(oldfirstname, oldlastname, oldtelephone);
             System.out.println("id: " + ID);
-            System.out.println("firstname: " + firstname);
-            System.out.println("lastname: " + lastname);
-            System.out.println("telephone: " + telephone);
-            System.out.println("specialty: " + specialty);
             doctor.updateDoctor(ID, firstname, lastname, specialty, telephone);
+
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
             //con.close();

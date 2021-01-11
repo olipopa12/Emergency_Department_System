@@ -30,7 +30,12 @@ public class changePatient extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         try {
-
+            String oldfirstname = "";
+            String oldlastname = "";
+            String oldtelephone = "";
+            oldfirstname += request.getSession(false).getAttribute("firstname");
+            oldlastname += request.getSession(false).getAttribute("lastname");
+            oldtelephone += request.getSession(false).getAttribute("telephone");
             // read form fields
             String username = request.getParameter("username");
             String password = request.getParameter("password");
@@ -45,7 +50,7 @@ public class changePatient extends HttpServlet {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
-            int ID = patient.get_id(firstname, lastname, telephone);
+            int ID = patient.get_id(oldfirstname, oldlastname, oldtelephone);
             patient.updatePatient(ID, amka, firstname, lastname, insurance, road, Integer.parseInt(num), Integer.parseInt(tk), telephone);
 
             request.getRequestDispatcher("index.jsp").forward(request, response);

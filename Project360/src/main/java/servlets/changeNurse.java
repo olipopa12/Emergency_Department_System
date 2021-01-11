@@ -29,7 +29,12 @@ public class changeNurse extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         try {
-
+            String oldfirstname = "";
+            String oldlastname = "";
+            String oldtelephone = "";
+            oldfirstname += request.getSession(false).getAttribute("firstname");
+            oldlastname += request.getSession(false).getAttribute("lastname");
+            oldtelephone += request.getSession(false).getAttribute("telephone");
             // read form fields
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
@@ -41,9 +46,10 @@ public class changeNurse extends HttpServlet {
             Statement stmt = con.createStatement();
 
             //int ID = nurse.get_id(oldfirstname, oldlastname, oldtelephone);
-            int ID = nurse.get_id(firstname, lastname, telephone);
+            int ID = nurse.get_id(oldfirstname, oldlastname, oldtelephone);
             nurse.updateNurse(ID, firstname, lastname, telephone);
 
+           
             request.getRequestDispatcher("index.jsp").forward(request, response);
 
             //con.close();

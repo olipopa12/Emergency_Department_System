@@ -30,6 +30,12 @@ public class changeEmployee extends HttpServlet {
         try {
 
             // read form fields
+            String oldfirstname = "";
+            String oldlastname = "";
+            String oldtelephone = "";
+            oldfirstname += request.getSession(false).getAttribute("firstname");
+            oldlastname += request.getSession(false).getAttribute("lastname");
+            oldtelephone += request.getSession(false).getAttribute("telephone");
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
             String telephone = request.getParameter("telephone");
@@ -37,11 +43,11 @@ public class changeEmployee extends HttpServlet {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
-            int ID = employee.get_id(firstname, lastname, telephone);
+            int ID = employee.get_id(oldfirstname, oldlastname, oldtelephone);
             employee.updateEmployee(ID, firstname, lastname, telephone);
 
+           
             request.getRequestDispatcher("index.jsp").forward(request, response);
-
             //con.close();
         } catch (Exception e) {
             System.out.println(e);

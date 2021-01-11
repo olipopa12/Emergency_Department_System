@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 function Doctor() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -13,10 +14,10 @@ function Doctor() {
             var l = res[1];
             var t = res[2];
             var s = res[3];
-            console.log(f);
-            console.log(l);
-            console.log(t);
-            console.log(s);
+            /*console.log(f);
+             console.log(l);
+             console.log(t);
+             console.log(s);*/
             document.getElementById("firstname").value = f;
             document.getElementById("lastname").value = l;
             document.getElementById("telephone").value = t;
