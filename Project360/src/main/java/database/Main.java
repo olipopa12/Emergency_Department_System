@@ -184,8 +184,9 @@ public class Main {
             //sym.insertSymptom(1, "vixas");
             //sym.insertSymptom(1, "pyretos");
             //sym.insertSymptom(1, "ponolaimos");
-            shift.insertShift("12/1/21");
-            shift.insertShift("13/1/21");
+            shift.insertShift();
+            shift.insertShift();
+           // shift.insertShift("13/1/21");
             docInShift.insertDocInShift(3, 1);
             docInShift.insertDocInShift(5, 1);
             docInShift.insertDocInShift(8, 1);
@@ -198,7 +199,7 @@ public class Main {
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
-            System.out.println(patient.get_Patients());
+            System.out.println(shift.get_id("13/1/21"));
             //chronicDis.get_Cdiseases();
             //sym.get_Symptoms();
             //patient.get_Patients();
