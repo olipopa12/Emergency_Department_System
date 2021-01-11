@@ -34,7 +34,7 @@ public class get_doctors extends HttpServlet {
             throws ServletException, IOException {
         String all = "";
         try {
-            all += doctors.get_Medicines();
+            all += doctors.get_Doctors();
             String arr = URLEncoder.encode(all, "utf-8");
             System.out.println(all);
         } catch (Exception ex) {

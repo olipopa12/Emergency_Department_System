@@ -18,7 +18,8 @@ import java.util.logging.Logger;
  * @author olipo
  */
 public class PatientsInShift {
-      String createPatientsInShift() {
+
+    String createPatientsInShift() {
         String sql = "CREATE TABLE IF NOT EXISTS PATIENTS_IN_SHIFT "
                 + "(patID INTEGER not NULL, "
                 + " shiftID INTEGER not NULL, "
@@ -26,6 +27,7 @@ public class PatientsInShift {
                 + " FOREIGN KEY(patID) REFERENCES PATIENTS(patientID));";
         return sql;
     }
+
     public void insertPatientInShift(int pid, int sid) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -36,7 +38,7 @@ public class PatientsInShift {
         try {
 
             pstmt.setInt(1, pid);
-            pstmt.setInt(2,sid);
+            pstmt.setInt(2, sid);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
@@ -44,22 +46,23 @@ public class PatientsInShift {
         }
 
     }
+
     public String get_PatientsInShift() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String patient= "SELECT PS.patID,P.firstname,P.lastname,shiftID FROM PATIENTS P,PATIENTS_IN_SHIFT PS "
-                +"WHERE P.patientID=PS.patID;";
+        String patient = "SELECT PS.patID,P.firstname,P.lastname,shiftID FROM PATIENTS P,PATIENTS_IN_SHIFT PS "
+                + "WHERE P.patientID=PS.patID;";
         PreparedStatement pstmt = con.prepareStatement(patient);
         int pid = 0;
-        int sid=0;
-        
+        int sid = 0;
+
         String first = null;
         String last = null;
         String patients = null;
-String allPatients=null;
+        String allPatients = null;
         // ResultSet rs=null;
         try {
 
@@ -70,11 +73,11 @@ String allPatients=null;
                 sid = rs.getInt("shiftID");
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
-                patients=(String.valueOf(pid)+" "+first+" "+last+" "+String.valueOf(sid)+",");
-                if(allPatients==null){
-                    allPatients=patients;
-                }else{
-                    allPatients=allPatients+patients;
+                patients = (String.valueOf(pid) + " " + first + " " + last + " " + String.valueOf(sid) + ",");
+                if (allPatients == null) {
+                    allPatients = patients;
+                } else {
+                    allPatients = allPatients + patients;
                 }
                 //phone = rs.getString("phone");
                 //System.out.println(id + " " + symp);
@@ -84,6 +87,6 @@ String allPatients=null;
         } catch (SQLException ex) {
             Logger.getLogger(PatientsInShift.class.getName()).log(Level.SEVERE, null, ex);
         }
-return allPatients;
+        return allPatients;
     }
 }

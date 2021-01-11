@@ -33,15 +33,15 @@ public class get_patients extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String all = "";
-        try {
-            all += patients.get_Medicines();
+        /*try {
+            all += patients.get_Patients();
             String arr = URLEncoder.encode(all, "utf-8");
             System.out.println(all);
         } catch (Exception ex) {
             System.out.println(ex);
             ex.printStackTrace();
         }
-        response.getOutputStream().println(all); //finish
+        response.getOutputStream().println(all); //finish*/
 
     }
 }

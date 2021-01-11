@@ -1,6 +1,6 @@
 <%-- 
     Document   : employees
-    Created on : 11 Ιαν 2021, 6:25:38 μμ
+    Created on : 11 Ιαν 2021, 6:24:23 μμ
     Author     : kater
 --%>
 
@@ -10,38 +10,39 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="javascript/tables.js"></script>
-        <title>Register Doctor</title>
+        <title>Show employees' list</title>
         <style>
-            #meds {
+            #empl {
                 font-family: Arial, Helvetica, sans-serif;
                 border-collapse: collapse;
                 width: 100%;
             }
-            #meds td, #meds th {
+            #empl td, #empl th {
                 border: 1px solid #ddd;
                 padding: 8px;
+                text-align: center;
             }
 
-            #meds tr{background-color: #9ac1cb;}
+            #empl tr{background-color: #9ac1cb;}
 
-            #meds tr:hover {background-color: #ddd;}
+            #empl tr:hover {background-color: #ddd;}
 
-            #meds th {
+            #empl th {
                 padding-top: 12px;
                 padding-bottom: 12px;
-                text-align: left;
+                text-align: center;
                 background-color: #1e8299;
                 color: white;
             }
             .box {
                 width: 700px;
-                height: 650px;
+                height: 1000px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
-                top:50%;
+                top:90%;
                 left: 50%;
                 text-align: center;
             }
@@ -65,17 +66,16 @@
         </style>
 
     </head>
-    <body onload="Medicines()">
+    <body onload="Employees()">
         <div class="box">
-            <h1>Λίστα φαρμάκων</h1>
+            <h1>Λίστα υπαλλήλων</h1>
             </br>
-            <table id="meds">
+            <table id="empl">
                 <tr>
-                    <th>medID</th>
-                    <th>kind</th>
-                    <th>name</th>
-                    <th>kindof</th>
-                    <th>substance</th>
+                    <th>ID</th>
+                    <th>FIRSTNAME</th>
+                    <th>LASTNAME</th>
+                    <th>TELEPHONE</th>
                 </tr>
             </table>
         </div>

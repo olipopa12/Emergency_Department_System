@@ -34,7 +34,7 @@ public class get_employees extends HttpServlet {
             throws ServletException, IOException {
         String all = "";
         try {
-            all += employees.get_Medicines();
+            all += employees.get_Employees();
             String arr = URLEncoder.encode(all, "utf-8");
             System.out.println(all);
         } catch (Exception ex) {

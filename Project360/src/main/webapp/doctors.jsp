@@ -12,36 +12,37 @@
         <script type="text/javascript" src="javascript/tables.js"></script>
         <title>Show doctors' list</title>
         <style>
-            #meds {
+            #docs {
                 font-family: Arial, Helvetica, sans-serif;
                 border-collapse: collapse;
                 width: 100%;
             }
-            #meds td, #meds th {
+            #docs td, #docs th {
                 border: 1px solid #ddd;
                 padding: 8px;
+                text-align: center;
             }
 
-            #meds tr{background-color: #9ac1cb;}
+            #docs tr{background-color: #9ac1cb;}
 
-            #meds tr:hover {background-color: #ddd;}
+            #docs tr:hover {background-color: #ddd;}
 
-            #meds th {
+            #docs th {
                 padding-top: 12px;
                 padding-bottom: 12px;
-                text-align: left;
+                text-align: center;
                 background-color: #1e8299;
                 color: white;
             }
             .box {
                 width: 700px;
-                height: 650px;
+                height: 1000px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
-                top:50%;
+                top:90%;
                 left: 50%;
                 text-align: center;
             }
@@ -65,17 +66,17 @@
         </style>
 
     </head>
-    <body onload="Medicines()">
+    <body onload="Doctors()">
         <div class="box">
-            <h1>Λίστα φαρμάκων</h1>
+            <h1>Λίστα γιατρών</h1>
             </br>
-            <table id="meds">
+            <table id="docs">
                 <tr>
-                    <th>medID</th>
-                    <th>kind</th>
-                    <th>name</th>
-                    <th>kindof</th>
-                    <th>substance</th>
+                    <th>ID</th>
+                    <th>FIRSTNAME</th>
+                    <th>LASTNAME</th>
+                    <th>SPECIALTY</th>
+                    <th>TELEPHONE</th>
                 </tr>
             </table>
         </div>

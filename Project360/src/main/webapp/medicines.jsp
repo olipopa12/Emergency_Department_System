@@ -29,7 +29,7 @@
             #meds th {
                 padding-top: 12px;
                 padding-bottom: 12px;
-                text-align: left;
+                text-align: center;
                 background-color: #1e8299;
                 color: white;
             }
@@ -71,11 +71,11 @@
             </br>
             <table id="meds">
                 <tr>
-                    <th>medID</th>
-                    <th>kind</th>
-                    <th>name</th>
-                    <th>kindof</th>
-                    <th>substance</th>
+                    <th>ID</th>
+                    <th>DISEASE</th>
+                    <th>NAME</th>
+                    <th>KIND</th>
+                    <th>SUBSTANCE</th>
                 </tr>
             </table>
         </div>

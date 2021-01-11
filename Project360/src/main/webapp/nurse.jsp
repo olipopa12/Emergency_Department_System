@@ -1,7 +1,7 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+    <!DOCTYPE html>
+    <html>
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nurse</title>
@@ -9,7 +9,6 @@
         <script type="text/javascript" src="javascript/updates.js"></script>
         <script type="text/javascript" src="javascript/registers.js"></script>
         <style>
-
             .box {
                 width: 400px;
                 height: 350px;
@@ -22,12 +21,15 @@
                 background: #97c984;
                 text-align: center;
             }
-            body { background: url(back.jpg) no-repeat fixed;
-                   -webkit-background-size: cover;
-                   -moz-background-size: cover;
-                   -o-background-size: cover;
-                   background-size: cover;
+            
+            body {
+                background: url(back.jpg) no-repeat fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
             }
+            
             .box h1 {
                 color: rgb(3, 2, 2);
                 font-family: 'comic sans ms';
@@ -35,6 +37,7 @@
                 margin: 0px;
                 padding: 0px;
             }
+            
             input[type="text"] {
                 color: rgb(3, 2, 2);
                 font-family: 'comic sans ms';
@@ -50,6 +53,7 @@
                 transition: 0.20s;
                 cursor: pointer;
             }
+            
             .box input[type="submit"] {
                 border: 0;
                 background: none;
@@ -64,32 +68,36 @@
                 transition: 0.20s;
                 cursor: pointer;
             }
+            
             .box input[type="submit"]:hover {
                 background: #123672;
                 border: 2px solid #123672;
             }
+            
             .lboxes input[type="submit"] {
                 background: #97c984;
                 border: 2px solid #006d67;
                 color: rgb(3, 2, 2);
                 border-radius: 24px;
                 outline: none;
-                padding:7px 18px;
+                padding: 7px 18px;
                 transition: 0.20s;
                 cursor: pointer;
             }
+            
             .lboxes {
                 width: 5%;
                 height: 5vh;
             }
+            
             .lboxes input[type="submit"]:hover {
                 background: #123672;
                 border: 2px solid #123672;
             }
-
         </style>
 
     </head>
+
     <body onload="Nurse()">
         <div class="container">
             <form class="box">
@@ -97,11 +105,11 @@
                 <table>
                     <tr>
                         <td align="right">First Name:</td>
-                        <td align="left"><input type="text" id="firstname" name="firstname" value=""  /></td>
+                        <td align="left"><input type="text" id="firstname" name="firstname" value="" /></td>
                     </tr>
                     <tr>
                         <td align="right">Last Name:</td>
-                        <td align="left"><input type="text" id="lastname" name="lastname" value=""  /></td>
+                        <td align="left"><input type="text" id="lastname" name="lastname" value="" /></td>
                     </tr>
                     </br>
                     <tr>
@@ -111,23 +119,24 @@
                 </table>
             </form>
             <div class="lboxes" style="margin-top:15%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"  >
+                <form class=" lbox" method="post">
                     </br>
-                    <input type="submit" name="" onclick="changeNurse()"  value="Change my infos">
+                    <input type="submit" name="" onclick="changeNurse()" value="Change my infos">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"  >
+                <form class=" lbox" method="post">
                     </br>
-                    <input type="submit" name="" onclick="changeNurse()"  value="Add new clinic examination">
+                    <input type="submit" name="" onclick="changeNurse()" value="Add new clinic examination">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post" action="http://localhost:8080/Project360/see_patients"  >
+                <form class=" lbox" method="post" action="http://localhost:8080/Project360/see_patients">
                     </br>
-                    <input type="submit" name="" onclick="changeNurse()"  value="See patients' infos">
+                    <input type="submit" name="" onclick="changeNurse()" value="See patients' list">
                 </form>
             </div>
         </div>
     </body>
-</html>
+
+    </html>

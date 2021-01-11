@@ -30,7 +30,7 @@ public class Nurses {
         return nurse;
     }
 
-    public void insertNurse( String firstname, String lastname, String phone) throws ClassNotFoundException, SQLException {
+    public void insertNurse(String firstname, String lastname, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -50,6 +50,7 @@ public class Nurses {
         }
 
     }
+
     public String get_Nurses() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -62,8 +63,8 @@ public class Nurses {
         String first = null;
         String last = null;
         String phone = null;
-String nurse=null;
-String allNurses=null;
+        String nurse = null;
+        String allNurses = null;
         // ResultSet rs=null;
         try {
 
@@ -74,11 +75,11 @@ String allNurses=null;
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
                 phone = rs.getString("phone");
-                nurse=(String.valueOf(id)+" "+first+" "+last+" "+" "+phone+",");
-                if(allNurses==null){
-                    allNurses=nurse;
-                }else{
-                    allNurses=allNurses+nurse;
+                nurse = (String.valueOf(id) + " " + first + " " + last + " " + phone + ",");
+                if (allNurses == null) {
+                    allNurses = nurse;
+                } else {
+                    allNurses = allNurses + nurse;
                 }
                 //System.out.println(id + " " + first + " " + last + " " + phone);
             }
@@ -87,7 +88,7 @@ String allNurses=null;
         } catch (SQLException ex) {
             Logger.getLogger(Nurses.class.getName()).log(Level.SEVERE, null, ex);
         }
-return allNurses;
+        return allNurses;
     }
 
     public void updateNurse(int id, String fname, String lname, String phone) throws ClassNotFoundException, SQLException {

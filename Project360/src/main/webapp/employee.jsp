@@ -128,23 +128,23 @@
 
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
                 <form  method="post" action="http://localhost:8080/Project360/see_patients">
-                    <input type="submit" name=""  value="See patients' info">
+                    <input type="submit" name=""  value="Show patients' list">
                 </form>
             </div>
 
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
                 <form  method="post"  action="http://localhost:8080/Project360/see_doctors">
-                    <input type="submit" name=""  value="See doctors' info">
+                    <input type="submit" name=""  value="Show doctors' list">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
                 <form  method="post"  action="http://localhost:8080/Project360/see_employees">
-                    <input type="submit" name=""  value="See employees' info">
+                    <input type="submit" name=""  value="Show employees' list">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
                 <form  method="post"  action="http://localhost:8080/Project360/see_nurses">
-                    <input type="submit" name=""  value="See nurses' info">
+                    <input type="submit" name=""  value="Show nurses' list">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
@@ -177,6 +177,26 @@
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
                 <form  method="post" action="http://localhost:8080/Project360/registerNurse">
                     <input type="submit" name=""  value="Add new shift">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                    <input type="submit" name=""  value="See patients' list in shift">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                    <input type="submit" name=""  value="See doctors' list in shift">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                    <input type="submit" name=""  value="See nurses' list in shift">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                    <input type="submit" name=""  value="See employees' list in shift">
                 </form> 
             </div>
         </div>
