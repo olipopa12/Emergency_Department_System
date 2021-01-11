@@ -185,10 +185,10 @@ public class Main {
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
-            chronicDis.get_Cdiseases();
+            //chronicDis.get_Cdiseases();
             //sym.get_Symptoms();
             //patient.get_Patients();
-            //med.get_Medicines();
+            med.get_Medicines();
             //doc.updateDoctor(3, "oli", "popa", "odontiatros", "6946942351");
             //patient.insertPatient(5, "008855223366", "nikolaos", "papadakis", "ika", "hraklio", 56, 2134, "854125698562");
             //patient.insertPatient(1, "301100000000000000", "katerina", "petraki", "ika", "avyeniki", 34, 9876, "6953456789");
