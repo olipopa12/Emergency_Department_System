@@ -45,6 +45,7 @@ public class Main {
             ExamFromNurse nexam = new ExamFromNurse();
             DocInShift docInShift = new DocInShift();
             Shift shift = new Shift();
+            PatientsInShift patientInShift=new PatientsInShift();
             EmployeesInShift empInShift = new EmployeesInShift();
             NursesInShift nurseInShift = new NursesInShift();
             ChronicDiseases chronicDis = new ChronicDiseases();
@@ -77,6 +78,8 @@ public class Main {
             stmt.executeUpdate(createEmpInShift);
             String createNurseInShift = nurseInShift.createNursesInShift();
             stmt.executeUpdate(createNurseInShift);
+             String createPatientInShift = patientInShift.createPatientsInShift();
+            stmt.executeUpdate(createPatientInShift);
             String createCdisease = chronicDis.createChronicDisease();
             stmt.executeUpdate(createCdisease);
 
@@ -190,10 +193,12 @@ public class Main {
             nurseInShift.insertNurseInShift(8, 1);
             nurseInShift.insertNurseInShift(10, 1);
             nurseInShift.insertNurseInShift(4, 1);
+            patientInShift.insertPatientInShift(3, 1);
+            patientInShift.insertPatientInShift(5, 1);
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
-            System.out.println(nurseInShift.get_NursesInShift());
+            System.out.println(patientInShift.get_PatientsInShift());
             //chronicDis.get_Cdiseases();
             //sym.get_Symptoms();
             //patient.get_Patients();
