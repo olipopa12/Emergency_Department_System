@@ -127,23 +127,23 @@
             </div>
 
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                <form  method="post" action="http://localhost:8080/Project360/see_patients">
                     <input type="submit" name=""  value="See patients' info">
                 </form>
             </div>
 
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post"  action="http://localhost:8080/Project360/changeEmployee">
+                <form  method="post"  action="http://localhost:8080/Project360/see_doctors">
                     <input type="submit" name=""  value="See doctors' info">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post"  action="http://localhost:8080/Project360/changeEmployee">
+                <form  method="post"  action="http://localhost:8080/Project360/see_employees">
                     <input type="submit" name=""  value="See employees' info">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post"  action="http://localhost:8080/Project360/changeEmployee">
+                <form  method="post"  action="http://localhost:8080/Project360/see_nurses">
                     <input type="submit" name=""  value="See nurses' info">
                 </form>
             </div>

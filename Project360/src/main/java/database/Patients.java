@@ -72,7 +72,7 @@ public class Patients {
 
     }
 
-    public void insertPatient( String amka, String fname, String lname, String ins, String road, int num, int TK, String phone) throws ClassNotFoundException, SQLException {
+    public void insertPatient(String amka, String fname, String lname, String ins, String road, int num, int TK, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -97,6 +97,7 @@ public class Patients {
         }
 
     }
+
     public void deletePatient(int id) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -119,7 +120,8 @@ public class Patients {
         }
 
     }
-     public void get_Patients() throws ClassNotFoundException, SQLException {
+
+    public void get_Patients() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -128,13 +130,13 @@ public class Patients {
         String med = "SELECT * FROM PATIENTS";
         PreparedStatement pstmt = con.prepareStatement(med);
         int id = 0;
-        String amka=null;
-        String first= null;
-        String last= null;
+        String amka = null;
+        String first = null;
+        String last = null;
         String insurance = null;
-        String road=null;
-        int num=0;
-        int tk=0;
+        String road = null;
+        int num = 0;
+        int tk = 0;
         String phone = null;
 
         // ResultSet rs=null;
@@ -144,15 +146,15 @@ public class Patients {
 
             while (rs.next()) {
                 id = rs.getInt("patientID");
-                amka=rs.getString("AMKA");
+                amka = rs.getString("AMKA");
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
-                insurance=rs.getString("insurance");
+                insurance = rs.getString("insurance");
                 road = rs.getString("road");
                 num = rs.getInt("number");
                 tk = rs.getInt("tk");
                 phone = rs.getString("phone");
-                System.out.println(id + " "+amka+" " +first + " " + last + " " + insurance +" "+road+" "+num+" "+tk+ " " + phone);
+                System.out.println(id + " " + amka + " " + first + " " + last + " " + insurance + " " + road + " " + num + " " + tk + " " + phone);
             }
             // System.out.println(r);
             con.close();

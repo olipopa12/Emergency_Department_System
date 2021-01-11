@@ -122,7 +122,7 @@
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"  >
+                <form class=" lbox" method="post" action="http://localhost:8080/Project360/see_patients"  >
                     </br>
                     <input type="submit" name="" onclick="changeNurse()"  value="See patients' infos">
                 </form>

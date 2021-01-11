@@ -61,17 +61,17 @@ public class Medicines {
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
         String med = "SELECT medID,D.kind,name,kindof,substance FROM MEDICINES M,DISEASES D "
-                +"WHERE M.diseaseID=D.disID;";
-        
-      //String med = "SELECT * FROM MEDICINES";
+                + "WHERE M.diseaseID=D.disID;";
+
+        //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(med);
         int id = 0;
         String dname = null;
         String name = null;
         String kind = null;
         int sub = 0;
-        String allMed=null;
-String Med=null;
+        String allMed = null;
+        String Med = null;
         // ResultSet rs=null;
         try {
 
@@ -83,21 +83,20 @@ String Med=null;
                 name = rs.getString("name");
                 kind = rs.getString("kindof");
                 sub = rs.getInt("substance");
-                Med=(String.valueOf(id)+" "+dname+" "+name+" "+kind+" "+sub+",");
-                if(allMed==null){
-                    allMed=Med;
-                }else{
-                    allMed=allMed+Med;
+                Med = (String.valueOf(id) + " " + dname + " " + name + " " + kind + " " + sub + ",");
+                if (allMed == null) {
+                    allMed = Med;
+                } else {
+                    allMed = allMed + Med;
                 }
-                
-               // System.out.println(id + " " + did + " " + name + " " + kind + " " + sub);
-               
+
+                // System.out.println(id + " " + did + " " + name + " " + kind + " " + sub);
             }
-             System.out.println(allMed);
+            System.out.println(allMed);
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Medicines.class.getName()).log(Level.SEVERE, null, ex);
         }
-return allMed;
+        return allMed;
     }
 }
