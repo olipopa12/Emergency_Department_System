@@ -7,7 +7,6 @@ package servlets;
 
 import database.Doctors;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,21 +21,6 @@ public class get_doctors extends HttpServlet {
 
     private Doctors doctors = new Doctors();
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.getRequestDispatcher("doctors.jsp").forward(request, response);
-    }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -45,11 +29,19 @@ public class get_doctors extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    /*@Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String all = doctors.get_Doctors();
-        String arr = URLEncoder.encode(all, "utf-8");
+        String all = "";
+        try {
+            all += doctors.get_Medicines();
+            String arr = URLEncoder.encode(all, "utf-8");
+            System.out.println(all);
+        } catch (Exception ex) {
+            System.out.println(ex);
+            ex.printStackTrace();
+        }
         response.getOutputStream().println(all); //finish
-    }*/
+
+    }
 }

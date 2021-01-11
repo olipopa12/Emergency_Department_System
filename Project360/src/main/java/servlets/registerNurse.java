@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class registerNurse extends HttpServlet {
 
- // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -32,5 +31,4 @@ public class registerNurse extends HttpServlet {
         request.getRequestDispatcher("registerNurse.jsp").forward(request, response);
     }
 
-   
 }

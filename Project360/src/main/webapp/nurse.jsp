@@ -7,6 +7,7 @@
         <title>Nurse</title>
         <script type="text/javascript" src="javascript/all_entities.js"></script>
         <script type="text/javascript" src="javascript/updates.js"></script>
+        <script type="text/javascript" src="javascript/registers.js"></script>
         <style>
 
             .box {

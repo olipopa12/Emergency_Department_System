@@ -10,8 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Doctor</title>
-        <script type="text/javascript" src="javascript/all_entities.js"></script>
+       <script type="text/javascript" src="javascript/all_entities.js"></script>
         <script type="text/javascript" src="javascript/updates.js"></script>
+        <script type="text/javascript" src="javascript/registers.js"></script>
         <style>
 
             .box {
@@ -144,12 +145,12 @@
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   action="http://localhost:8080/Project360/see_medicines"  >
-                    <input type="submit" name="" onclick="changeDoctor()"  value="See list of medicines">
+                    <input type="submit" name=""  value="See list of medicines">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   action="http://localhost:8080/Project360/see_patients" >
-                    <input type="submit" name="" onclick="changeDoctor()"  value="See patient's infos">
+                    <input type="submit" name=""   value="See patient's infos">
                 </form> 
             </div>
 

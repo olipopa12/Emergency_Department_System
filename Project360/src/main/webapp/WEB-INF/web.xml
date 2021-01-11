@@ -85,10 +85,6 @@
         <servlet-class>servlets.registerVisit</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>get_meds</servlet-name>
-        <servlet-class>servlets.get_medicines</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>get_patients</servlet-name>
         <servlet-class>servlets.get_patients</servlet-class>
     </servlet>
@@ -123,6 +119,10 @@
     <servlet>
         <servlet-name>see_patients</servlet-name>
         <servlet-class>servlets.see_patients</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>get_medicines</servlet-name>
+        <servlet-class>servlets.get_medicines</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -209,10 +209,6 @@
         <url-pattern>/registerVisit</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>get_meds</servlet-name>
-        <url-pattern>/get_meds</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>get_patients</servlet-name>
         <url-pattern>/get_patients</url-pattern>
     </servlet-mapping>
@@ -247,6 +243,10 @@
     <servlet-mapping>
         <servlet-name>see_patients</servlet-name>
         <url-pattern>/see_patients</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>get_medicines</servlet-name>
+        <url-pattern>/get_medicines</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

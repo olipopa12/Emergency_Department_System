@@ -9,13 +9,33 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="javascript/registers.js"></script>
-        <title>Register Doctor</title>
+        <script type="text/javascript" src="javascript/tables.js"></script>
+        <title>Show medicines' list</title>
         <style>
+            #meds {
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            #meds td, #meds th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
 
+            #meds tr{background-color: #9ac1cb;}
+
+            #meds tr:hover {background-color: #ddd;}
+
+            #meds th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #1e8299;
+                color: white;
+            }
             .box {
                 width: 700px;
-                height: 570px;
+                height: 350px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
@@ -45,21 +65,17 @@
         </style>
 
     </head>
-    <body>
+    <body onload="Medicines()">
         <div class="box">
             <h1>Λίστα φαρμάκων</h1>
-            <table id="medicines">
+            </br>
+            <table id="meds">
                 <tr>
-                    <td>Row1 cell1</td>
-                    <td>Row1 cell2</td>
-                </tr>
-                <tr>
-                    <td>Row2 cell1</td>
-                    <td>Row2 cell2</td>
-                </tr>
-                <tr>
-                    <td>Row3 cell1</td>
-                    <td>Row3 cell2</td>
+                    <th>medID</th>
+                    <th>kind</th>
+                    <th>name</th>
+                    <th>kindof</th>
+                    <th>substance</th>
                 </tr>
             </table>
         </div>

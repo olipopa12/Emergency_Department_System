@@ -8,7 +8,6 @@ package servlets;
 import database.Doctors;
 import database.LoginInfo;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -53,7 +52,7 @@ public class changeDoctor extends HttpServlet {
 
             //int ID = doctor.get_id(firstname, lastname, telephone);
             int ID = doctor.get_id(oldfirstname, oldlastname, oldtelephone);
-            System.out.println("id: " + ID);
+            //System.out.println("id: " + ID);
             doctor.updateDoctor(ID, firstname, lastname, specialty, telephone);
 
             request.getRequestDispatcher("index.jsp").forward(request, response);

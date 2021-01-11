@@ -92,7 +92,7 @@ public class Medicines {
 
                 // System.out.println(id + " " + did + " " + name + " " + kind + " " + sub);
             }
-            System.out.println(allMed);
+            //System.out.println(allMed);
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(Medicines.class.getName()).log(Level.SEVERE, null, ex);
