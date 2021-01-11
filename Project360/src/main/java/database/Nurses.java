@@ -50,7 +50,7 @@ public class Nurses {
         }
 
     }
-    public void get_Nurses() throws ClassNotFoundException, SQLException {
+    public String get_Nurses() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -62,7 +62,8 @@ public class Nurses {
         String first = null;
         String last = null;
         String phone = null;
-
+String nurse=null;
+String allNurses=null;
         // ResultSet rs=null;
         try {
 
@@ -73,14 +74,20 @@ public class Nurses {
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
                 phone = rs.getString("phone");
-                System.out.println(id + " " + first + " " + last + " " + phone);
+                nurse=(String.valueOf(id)+" "+first+" "+last+" "+" "+phone+",");
+                if(allNurses==null){
+                    allNurses=nurse;
+                }else{
+                    allNurses=allNurses+nurse;
+                }
+                //System.out.println(id + " " + first + " " + last + " " + phone);
             }
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(Nurses.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+return allNurses;
     }
 
     public void updateNurse(int id, String fname, String lname, String phone) throws ClassNotFoundException, SQLException {

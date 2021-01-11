@@ -178,17 +178,26 @@ public class Main {
             
              visit.insertVisit( 1, "25/1/2020");
              
-            sym.insertSymptom(1, "vixas");
-            sym.insertSymptom(1, "pyretos");
-            sym.insertSymptom(1, "ponolaimos");
-            
+            //sym.insertSymptom(1, "vixas");
+            //sym.insertSymptom(1, "pyretos");
+            //sym.insertSymptom(1, "ponolaimos");
+            shift.insertShift("12/1/21");
+            shift.insertShift("13/1/21");
+            docInShift.insertDocInShift(3, 1);
+            docInShift.insertDocInShift(5, 1);
+            docInShift.insertDocInShift(8, 1);
+            empInShift.insertEmployeeInShift(3, 1);
+            nurseInShift.insertNurseInShift(8, 1);
+            nurseInShift.insertNurseInShift(10, 1);
+            nurseInShift.insertNurseInShift(4, 1);
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
+            System.out.println(nurseInShift.get_NursesInShift());
             //chronicDis.get_Cdiseases();
             //sym.get_Symptoms();
             //patient.get_Patients();
-            med.get_Medicines();
+            //med.get_Medicines();
             //doc.updateDoctor(3, "oli", "popa", "odontiatros", "6946942351");
             //patient.insertPatient(5, "008855223366", "nikolaos", "papadakis", "ika", "hraklio", 56, 2134, "854125698562");
             //patient.insertPatient(1, "301100000000000000", "katerina", "petraki", "ika", "avyeniki", 34, 9876, "6953456789");

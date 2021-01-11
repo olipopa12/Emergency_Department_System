@@ -129,7 +129,7 @@ public class Doctors {
         }
         return r;
     }
-    public void get_Doctors() throws ClassNotFoundException, SQLException {
+    public String get_Doctors() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -142,6 +142,8 @@ public class Doctors {
         String last= null;
         String specialty = null;
         String phone = null;
+        String doc=null;
+        String allDocs=null;
 
         // ResultSet rs=null;
         try {
@@ -154,14 +156,20 @@ public class Doctors {
                 last = rs.getString("lastname");
                 specialty = rs.getString("specialty");
                 phone = rs.getString("phone");
-                System.out.println(id + " " +first + " " + last + " " + specialty + " " + phone);
+                doc=(String.valueOf(id)+" "+first+" "+last+" "+specialty+" "+phone+",");
+                if(allDocs==null){
+                    allDocs=doc;
+                }else{
+                    allDocs=allDocs+doc;
+                }
+                //System.out.println(id + " " +first + " " + last + " " + specialty + " " + phone);
             }
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+return allDocs;
     }
 
     public int get_id(String first, String last, String telephone) throws ClassNotFoundException, SQLException {

@@ -78,7 +78,7 @@ public class Employees {
         }
 
     }
-public void get_Employees() throws ClassNotFoundException, SQLException {
+public String get_Employees() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -90,8 +90,9 @@ public void get_Employees() throws ClassNotFoundException, SQLException {
         String first = null;
         String last = null;
         String phone = null;
-
-        // ResultSet rs=null;
+        String emp=null;
+        String allEmp=null;
+        
         try {
 
             ResultSet rs = pstmt.executeQuery();
@@ -101,6 +102,12 @@ public void get_Employees() throws ClassNotFoundException, SQLException {
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
                 phone = rs.getString("phone");
+                emp=(String.valueOf(id)+" "+first+" "+last+" "+" "+phone+",");
+                if(allEmp==null){
+                    allEmp=emp;
+                }else{
+                    allEmp=allEmp+emp;
+                }
                 //System.out.println(id + " " + first + " " + last + " " + phone);
             }
             // System.out.println(r);
@@ -108,7 +115,7 @@ public void get_Employees() throws ClassNotFoundException, SQLException {
         } catch (SQLException ex) {
             Logger.getLogger(Employees.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+return allEmp;
     }
 
     public void deleteEmployee(int id, String fname, String lname) throws ClassNotFoundException, SQLException {

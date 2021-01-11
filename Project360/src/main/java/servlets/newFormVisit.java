@@ -42,13 +42,17 @@ public class newFormVisit extends HttpServlet {
             String[] symps = symptoms.split(",");
             /*List<String> kati = Arrays.asList(symps);
             ArrayList<String> Symps = new ArrayList<String>(kati);*/
-            for (int i = 0; i < symps.length; i++) {
-                symptom.insertSymptom(Main.id_visit, symps[i]);
-            }
+            //for (int i = 0; i < symps.length; i++) {
+              //  symptom.insertSymptom(Main.id_visit, symps[i]);
+            //}
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
             visit.insertVisit( Integer.parseInt(pid), date);
+             for (int i = 0; i < symps.length; i++) {
+                 System.out.println(visit.get_id( Integer.parseInt(pid), date));
+                symptom.insertSymptom(visit.get_id( Integer.parseInt(pid), date), symps[i]);
+            }
            // Main.id_visit++;
 
             request.getRequestDispatcher("index.jsp").forward(request, response);
