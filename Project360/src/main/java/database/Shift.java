@@ -45,6 +45,7 @@ public class Shift {
         }
 
     }
+     
      public int get_id(String date) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");

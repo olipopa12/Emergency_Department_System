@@ -43,37 +43,42 @@ public class ChronicDiseases {
         }
 
     }
-     public void get_Cdiseases() throws ClassNotFoundException, SQLException {
+     public String get_Cdiseases(int pid) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String dis = "SELECT firstname,lastname,CD.patientID,disease FROM CHRONIC_DISEASES CD,PATIENTS P "
-                +"WHERE CD.patientID=P.patientID;";
+        String dis = "SELECT disease FROM CHRONIC_DISEASES "
+                +"WHERE patientID=?;";
         PreparedStatement pstmt = con.prepareStatement(dis);
-        int id = 0;
-        String first=null;
-        String last=null;
+        //int id = 0;
+        //String first=null;
+        //String last=null;
         String disease = null;
+        String allDis=null;
         try {
-
+            pstmt.setInt(1, pid);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                id = rs.getInt("patientID");
-                first = rs.getString("firstname");
-                last = rs.getString("lastname");
+          //      id = rs.getInt("patientID");
+            //    first = rs.getString("firstname");
+              //  last = rs.getString("lastname");
                 disease = rs.getString("disease");
-                
-                System.out.println(id +" "+first+" "+last+ " " + disease);
+                if(allDis==null){
+                    allDis=disease+",";
+                }else{
+                    allDis=allDis+disease+",";
+                }
+                //System.out.println(id +" "+first+" "+last+ " " + disease);
             }
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(ChronicDiseases.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+return allDis;
     }
 
 }
