@@ -53,8 +53,8 @@ public class PatientsInShift {
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String patient = "SELECT PS.patID,P.firstname,P.lastname,shiftID FROM PATIENTS P,PATIENTS_IN_SHIFT PS "
-                + "WHERE P.patientID=PS.patID;";
+        String patient = "SELECT PS.patID,P.firstname,P.lastname,PS.shiftID FROM PATIENTS P,PATIENTS_IN_SHIFT PS,SHIFTS S "
+                + "WHERE P.patientID=PS.patID AND S.date=?;";
         PreparedStatement pstmt = con.prepareStatement(patient);
         int pid = 0;
         int sid = 0;
@@ -65,7 +65,7 @@ public class PatientsInShift {
         String allPatients = null;
         // ResultSet rs=null;
         try {
-
+pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {

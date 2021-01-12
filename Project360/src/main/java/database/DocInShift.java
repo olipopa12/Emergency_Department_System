@@ -53,8 +53,8 @@ public class DocInShift {
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String doc = "SELECT DS.docID,D.firstname,D.lastname,shiftID FROM DOCTORS D,DOCS_IN_SHIFT DS "
-                + "WHERE D.docID=DS.docID;";
+        String doc = "SELECT DS.docID,D.firstname,D.lastname,DS.shiftID FROM DOCTORS D,DOCS_IN_SHIFT DS,SHIFTS S "
+                + "WHERE D.docID=DS.docID AND S.date=?;";
         PreparedStatement pstmt = con.prepareStatement(doc);
         int did = 0;
         int sid = 0;
@@ -65,7 +65,7 @@ public class DocInShift {
         String allDocs = null;
         // ResultSet rs=null;
         try {
-
+pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {

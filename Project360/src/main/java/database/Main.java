@@ -205,9 +205,10 @@ public class Main {
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
+            System.out.println(empInShift.get_EmpInShift());
 
+            exam.insertExam(3, 1, "aimatologikes", 2, 8, 1,"covid");
             /*exam.insertExam(3, 1, "aimatologikes", 2, 8, 1);
-            exam.insertExam(3, 1, "aimatologikes", 2, 8, 1);
             nexam.insertExamFromNurse(4, 5, "covid_test", 1);
             nexam.insertExamFromNurse(4, 5, "covid_test", 1);
             rexam.insertReExam(10, 3, "aksonikh", 3, 3, 1, true);

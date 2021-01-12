@@ -46,6 +46,8 @@ public class newFormExamDoc extends HttpServlet {
             System.out.println(exa);
             int ID = doc.get_id(firstname, lastname, telephone);
             int vid = visit.get_id(Integer.parseInt(pid), String.valueOf(java.time.LocalDate.now()));
+            System.out.println(ID);
+             System.out.println(vid);
             exam.insertExam(ID, Integer.parseInt(pid), kind, Integer.parseInt(did), Integer.parseInt(nid), vid, exa);
 
             request.getRequestDispatcher("doctor.jsp").forward(request, response);

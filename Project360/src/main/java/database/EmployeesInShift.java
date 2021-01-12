@@ -53,8 +53,8 @@ public class EmployeesInShift {
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String emp = "SELECT ES.employeeID,E.firstname,E.lastname,shiftID FROM EMPLOYEES E,EMPLOYEES_IN_SHIFT ES "
-                + "WHERE E.employeeID=ES.employeeID;";
+        String emp = "SELECT ES.employeeID,E.firstname,E.lastname,ES.shiftID FROM EMPLOYEES E,EMPLOYEES_IN_SHIFT ES,SHIFTS S "
+                + "WHERE E.employeeID=ES.employeeID AND S.date=?;";
         PreparedStatement pstmt = con.prepareStatement(emp);
         int eid = 0;
         int sid = 0;
@@ -65,7 +65,7 @@ public class EmployeesInShift {
         String allEmp = null;
         // ResultSet rs=null;
         try {
-
+pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
