@@ -27,7 +27,7 @@ public class Doctors {
         return doc;
     }
 
-    public void insertDoctor( String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
+    public void insertDoctor(String fname, String lname, String specialty, String phone) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -129,6 +129,7 @@ public class Doctors {
         }
         return r;
     }
+
     public String get_Doctors() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -138,12 +139,12 @@ public class Doctors {
         String med = "SELECT * FROM DOCTORS";
         PreparedStatement pstmt = con.prepareStatement(med);
         int id = 0;
-        String first= null;
-        String last= null;
+        String first = null;
+        String last = null;
         String specialty = null;
         String phone = null;
-        String doc=null;
-        String allDocs=null;
+        String doc = null;
+        String allDocs = null;
 
         // ResultSet rs=null;
         try {
@@ -156,11 +157,11 @@ public class Doctors {
                 last = rs.getString("lastname");
                 specialty = rs.getString("specialty");
                 phone = rs.getString("phone");
-                doc=(String.valueOf(id)+" "+first+" "+last+" "+specialty+" "+phone+",");
-                if(allDocs==null){
-                    allDocs=doc;
-                }else{
-                    allDocs=allDocs+doc;
+                doc = (String.valueOf(id) + " " + first + " " + last + " " + specialty + " " + phone + ",");
+                if (allDocs == null) {
+                    allDocs = doc;
+                } else {
+                    allDocs = allDocs + doc;
                 }
                 //System.out.println(id + " " +first + " " + last + " " + specialty + " " + phone);
             }
@@ -169,7 +170,7 @@ public class Doctors {
         } catch (SQLException ex) {
             Logger.getLogger(Doctors.class.getName()).log(Level.SEVERE, null, ex);
         }
-return allDocs;
+        return allDocs;
     }
 
     public int get_id(String first, String last, String telephone) throws ClassNotFoundException, SQLException {
