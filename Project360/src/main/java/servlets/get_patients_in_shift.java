@@ -5,8 +5,9 @@
  */
 package servlets;
 
-import database.Doctors;
+import database.PatientsInShift;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author kater
  */
-public class get_doctors extends HttpServlet {
+public class get_patients_in_shift extends HttpServlet {
 
-    private Doctors doctors = new Doctors();
+    private PatientsInShift patients = new PatientsInShift();
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -34,9 +35,9 @@ public class get_doctors extends HttpServlet {
             throws ServletException, IOException {
         String all = "";
         try {
-            all += doctors.get_Doctors();
+            all += patients.get_PatientsInShift();
             String arr = URLEncoder.encode(all, "utf-8");
-           // System.out.println(all);
+            //System.out.println(all);
         } catch (Exception ex) {
             System.out.println(ex);
             ex.printStackTrace();

@@ -49,18 +49,17 @@ public class newFormPatient extends HttpServlet {
             Statement stmt = con.createStatement();
 //patient->lastInsertId();
 
-            int w=0;
-           // w = user.insertLoginInfo(0,0,0,l, "patient", username, password);
-            
-                patient.insertPatient( amka, firstname, lastname, insurance, road, Integer.parseInt(number), Integer.parseInt(tk), telephone);
-                
-                w = user.insertLoginInfo(patient.get_id(firstname, lastname, telephone), "patient", username, password);
-                if(w!=1){
-                    patient.deletePatient(patient.get_id(firstname, lastname, telephone));
-                }
-            
+            int w = 0;
+            // w = user.insertLoginInfo(0,0,0,l, "patient", username, password);
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            patient.insertPatient(amka, firstname, lastname, insurance, road, Integer.parseInt(number), Integer.parseInt(tk), telephone);
+
+            w = user.insertLoginInfo(patient.get_id(firstname, lastname, telephone), "patient", username, password);
+            if (w != 1) {
+                patient.deletePatient(patient.get_id(firstname, lastname, telephone));
+            }
+
+            request.getRequestDispatcher("employee.jsp").forward(request, response);
 
             //con.close();
         } catch (Exception e) {

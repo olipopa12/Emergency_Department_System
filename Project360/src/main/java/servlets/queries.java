@@ -5,9 +5,8 @@
  */
 package servlets;
 
-import database.Doctors;
 import java.io.IOException;
-import java.net.URLEncoder;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,12 +16,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author kater
  */
-public class get_doctors extends HttpServlet {
+public class queries extends HttpServlet {
 
-    private Doctors doctors = new Doctors();
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
+  /**
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -32,16 +29,6 @@ public class get_doctors extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String all = "";
-        try {
-            all += doctors.get_Doctors();
-            String arr = URLEncoder.encode(all, "utf-8");
-           // System.out.println(all);
-        } catch (Exception ex) {
-            System.out.println(ex);
-            ex.printStackTrace();
-        }
-        response.getOutputStream().println(all); //finish
-
+        request.getRequestDispatcher("queries.jsp").forward(request, response);
     }
 }

@@ -27,6 +27,7 @@ public class DocInShift {
                 + " FOREIGN KEY(docID) REFERENCES DOCTORS(docID));";
         return sql;
     }
+
     public void insertDocInShift(int did, int sid) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -37,7 +38,7 @@ public class DocInShift {
         try {
 
             pstmt.setInt(1, did);
-            pstmt.setInt(2,sid);
+            pstmt.setInt(2, sid);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
@@ -45,22 +46,23 @@ public class DocInShift {
         }
 
     }
+
     public String get_DocsInShift() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String doc= "SELECT DS.docID,D.firstname,D.lastname,shiftID FROM DOCTORS D,DOCS_IN_SHIFT DS "
-                +"WHERE D.docID=DS.docID;";
+        String doc = "SELECT DS.docID,D.firstname,D.lastname,shiftID FROM DOCTORS D,DOCS_IN_SHIFT DS "
+                + "WHERE D.docID=DS.docID;";
         PreparedStatement pstmt = con.prepareStatement(doc);
         int did = 0;
-        int sid=0;
-        
+        int sid = 0;
+
         String first = null;
         String last = null;
         String docs = null;
-String allDocs=null;
+        String allDocs = null;
         // ResultSet rs=null;
         try {
 
@@ -71,11 +73,11 @@ String allDocs=null;
                 sid = rs.getInt("shiftID");
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
-                docs=(String.valueOf(did)+" "+first+" "+last+" "+String.valueOf(sid)+",");
-                if(allDocs==null){
-                    allDocs=docs;
-                }else{
-                    allDocs=allDocs+docs;
+                docs = (String.valueOf(did) + " " + first + " " + last + " " + String.valueOf(sid) + ",");
+                if (allDocs == null) {
+                    allDocs = docs;
+                } else {
+                    allDocs = allDocs + docs;
                 }
                 //phone = rs.getString("phone");
                 //System.out.println(id + " " + symp);
@@ -85,6 +87,6 @@ String allDocs=null;
         } catch (SQLException ex) {
             Logger.getLogger(DocInShift.class.getName()).log(Level.SEVERE, null, ex);
         }
-return allDocs;
+        return allDocs;
     }
 }

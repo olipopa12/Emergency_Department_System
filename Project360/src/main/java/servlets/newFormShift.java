@@ -5,11 +5,11 @@
  */
 package servlets;
 
+import database.DocInShift;
+import database.EmployeesInShift;
 import database.LoginInfo;
-import database.PatientsInShift;
+import database.NursesInShift;
 import database.Shift;
-import database.Symptoms;
-import database.Visits;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,35 +23,41 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author kater
  */
-public class newFormVisit extends HttpServlet {
+public class newFormShift extends HttpServlet {
 
     private LoginInfo user = new LoginInfo();
-    private Visits visit = new Visits();
-    private Symptoms symptom = new Symptoms();
-    private PatientsInShift pat = new PatientsInShift();
     private Shift shift = new Shift();
+    private DocInShift docs = new DocInShift();
+    private EmployeesInShift employees = new EmployeesInShift();
+    private NursesInShift nurses = new NursesInShift();
 
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         try {
 
             // read form fields
-            String pid = request.getParameter("pid");
-            String symptoms = request.getParameter("symptoms");
-            String[] symps = symptoms.split(",");
+            String d = request.getParameter("doctors");
+            String n = request.getParameter("nurses");
+            String e = request.getParameter("employees");
+            String[] ds = d.split(",");
+            String[] ns = n.split(",");
+            String[] es = e.split(",");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
-            visit.insertVisit(Integer.parseInt(pid), String.valueOf(java.time.LocalDate.now()));
-            for (int i = 0; i < symps.length; i++) {
+            shift.insertShift();
+            for (int i = 0; i < ds.length; i++) {
                 //System.out.println(visit.get_id( Integer.parseInt(pid), date));
-                //System.out.println(visit.get_id(Integer.parseInt(pid), String.valueOf(java.time.LocalDate.now())));
-                symptom.insertSymptom(visit.get_id(Integer.parseInt(pid), String.valueOf(java.time.LocalDate.now())), symps[i]);
-                System.out.println("shift: " + shift.get_id(String.valueOf(java.time.LocalDate.now())));
+                docs.insertDocInShift(Integer.parseInt(ds[i]), shift.get_id(String.valueOf(java.time.LocalDate.now())));
             }
-            pat.insertPatientInShift(Integer.parseInt(pid), shift.get_id(String.valueOf(java.time.LocalDate.now())));
-            // Main.id_visit++;
-
+            for (int i = 0; i < ns.length; i++) {
+                //System.out.println(visit.get_id( Integer.parseInt(pid), date));
+                nurses.insertNurseInShift(Integer.parseInt(ns[i]), shift.get_id(String.valueOf(java.time.LocalDate.now())));
+            }
+            for (int i = 0; i < es.length; i++) {
+                //System.out.println(visit.get_id( Integer.parseInt(pid), date));
+                employees.insertEmployeeInShift(Integer.parseInt(es[i]), shift.get_id(String.valueOf(java.time.LocalDate.now())));
+            }
             request.getRequestDispatcher("employee.jsp").forward(request, response);
 
             //con.close();

@@ -7,21 +7,23 @@ package database;
 
 /**
  *
- * @author olipo
+ * @author kater
  */
-public class ExamFromNurse {
+public class ReExaminations {
 
-    String createExamFromNurse() {
-        String exam = "CREATE TABLE IF NOT EXISTS EXAMINATIONS_FROM_NURSES "
+    String createReExam() {
+        String exam = "CREATE TABLE IF NOT EXISTS REEXAMINATIONS "
                 + "(examID INTEGER not NULL, "
-                + " nurseID INTEGER not NULL, "
-                + " patientID INTEGER not NULL, "
                 + " docID INTEGER not NULL, "
+                + " patientID INTEGER not NULL, "
                 + " kindof VARCHAR(255), "
+                + " diseaseID INTEGER not NULL, "
+                + " medID INTEGER not NULL, "
                 + " PRIMARY KEY ( examID ), "
-                + " FOREIGN KEY(docID) REFERENCES DOCTORS(docID), "
+                + " FOREIGN KEY(diseaseID) REFERENCES DISEASES(disID), "
+                + " FOREIGN KEY(medID) REFERENCES MEDICINES(medID), "
                 + " FOREIGN KEY(patientID) REFERENCES PATIENTS(patientID), "
-                + " FOREIGN KEY(nurseID) REFERENCES NURSES(nurseID))";
+                + " FOREIGN KEY(docID) REFERENCES DOCTORS(docID))";
         return exam;
     }
 }

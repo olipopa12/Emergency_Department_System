@@ -175,28 +175,33 @@
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                <form  method="post" action="http://localhost:8080/Project360/registerShift">
                     <input type="submit" name=""  value="Add new shift">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                <form  method="post" action="http://localhost:8080/Project360/see_patients_in_shift">
                     <input type="submit" name=""  value="See patients' list in shift">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                <form  method="post" action="http://localhost:8080/Project360/see_doctors_in_shift">
                     <input type="submit" name=""  value="See doctors' list in shift">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                <form  method="post" action="http://localhost:8080/Project360/see_nurses_in_shift">
                     <input type="submit" name=""  value="See nurses' list in shift">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
-                <form  method="post" action="http://localhost:8080/Project360/registerNurse">
+                <form  method="post" action="http://localhost:8080/Project360/see_employees_in_shift">
                     <input type="submit" name=""  value="See employees' list in shift">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/queries">
+                    <input type="submit" name=""  value="execute queries">
                 </form> 
             </div>
         </div>

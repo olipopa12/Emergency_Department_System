@@ -36,7 +36,7 @@ public class get_employees extends HttpServlet {
         try {
             all += employees.get_Employees();
             String arr = URLEncoder.encode(all, "utf-8");
-            System.out.println(all);
+            //System.out.println(all);
         } catch (Exception ex) {
             System.out.println(ex);
             ex.printStackTrace();

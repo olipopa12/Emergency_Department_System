@@ -45,7 +45,7 @@ public class Main {
             ExamFromNurse nexam = new ExamFromNurse();
             DocInShift docInShift = new DocInShift();
             Shift shift = new Shift();
-            PatientsInShift patientInShift=new PatientsInShift();
+            PatientsInShift patientInShift = new PatientsInShift();
             EmployeesInShift empInShift = new EmployeesInShift();
             NursesInShift nurseInShift = new NursesInShift();
             ChronicDiseases chronicDis = new ChronicDiseases();
@@ -78,7 +78,7 @@ public class Main {
             stmt.executeUpdate(createEmpInShift);
             String createNurseInShift = nurseInShift.createNursesInShift();
             stmt.executeUpdate(createNurseInShift);
-             String createPatientInShift = patientInShift.createPatientsInShift();
+            String createPatientInShift = patientInShift.createPatientsInShift();
             stmt.executeUpdate(createPatientInShift);
             String createCdisease = chronicDis.createChronicDisease();
             stmt.executeUpdate(createCdisease);
@@ -178,15 +178,12 @@ public class Main {
             med.insertMedicine(5, 6, "Betadine", "Gel", 150);
             med.insertMedicine(6, 4, "Alamycin", "Injectable", 100);
 
-            
-             visit.insertVisit( 1, "25/1/2020");
-             
+            visit.insertVisit(1, "2020-01-12");
+
             //sym.insertSymptom(1, "vixas");
             //sym.insertSymptom(1, "pyretos");
             //sym.insertSymptom(1, "ponolaimos");
             shift.insertShift();
-            shift.insertShift();
-           // shift.insertShift("13/1/21");
             docInShift.insertDocInShift(3, 1);
             docInShift.insertDocInShift(5, 1);
             docInShift.insertDocInShift(8, 1);
@@ -196,6 +193,7 @@ public class Main {
             nurseInShift.insertNurseInShift(4, 1);
             patientInShift.insertPatientInShift(3, 1);
             patientInShift.insertPatientInShift(5, 1);
+
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
@@ -215,7 +213,7 @@ public class Main {
             //nurse.insertNurse(4, "giorgos", "kokolakis", "6958907643");
             //employee.insertEmployee(6, "manolhs", "chatzakis", "6985888585466");
             //med.insertMedicine(8, "ntepon", "hapi", 135, 23);
-           
+
             //nurse.updateNurse(4, "giorgos", "papadakis", "6969696969");
             //employee.deleteEmployee(6, "manolhs", "chatzakis");
             //nurse.deleteNurse(4, "giorgos", "kokolakis");
@@ -227,7 +225,6 @@ public class Main {
             //user.insertLoginInfo(4, "nurse", "geok", "kokol");
             //user.insertLoginInfo(5, "patient", "nikos", "fanou");
             //user.insertLoginInfo(7, "employee", "manos", "chatz");
-
             con.close();
         } catch (Exception e) {
             System.out.println(e);

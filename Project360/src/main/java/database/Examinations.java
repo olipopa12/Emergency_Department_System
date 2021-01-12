@@ -15,13 +15,14 @@ public class Examinations {
         String exam = "CREATE TABLE IF NOT EXISTS EXAMINATIONS "
                 + "(examID INTEGER not NULL, "
                 + " docID INTEGER not NULL, "
-                 + " patientID INTEGER not NULL, "
+                + " patientID INTEGER not NULL, "
                 + " kindof VARCHAR(255), "
                 + " diseaseID INTEGER not NULL, "
-                + " medID INTEGER not NULL, "
+                + " nurseID INTEGER not NULL, "
+               //+ " medID INTEGER not NULL, "
                 + " PRIMARY KEY ( examID ), "
                 + " FOREIGN KEY(diseaseID) REFERENCES DISEASES(disID), "
-                 + " FOREIGN KEY(medID) REFERENCES MEDICINES(medID), "
+                + " FOREIGN KEY(medID) REFERENCES MEDICINES(medID), "
                 + " FOREIGN KEY(patientID) REFERENCES PATIENTS(patientID), "
                 + " FOREIGN KEY(docID) REFERENCES DOCTORS(docID))";
         return exam;

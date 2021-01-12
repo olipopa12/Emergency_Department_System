@@ -6,7 +6,6 @@
 package servlets;
 
 import database.LoginInfo;
-import database.Main;
 import database.Nurses;
 import java.io.IOException;
 import java.sql.Connection;
@@ -45,7 +44,7 @@ public class newFormNurse extends HttpServlet {
                 nurse.insertNurse( firstname, lastname, telephone);
             }
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+           request.getRequestDispatcher("employee.jsp").forward(request, response);
 
             //con.close();
         } catch (Exception e) {

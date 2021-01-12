@@ -36,7 +36,7 @@ public class get_nurses extends HttpServlet {
         try {
             all += nurses.get_Nurses();
             String arr = URLEncoder.encode(all, "utf-8");
-            System.out.println(all);
+            //System.out.println(all);
         } catch (Exception ex) {
             System.out.println(ex);
             ex.printStackTrace();

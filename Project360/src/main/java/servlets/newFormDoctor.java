@@ -48,7 +48,7 @@ public class newFormDoctor extends HttpServlet {
                 //Main.id++;
             }
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            request.getRequestDispatcher("employee.jsp").forward(request, response);
 
             //con.close();
         } catch (Exception e) {

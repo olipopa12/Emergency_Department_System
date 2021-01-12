@@ -36,7 +36,7 @@ public class get_patients extends HttpServlet {
         try {
             all += patients.get_Patients();
             String arr = URLEncoder.encode(all, "utf-8");
-            System.out.println(all);
+            //System.out.println(all);
         } catch (Exception ex) {
             System.out.println(ex);
             ex.printStackTrace();

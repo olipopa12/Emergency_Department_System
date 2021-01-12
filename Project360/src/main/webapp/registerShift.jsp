@@ -1,21 +1,20 @@
 <%-- 
-    Document   : registerVisit
-    Created on : 10 Ιαν 2021, 3:21:59 μμ
+    Document   : registerShift
+    Created on : 12 Ιαν 2021, 12:09:07 πμ
     Author     : kater
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="javascript/registers.js"></script>
-        <title>Register Visit</title>
+        <title>Register Shift</title>
         <style>
 
             .box {
-                width: 400px;
-                height: 320px;
+                width: 430px;
+                height: 400px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
@@ -74,19 +73,22 @@
                 border: 2px solid #123672;
             }
         </style>
-
     </head>
     <body>
-        <form class="box" method="post" action="http://localhost:8080/Project360/newFormVisit" >
-            <h1>Εγγραφή νέας Επίσκεψης</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/newFormShift" >
+            <h1>Δημιουργία νέας βάρδιας</h1>
             <table>
                 <tr>
-                    <td align="right">Patient ID:</td>
-                    <td align="left"><input type="text" id="pid" name="pid" value=""  /></td>
+                    <td align="right">Doctors ids:</td>
+                    <td align="left"><input type="text" id="doctors" name="doctors" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Symptoms:</td>
-                    <td align="left"><input type="text" id="symptoms" name="symptoms" value=""  /></td>
+                    <td align="right">Nurses ids:</td>
+                    <td align="left"><input type="text" id="nurses" name="nurses" value=""  /></td>
+                </tr>
+                <tr>
+                    <td align="right">Employees ids:</td>
+                    <td align="left"><input type="text" id="employees" name="employees" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>
@@ -97,3 +99,4 @@
 
     </body>
 </html>
+

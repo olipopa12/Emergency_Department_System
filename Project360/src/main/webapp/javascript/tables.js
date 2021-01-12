@@ -222,3 +222,160 @@ function Patients() {
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
     xhttp.send();
 }
+
+function PatientsInShift() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var r = 0;
+            var pou = 1;
+            var str = xhttp.responseText;
+            var row = str.split(",");
+            var col = "";
+            var length_row = row.length;
+            console.log(str);
+            while (r < (length_row - 1)) {
+                var row = str.split(",");
+                col = "";
+                col = row[r].split(" ");
+                var f1 = col[0];
+                var f2 = col[1];
+                var f3 = col[2];
+                var f4 = col[3];
+                var table = document.getElementById("pat");
+                var row = table.insertRow(pou);
+                var c1 = row.insertCell(0);
+                var c2 = row.insertCell(1);
+                var c3 = row.insertCell(2);
+                var c4 = row.insertCell(3);
+                c1.innerHTML = f1;
+                c2.innerHTML = f2;
+                c3.innerHTML = f3;
+                c4.innerHTML = f4;
+                pou++;
+                r++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_patients_in_shift");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}
+
+function EmployeesInShift() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var r = 0;
+            var pou = 1;
+            var str = xhttp.responseText;
+            var row = str.split(",");
+            var col = "";
+            var length_row = row.length;
+            while (r < (length_row - 1)) {
+                var row = str.split(",");
+                col = "";
+                col = row[r].split(" ");
+                var f1 = col[0];
+                var f2 = col[1];
+                var f3 = col[2];
+                var f4 = col[3];
+                var table = document.getElementById("empl");
+                var row = table.insertRow(pou);
+                var c1 = row.insertCell(0);
+                var c2 = row.insertCell(1);
+                var c3 = row.insertCell(2);
+                var c4 = row.insertCell(3);
+                c1.innerHTML = f1;
+                c2.innerHTML = f2;
+                c3.innerHTML = f3;
+                c4.innerHTML = f4;
+                pou++;
+                r++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_employees_in_shift");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}
+
+function NursesInShift() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var r = 0;
+            var pou = 1;
+            var str = xhttp.responseText;
+            var row = str.split(",");
+            var col = "";
+            var length_row = row.length;
+            while (r < (length_row - 1)) {
+                var row = str.split(",");
+                col = "";
+                col = row[r].split(" ");
+                var f1 = col[0];
+                var f2 = col[1];
+                var f3 = col[2];
+                var f4 = col[3];
+                var table = document.getElementById("nurs");
+                var row = table.insertRow(pou);
+                var c1 = row.insertCell(0);
+                var c2 = row.insertCell(1);
+                var c3 = row.insertCell(2);
+                var c4 = row.insertCell(3);
+                c1.innerHTML = f1;
+                c2.innerHTML = f2;
+                c3.innerHTML = f3;
+                c4.innerHTML = f4;
+                pou++;
+                r++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_nurses_in_shift");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}
+
+function DoctorsInShift() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var r = 0;
+            var pou = 1;
+            var str = xhttp.responseText;
+            var row = str.split(",");
+            var col = "";
+            var length_row = row.length;
+            while (r < (length_row - 1)) {
+                var row = str.split(",");
+                col = "";
+                col = row[r].split(" ");
+                var f1 = col[0];
+                var f2 = col[1];
+                var f3 = col[2];
+                var f4 = col[3];
+                var table = document.getElementById("docs");
+                var row = table.insertRow(pou);
+                var c1 = row.insertCell(0);
+                var c2 = row.insertCell(1);
+                var c3 = row.insertCell(2);
+                var c4 = row.insertCell(3);
+                c1.innerHTML = f1;
+                c2.innerHTML = f2;
+                c3.innerHTML = f3;
+                c4.innerHTML = f4;
+                pou++;
+                r++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_doctors_in_shift");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}

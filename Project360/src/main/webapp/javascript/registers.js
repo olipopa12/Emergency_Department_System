@@ -126,9 +126,7 @@ function registerPatient() {
 function registerVisit() {
     var xhttp = new XMLHttpRequest();
     var name = "";
-    name += "date=";
-    name += document.getElementById("date").value;
-    name += "&symptoms=";
+    name += "symptoms=";
     name += document.getElementById("symptoms").value;
     name += "&pid=";
     name += document.getElementById("pid").value;
@@ -147,5 +145,26 @@ function registerVisit() {
 }
 
 
-
+function registerShift() {
+    var xhttp = new XMLHttpRequest();
+    var name = "";
+    name += "doctors=";
+    name += document.getElementById("doctors").value;
+    name += "&nurses=";
+    name += document.getElementById("nurses").value;
+    name += "&employees=";
+    name += document.getElementById("employees").value;
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            // Typical action to be performed when the document is ready:
+            //document.getElementById("demo").innerHTML = xhttp.responseText;
+            // window.alert(xhttp.responseText);
+            //console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/newFormShift");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send(name);
+}
 

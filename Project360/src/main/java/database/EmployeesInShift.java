@@ -18,7 +18,8 @@ import java.util.logging.Logger;
  * @author olipo
  */
 public class EmployeesInShift {
-     String createEmployeesInShift() {
+
+    String createEmployeesInShift() {
         String sql = "CREATE TABLE IF NOT EXISTS EMPLOYEES_IN_SHIFT "
                 + "(employeeID INTEGER not NULL, "
                 + " shiftID INTEGER not NULL, "
@@ -26,7 +27,8 @@ public class EmployeesInShift {
                 + " FOREIGN KEY(employeeID) REFERENCES EMPLOYEES(employeeID));";
         return sql;
     }
-     public void insertEmployeeInShift(int eid, int sid) throws ClassNotFoundException, SQLException {
+
+    public void insertEmployeeInShift(int eid, int sid) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -36,7 +38,7 @@ public class EmployeesInShift {
         try {
 
             pstmt.setInt(1, eid);
-            pstmt.setInt(2,sid);
+            pstmt.setInt(2, sid);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
@@ -44,22 +46,23 @@ public class EmployeesInShift {
         }
 
     }
-     public String get_EmpInShift() throws ClassNotFoundException, SQLException {
+
+    public String get_EmpInShift() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String emp= "SELECT ES.employeeID,E.firstname,E.lastname,shiftID FROM EMPLOYEES E,EMPLOYEES_IN_SHIFT ES "
-                +"WHERE E.employeeID=ES.employeeID;";
+        String emp = "SELECT ES.employeeID,E.firstname,E.lastname,shiftID FROM EMPLOYEES E,EMPLOYEES_IN_SHIFT ES "
+                + "WHERE E.employeeID=ES.employeeID;";
         PreparedStatement pstmt = con.prepareStatement(emp);
         int eid = 0;
-        int sid=0;
-        
+        int sid = 0;
+
         String first = null;
         String last = null;
         String emps = null;
-String allEmp=null;
+        String allEmp = null;
         // ResultSet rs=null;
         try {
 
@@ -70,11 +73,11 @@ String allEmp=null;
                 sid = rs.getInt("shiftID");
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
-                emps=(String.valueOf(eid)+" "+first+" "+last+" "+String.valueOf(sid)+",");
-                if(allEmp==null){
-                    allEmp=emps;
-                }else{
-                    allEmp=allEmp+emps;
+                emps = (String.valueOf(eid) + " " + first + " " + last + " " + String.valueOf(sid) + ",");
+                if (allEmp == null) {
+                    allEmp = emps;
+                } else {
+                    allEmp = allEmp + emps;
                 }
                 //phone = rs.getString("phone");
                 //System.out.println(id + " " + symp);
@@ -84,6 +87,6 @@ String allEmp=null;
         } catch (SQLException ex) {
             Logger.getLogger(EmployeesInShift.class.getName()).log(Level.SEVERE, null, ex);
         }
-return allEmp;
+        return allEmp;
     }
 }
