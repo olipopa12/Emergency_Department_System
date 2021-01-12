@@ -43,7 +43,7 @@ public class Main {
             Symptoms sym = new Symptoms();
             Disease dis = new Disease();
             ExamFromNurse nexam = new ExamFromNurse();
-            ReExaminations rexam=new ReExaminations();
+            ReExaminations rexam = new ReExaminations();
             DocInShift docInShift = new DocInShift();
             Shift shift = new Shift();
             PatientsInShift patientInShift = new PatientsInShift();
@@ -69,11 +69,11 @@ public class Main {
             stmt.executeUpdate(createDis);
             String createMed = med.createMedicine();
             stmt.executeUpdate(createMed);
-             String createExam = exam.createExam();
+            String createExam = exam.createExam();
             stmt.executeUpdate(createExam);
             String createNExam = nexam.createExamFromNurse();
             stmt.executeUpdate(createNExam);
-             String createReExam = rexam.createReExam();
+            String createReExam = rexam.createReExam();
             stmt.executeUpdate(createReExam);
             String createShift = shift.createShift();
             stmt.executeUpdate(createShift);
@@ -183,7 +183,7 @@ public class Main {
             med.insertMedicine(5, 6, "Betadine", "Gel", 150);
             med.insertMedicine(6, 4, "Alamycin", "Injectable", 100);
 
-            visit.insertVisit(1, "2020-01-12");
+            visit.insertVisit(1, "2020-01-15");
 
             //sym.insertSymptom(1, "vixas");
             //sym.insertSymptom(1, "pyretos");
@@ -199,19 +199,21 @@ public class Main {
             patientInShift.insertPatientInShift(3, 1);
             patientInShift.insertPatientInShift(5, 1);
 
-            
+            visit.insertVisit(3, "2020-01-12");
+            visit.insertVisit(5, "2020-01-12");
+
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
-            
-            exam.insertExam(3, 1, "aimatologikes", 2, 8, 1);
+
+            /*exam.insertExam(3, 1, "aimatologikes", 2, 8, 1);
             exam.insertExam(3, 1, "aimatologikes", 2, 8, 1);
             nexam.insertExamFromNurse(4, 5, "covid_test", 1);
             nexam.insertExamFromNurse(4, 5, "covid_test", 1);
-            rexam.insertReExam(10, 3, "aksonikh", 3, 3, 1,true);
-            rexam.insertReExam(10, 3, "aksonikh", 3, 3, 1,true);
+            rexam.insertReExam(10, 3, "aksonikh", 3, 3, 1, true);
+            rexam.insertReExam(10, 3, "aksonikh", 3, 3, 1, true);
             System.out.println(shift.get_id("13/1/21"));
-            System.out.println(rexam.get_ReExams(3));
+            System.out.println(rexam.get_ReExams(3));*/
             //sym.get_Symptoms();
             //patient.get_Patients();
             //med.get_Medicines();
@@ -249,7 +251,7 @@ String kati=null;
 System.out.println("Total columns: "+rsmd.getColumnCount());  
 System.out.println("Column Name of 1st column: "+rsmd.getColumnName(1));  
 System.out.println("Column Type Name of 1st column: "+rsmd.getColumnTypeName(1));  
-  */
+             */
             //nurse.updateNurse(4, "giorgos", "papadakis", "6969696969");
             //employee.deleteEmployee(6, "manolhs", "chatzakis");
             //nurse.deleteNurse(4, "giorgos", "kokolakis");

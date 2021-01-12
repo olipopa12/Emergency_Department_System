@@ -24,7 +24,6 @@ public class ExamFromNurse {
                 + "(examID INTEGER not NULL AUTO_INCREMENT, "
                 + " nurseID INTEGER not NULL, "
                 + " patientID INTEGER not NULL, "
-                // + " docID INTEGER not NULL, "
                 + " kindof VARCHAR(255), "
                 + " visitID INTEGER not NULL, "
                 + " PRIMARY KEY ( examID ), "

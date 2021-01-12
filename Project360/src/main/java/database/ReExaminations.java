@@ -28,7 +28,7 @@ public class ReExaminations {
                 + " diseaseID INTEGER not NULL, "
                 + " medID INTEGER not NULL, "
                 + " visitID INTEGER not NULL, "
-                 + " hospitalization BOOLEAN, "
+                + " hospitalization BOOLEAN, "
                 + " PRIMARY KEY ( examID ), "
                 + " FOREIGN KEY(visitID) REFERENCES VISITS(visitID), "
                 + " FOREIGN KEY(diseaseID) REFERENCES DISEASES(disID), "
@@ -37,7 +37,8 @@ public class ReExaminations {
                 + " FOREIGN KEY(docID) REFERENCES DOCTORS(docID))";
         return exam;
     }
-     public void insertReExam( int did, int pid, String kind, int disID,int mid,int vid,boolean hospital) throws ClassNotFoundException, SQLException {
+
+    public void insertReExam(int did, int pid, String kind, int disID, int mid, int vid, boolean hospital) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
@@ -53,7 +54,7 @@ public class ReExaminations {
             pstmt.setInt(4, disID);
             pstmt.setInt(5, mid);
             pstmt.setInt(6, vid);
-             pstmt.setBoolean(7,hospital );
+            pstmt.setBoolean(7, hospital);
             pstmt.executeUpdate();
             con.close();
         } catch (SQLException ex) {
@@ -62,7 +63,7 @@ public class ReExaminations {
 
     }
 
-     public String get_ReExams(int pid) throws ClassNotFoundException, SQLException {
+    public String get_ReExams(int pid) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -77,9 +78,9 @@ public class ReExaminations {
         String kindof = null;
         String first = null;
         String last = null;
-String dis=null;
-String med=null;
-boolean hospital=false;
+        String dis = null;
+        String med = null;
+        boolean hospital = false;
         String date = null;
 
         String allExams = null;
@@ -94,12 +95,12 @@ boolean hospital=false;
                 kindof = rs.getString("kindof");
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
-                 dis = rs.getString("kind");
-                 med=rs.getString("name");
-                 hospital=rs.getBoolean("hospitalization");
+                dis = rs.getString("kind");
+                med = rs.getString("name");
+                hospital = rs.getBoolean("hospitalization");
                 date = rs.getString("date");
                 //sub = rs.getInt("substance");
-                Exam = (String.valueOf(id) + " " + kindof + " " + first + " " + last +" "+dis+" "+med+" "+String.valueOf(hospital)+ " " + date + ",");
+                Exam = (String.valueOf(id) + " " + kindof + " " + first + " " + last + " " + dis + " " + med + " " + String.valueOf(hospital) + " " + date + ",");
                 if (allExams == null) {
                     allExams = Exam;
                 } else {

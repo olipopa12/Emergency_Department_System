@@ -46,6 +46,39 @@ function Medicines() {
     xhttp.send();
 }
 
+function Diseases() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var r = 0;
+            var pou = 1;
+            var str = xhttp.responseText;
+            var row = str.split(",");
+            var col = "";
+            var length_row = row.length;
+            while (r < (length_row - 1)) {
+                var row = str.split(",");
+                col = "";
+                col = row[r].split(" ");
+                var f1 = col[0];
+                var f2 = col[1];
+                var table = document.getElementById("dis");
+                var row = table.insertRow(pou);
+                var c1 = row.insertCell(0);
+                var c2 = row.insertCell(1);
+                c1.innerHTML = f1;
+                c2.innerHTML = f2;
+                pou++;
+                r++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_diseases");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}
+
 function Doctors() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {

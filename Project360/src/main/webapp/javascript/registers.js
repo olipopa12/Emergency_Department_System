@@ -168,3 +168,77 @@ function registerShift() {
     xhttp.send(name);
 }
 
+function registerReExam() {
+    var xhttp = new XMLHttpRequest();
+    var name = "";
+    name += "pid=";
+    name += document.getElementById("pid").value;
+    name += "&kind=";
+    name += document.getElementById("kind").value;
+    name += "&did=";
+    name += document.getElementById("did").value;
+    name += "&mid=";
+    name += document.getElementById("mid").value;
+    name += "&hosp=";
+    name += document.getElementById("hosp").value;
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            // Typical action to be performed when the document is ready:
+            //document.getElementById("demo").innerHTML = xhttp.responseText;
+            // window.alert(xhttp.responseText);
+            //console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/newFormReExam");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send(name);
+}
+
+function registerExamDoc() {
+    var xhttp = new XMLHttpRequest();
+    var name = "";
+    name += "pid=";
+    name += document.getElementById("pid").value;
+    name += "&kind=";
+    name += document.getElementById("kind").value;
+    name += "&did=";
+    name += document.getElementById("did").value;
+    name += "&nid=";
+    name += document.getElementById("nid").value;
+    name += "&ex=";
+    name += document.getElementById("ex").value;
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            // Typical action to be performed when the document is ready:
+            //document.getElementById("demo").innerHTML = xhttp.responseText;
+            // window.alert(xhttp.responseText);
+            //console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/newFormExamDoc");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send(name);
+}
+
+function registerExamNurse() {
+    var xhttp = new XMLHttpRequest();
+    var name = "";
+    name += "pid=";
+    name += document.getElementById("pid").value;
+    name += "&kind=";
+    name += document.getElementById("kind").value;
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            // Typical action to be performed when the document is ready:
+            //document.getElementById("demo").innerHTML = xhttp.responseText;
+            // window.alert(xhttp.responseText);
+            //console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/newFormExamNurse");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send(name);
+}

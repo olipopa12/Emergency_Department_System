@@ -125,9 +125,9 @@
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post">
+                <form class=" lbox" method="post" action="http://localhost:8080/Project360/registerExamNurse">
                     </br>
-                    <input type="submit" name="" onclick="changeNurse()" value="Add new clinic examination">
+                    <input type="submit" name=""  value="Add new clinic examination">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">

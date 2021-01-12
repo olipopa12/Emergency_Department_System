@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Doctor</title>
-       <script type="text/javascript" src="javascript/all_entities.js"></script>
+        <script type="text/javascript" src="javascript/all_entities.js"></script>
         <script type="text/javascript" src="javascript/updates.js"></script>
         <script type="text/javascript" src="javascript/registers.js"></script>
         <style>
@@ -123,37 +123,46 @@
 
                 </table>
             </form>
-            <div class="lboxes" style="margin-top:8%; margin-left:5%; text-align: center;">
+            <div class="lboxes" style="margin-top:3%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   >
                     <input type="submit" name="" onclick="changeDoctor()" value="Change my infos">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"   >
-                    <input type="submit" name="" onclick="changeDoctor()"  value="Add new examination">
+                <form class=" lbox" method="post"  action="http://localhost:8080/Project360/registerExamDoc"  >
+                    <input type="submit" name=""  value="Add new examination">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"   >
-                    <input type="submit" name="" onclick="changeDoctor()"  value="Add new re-examination">
-                </form> 
-            </div>
-            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"   >
-                    <input type="submit" name="" onclick="changeDoctor()"  value="Order clinic examination">
+                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/registerReExam" >
+                    <input type="submit" name=""  value="Add new re-examination">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   action="http://localhost:8080/Project360/see_medicines"  >
-                    <input type="submit" name=""  value="Show medicines' list">
+                    <input type="submit" name=""  value="See medicines' list">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/see_diseases" >
+                    <input type="submit" name=""   value="Show diseases' list">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   action="http://localhost:8080/Project360/see_patients" >
-                    <input type="submit" name=""   value="Show patient's list">
+                    <input type="submit" name=""   value="See patient's list">
                 </form> 
             </div>
-
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/see_nurses_in_shift" >
+                    <input type="submit" name=""   value="See nurses' list in shift">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/see_patients_in_shift" >
+                    <input type="submit" name=""   value="See patients' list in shift">
+                </form> 
+            </div>
         </div>
     </body>
 </html>
