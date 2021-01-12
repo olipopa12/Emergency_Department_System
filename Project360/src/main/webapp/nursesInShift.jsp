@@ -72,10 +72,10 @@
             </br>
             <table id="nurs">
                 <tr>
-                    <th>NURSEID</th>
-                    <th>SHIFTID</th>
+                    <th>NURSE_ID</th>
                     <th>FIRSTNAME</th>
                     <th>LASTNAME</th>
+                    <th>SHIFT_ID</th>
                 </tr>
             </table>
         </div>
