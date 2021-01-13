@@ -77,8 +77,7 @@
     </head>
     <body>
         <form class="box" method="post" action="http://localhost:8080/Project360/see_id" >
-            <h1>Συμπλήρωση id ασθενή για παρακολούθηση ιστορικου</h1>
-            </br>
+            <h1>Συμπλήρωσε το id του ασθενή για να δεις το ιστορικό του</h1>
             </br>
             </br>
             <table>

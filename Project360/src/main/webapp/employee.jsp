@@ -159,6 +159,26 @@
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/give_date">
+                    <input type="submit" name=""  value="Give dates to see your shifts">
+                </form>
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/give_id" >
+                    <input type="submit" name=""   value="Give id to see patient's medical history">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/see_visit_statistics">
+                    <input type="submit" name=""  value="See visit's statistics in current shift">
+                </form>
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/see_covid_statistics">
+                    <input type="submit" name=""  value="See covid report in total">
+                </form>
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
                 <form  method="post" action="http://localhost:8080/Project360/see_patients">
                     <input type="submit" name=""  value="See patients' list">
                 </form>

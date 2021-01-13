@@ -15,13 +15,13 @@
 
             .box {
                 width: 400px;
-                height: 900px;
+                height: 1000px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
-                top:75%;
+                top:83%;
                 left: 50%;
                 text-align: center;
             }
@@ -96,7 +96,7 @@
                     <td align="right">Last Name:</td>
                     <td align="left"><input type="text" id="lastname" name="lastname" value=""  /></td>
                 </tr>
-                 <tr>
+                <tr>
                     <td align="right">Telephone:</td>
                     <td align="left"><input type="text" id="telephone" name="telephone" value=""  /></td>
                 </tr>
@@ -119,6 +119,10 @@
                 <tr>
                     <td align="right">Insurance:</td>
                     <td align="left"><input type="text" id="insurance" name="insurance" value="" /></td>
+                </tr>
+                <tr>
+                    <td align="right">Chronic Diseases:</td>
+                    <td align="left"><input type="text" id="cd" name="cd" value="" placeholder="cd1,cd2,cd3,etc"/></td>
                 </tr>
                 <tr>
                     <td align="right"></td>

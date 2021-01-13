@@ -4,6 +4,111 @@
  * and open the template in the editor.
  */
 
+function Covid() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var r = 0;
+            var pou = 1;
+            var str = xhttp.responseText;
+            var row = str.split("?");
+            var length_row = row.length;
+            console.log(str);
+            var col = "";
+            while (r < (length_row - 1)) {
+                var row = str.split("?");
+                col = "";
+                col = row[r].split(" ");
+                var f1 = col[0];
+                var f2 = col[1];
+                var f3 = col[2];
+                var f4 = col[3];
+                var table = document.getElementById("st");
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
+                c1.innerHTML = f1;
+                c2.innerHTML = f2;
+                c3.innerHTML = f3;
+                c4.innerHTML = f4;
+
+                pou++;
+                r++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_covid_statistics");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}
+
+function Visits_Statistics() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var r = 0;
+            var pou = 1;
+            var str = xhttp.responseText;
+            var row = str.split(",");
+            var length_row = row.length;
+            console.log(str);
+            document.getElementById("s").innerHTML = "Total visits today: " + row[length_row - 1];
+            var col = "";
+            while (r < (length_row - 1)) {
+                var row = str.split(",");
+                col = "";
+                col = row[r].split(" ");
+                var f1 = col[0];
+                var f2 = col[1];
+                var f3 = col[2];
+                var table = document.getElementById("st");
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                c1.innerHTML = f1;
+                c2.innerHTML = f2;
+                c3.innerHTML = f3;
+                pou++;
+                r++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_visit_statistics");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}
+
+function Shift() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var r = 0;
+            var pou = 1;
+            var str = xhttp.responseText;
+            var row = str.split(",");
+            var length_row = row.length;
+            while (r < (length_row - 1)) {
+                var row = str.split(",");
+                var f1 = row[0];
+                var table = document.getElementById("s");
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                c1.innerHTML = f1;
+                pou++;
+                r++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_shifts");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}
 function Report() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -152,12 +257,12 @@ function Medicines() {
                 var f4 = col[3];
                 var f5 = col[4];
                 var table = document.getElementById("meds");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
-                var c5 = r.insertCell(4);
+                var row = table.insertRow(pou);
+                var c1 = row.insertCell(0);
+                var c2 = row.insertCell(1);
+                var c3 = row.insertCell(2);
+                var c4 = row.insertCell(3);
+                var c5 = row.insertCell(4);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
@@ -191,9 +296,9 @@ function Diseases() {
                 var f1 = col[0];
                 var f2 = col[1];
                 var table = document.getElementById("dis");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
+                var row = table.insertRow(pou);
+                var c1 = row.insertCell(0);
+                var c2 = row.insertCell(1);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 pou++;
@@ -217,6 +322,7 @@ function Doctors() {
             var row = str.split(",");
             var col = "";
             var length_row = row.length;
+            console.log(str);
             while (r < (length_row - 1)) {
                 var row = str.split(",");
                 col = "";
@@ -227,12 +333,12 @@ function Doctors() {
                 var f4 = col[3];
                 var f5 = col[4];
                 var table = document.getElementById("docs");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
-                var c5 = r.insertCell(4);
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
+                var c5 = row1.insertCell(4);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
@@ -258,6 +364,7 @@ function Employees() {
             var str = xhttp.responseText;
             var row = str.split(",");
             var col = "";
+            console.log(str);
             var length_row = row.length;
             while (r < (length_row - 1)) {
                 var row = str.split(",");
@@ -269,11 +376,11 @@ function Employees() {
                 var f3 = col[2];
                 var f4 = col[3];
                 var table = document.getElementById("empl");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
@@ -298,6 +405,7 @@ function Nurses() {
             var str = xhttp.responseText;
             var row = str.split(",");
             var col = "";
+            console.log(str);
             var length_row = row.length;
             while (r < (length_row - 1)) {
                 var row = str.split(",");
@@ -309,11 +417,11 @@ function Nurses() {
                 var f3 = col[2];
                 var f4 = col[3];
                 var table = document.getElementById("nur");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
@@ -354,16 +462,16 @@ function Patients() {
                 var f8 = col[7];
                 var f9 = col[8];
                 var table = document.getElementById("pat");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
-                var c5 = r.insertCell(4);
-                var c6 = r.insertCell(5);
-                var c7 = r.insertCell(6);
-                var c8 = r.insertCell(7);
-                var c9 = r.insertCell(8);
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
+                var c5 = row1.insertCell(4);
+                var c6 = row1.insertCell(5);
+                var c7 = row1.insertCell(6);
+                var c8 = row1.insertCell(7);
+                var c9 = row1.insertCell(8);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
@@ -404,11 +512,11 @@ function PatientsInShift() {
                 var f3 = col[2];
                 var f4 = col[3];
                 var table = document.getElementById("pat");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
@@ -443,11 +551,11 @@ function EmployeesInShift() {
                 var f3 = col[2];
                 var f4 = col[3];
                 var table = document.getElementById("empl");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
@@ -482,11 +590,11 @@ function NursesInShift() {
                 var f3 = col[2];
                 var f4 = col[3];
                 var table = document.getElementById("nurs");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
@@ -521,11 +629,11 @@ function DoctorsInShift() {
                 var f3 = col[2];
                 var f4 = col[3];
                 var table = document.getElementById("docs");
-                var r = table.insertRow(pou);
-                var c1 = r.insertCell(0);
-                var c2 = r.insertCell(1);
-                var c3 = r.insertCell(2);
-                var c4 = r.insertCell(3);
+                var row1 = table.insertRow(pou);
+                var c1 = row1.insertCell(0);
+                var c2 = row1.insertCell(1);
+                var c3 = row1.insertCell(2);
+                var c4 = row1.insertCell(3);
                 c1.innerHTML = f1;
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;

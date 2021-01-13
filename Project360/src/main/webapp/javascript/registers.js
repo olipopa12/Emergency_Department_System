@@ -109,6 +109,8 @@ function registerPatient() {
     name += document.getElementById("tk").value;
     name += "&number=";
     name += document.getElementById("number").value;
+    name += "&cd=";
+    name += document.getElementById("cd").value;
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             // Typical action to be performed when the document is ready:
@@ -154,6 +156,8 @@ function registerShift() {
     name += document.getElementById("nurses").value;
     name += "&employees=";
     name += document.getElementById("employees").value;
+    name += "&date=";
+    name += document.getElementById("date").value;
     xhttp.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             // Typical action to be performed when the document is ready:
@@ -257,6 +261,27 @@ function ID() {
         }
     };
     xhttp.open("POST", "http://localhost:8080/Project360/see_id");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send(name);
+}
+
+function Dates() {
+    var xhttp = new XMLHttpRequest();
+    var name = "";
+    name += "start=";
+    name += document.getElementById("start").value;
+    name += "&end=";
+    name += document.getElementById("end").value;
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            // Typical action to be performed when the document is ready:
+            //document.getElementById("demo").innerHTML = xhttp.responseText;
+            // window.alert(xhttp.responseText);
+            //console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/see_date");
     //event.preventDefault();
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
     xhttp.send(name);

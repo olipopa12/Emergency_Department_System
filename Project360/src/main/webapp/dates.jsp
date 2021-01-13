@@ -1,20 +1,21 @@
 <%-- 
-    Document   : registerShift
-    Created on : 12 Ιαν 2021, 12:09:07 πμ
+    Document   : dates
+    Created on : 13 Ιαν 2021, 6:42:37 μμ
     Author     : kater
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="javascript/registers.js"></script>
-        <title>Register Shift</title>
+        <title>Dates to see your shifts</title>
         <style>
 
             .box {
-                width: 430px;
-                height: 400px;
+                width: 400px;
+                height: 410px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
@@ -73,26 +74,21 @@
                 border: 2px solid #123672;
             }
         </style>
+
     </head>
     <body>
-        <form class="box" method="post" action="http://localhost:8080/Project360/newFormShift" >
-            <h1>Δημιουργία νέας βάρδιας</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/see_date" >
+            <h1>Συμπλήρωσε αρχική και τελική ημερομηνία για να παρακολουθήσεις τις βάρδιες σου</h1>
+            </br>
+            </br>
             <table>
                 <tr>
-                    <td align="right">Date:</td>
-                    <td align="left"><input type="text" id="date" name="date" value=""  placeholder="Year-Month-Day"/></td>
+                    <td align="right">Start date:</td>
+                    <td align="left"><input type="text" id="start" name="start" value="" placeholder="Year-Month-Day" /></td>
                 </tr>
                 <tr>
-                    <td align="right">Doctors ids:</td>
-                    <td align="left"><input type="text" id="doctors" name="doctors" value=""  /></td>
-                </tr>
-                <tr>
-                    <td align="right">Nurses ids:</td>
-                    <td align="left"><input type="text" id="nurses" name="nurses" value=""  /></td>
-                </tr>
-                <tr>
-                    <td align="right">Employees ids:</td>
-                    <td align="left"><input type="text" id="employees" name="employees" value=""  /></td>
+                    <td align="right">End date:</td>
+                    <td align="left"><input type="text" id="end" name="end" value="" placeholder="Year-Month-Day" /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>
@@ -103,4 +99,3 @@
 
     </body>
 </html>
-

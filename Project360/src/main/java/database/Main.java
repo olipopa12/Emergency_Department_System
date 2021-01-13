@@ -197,13 +197,20 @@ public class Main {
             docInShift.insertDocInShift(3, 3);
             docInShift.insertDocInShift(5, 1);
             docInShift.insertDocInShift(8, 1);
+            docInShift.insertDocInShift(3, 4);
+            docInShift.insertDocInShift(5, 4);
+            docInShift.insertDocInShift(8, 4);
             empInShift.insertEmployeeInShift(3, 1);
+            empInShift.insertEmployeeInShift(3, 4);
             nurseInShift.insertNurseInShift(8, 1);
             nurseInShift.insertNurseInShift(10, 1);
             nurseInShift.insertNurseInShift(4, 1);
             patientInShift.insertPatientInShift(3, 1);
             patientInShift.insertPatientInShift(5, 1);
-
+            nurseInShift.insertNurseInShift(8, 4);
+            nurseInShift.insertNurseInShift(10, 4);
+            nurseInShift.insertNurseInShift(4, 4);
+            patientInShift.insertPatientInShift(5, 4);
             visit.insertVisit(3, "2021-01-13");
             visit.insertVisit(5, "2021-02-15");
 
@@ -214,13 +221,13 @@ public class Main {
             //System.out.println(empInShift.get_EmpInShift());
 
             exam.insertExam(3, 1, "aimatologikes", 2, 8, 1, "covid");
-             exam.insertExam(3, 1, "aimatologikes", 2, 8, 2,"kati");
+            exam.insertExam(3, 1, "aimatologikes", 2, 8, 2, "kati");
             nexam.insertExamFromNurse(4, 5, "covid_test", 1);
             nexam.insertExamFromNurse(4, 5, "covid_test", 3);
             rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
             rexam.insertReExam(10, 3, "aksonikh", 2, 3, 2, true);
-             //System.out.println(visit.get_Visits(1,2021));
-            System.out.println(rexam.get_ReExamsForMonth(1,2021));
+            //System.out.println(visit.get_Visits(1,2021));
+            //System.out.println(rexam.get_ReExamsForMonth(1, 2021));
             //sym.get_Symptoms();
             //patient.get_Patients();
             //med.get_Medicines();

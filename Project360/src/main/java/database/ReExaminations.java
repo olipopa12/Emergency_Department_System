@@ -74,7 +74,7 @@ public class ReExaminations {
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
-       
+
         int id = 0;
         String kindof = null;
         String first = null;
@@ -101,7 +101,7 @@ public class ReExaminations {
                 hospital = rs.getBoolean("hospitalization");
                 date = rs.getString("date");
                 //sub = rs.getInt("substance");
-                Exam = (String.valueOf(id) + " " +kindof+ " " + first + " " + last + " " + dis +" "+med+" "+String.valueOf(hospital)+" "+date + ",");
+                Exam = (String.valueOf(id) + " " + kindof + " " + first + " " + last + " " + dis + " " + med + " " + String.valueOf(hospital) + " " + date + ",");
                 if (allExams == null) {
                     allExams = Exam;
                 } else {
@@ -116,6 +116,7 @@ public class ReExaminations {
         }
         return allExams;
     }
+
     public String get_Covid() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -127,7 +128,7 @@ public class ReExaminations {
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
-        ChronicDiseases cd=new ChronicDiseases();
+        ChronicDiseases cd = new ChronicDiseases();
         int id = 0;
         //String kindof = null;
         String first = null;
@@ -154,7 +155,7 @@ public class ReExaminations {
                 //hospital = rs.getBoolean("hospitalization");
                 //date = rs.getString("date");
                 //sub = rs.getInt("substance");
-                Exam = (String.valueOf(id) + " " + first + " " + last + " " + cd.get_Cdiseases(id));
+                Exam = (String.valueOf(id) + " " + first + " " + last + " " + cd.get_Cdiseases(id) + "?");
                 if (allExams == null) {
                     allExams = Exam;
                 } else {
@@ -169,7 +170,8 @@ public class ReExaminations {
         }
         return allExams;
     }
-    public String get_ReExamsForMonth(int month,int year) throws ClassNotFoundException, SQLException {
+
+    public String get_ReExamsForMonth(int month, int year) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -186,13 +188,13 @@ public class ReExaminations {
         String last = null;
         String name = null;
         String date = null;
-         String med = null;
+        String med = null;
         String allExams = null;
         String Exam = null;
         // ResultSet rs=null;
         try {
             pstmt.setInt(1, month);
-             pstmt.setInt(2, year);
+            pstmt.setInt(2, year);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -202,8 +204,8 @@ public class ReExaminations {
                 last = rs.getString("lastname");
                 name = rs.getString("kind");
                 date = rs.getString("date");
-                med= rs.getString("name");
-                Exam = ( kindof + " " + first + " " + last + " " + name +" "+med+ " " + date + ",");
+                med = rs.getString("name");
+                Exam = (kindof + " " + first + " " + last + " " + name + " " + med + " " + date + ",");
                 //System.out.println(Exam);
                 if (allExams == null) {
                     allExams = Exam;

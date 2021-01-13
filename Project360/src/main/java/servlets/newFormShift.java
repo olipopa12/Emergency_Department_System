@@ -39,24 +39,25 @@ public class newFormShift extends HttpServlet {
             String d = request.getParameter("doctors");
             String n = request.getParameter("nurses");
             String e = request.getParameter("employees");
+            String date = request.getParameter("date");
             String[] ds = d.split(",");
             String[] ns = n.split(",");
             String[] es = e.split(",");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
 
-            shift.insertShift();
+            shift.insertShift(date);
             for (int i = 0; i < ds.length; i++) {
                 //System.out.println(visit.get_id( Integer.parseInt(pid), date));
-                docs.insertDocInShift(Integer.parseInt(ds[i]), shift.get_id(String.valueOf(java.time.LocalDate.now())));
+                docs.insertDocInShift(Integer.parseInt(ds[i]), shift.get_id(date));
             }
             for (int i = 0; i < ns.length; i++) {
                 //System.out.println(visit.get_id( Integer.parseInt(pid), date));
-                nurses.insertNurseInShift(Integer.parseInt(ns[i]), shift.get_id(String.valueOf(java.time.LocalDate.now())));
+                nurses.insertNurseInShift(Integer.parseInt(ns[i]), shift.get_id(date));
             }
             for (int i = 0; i < es.length; i++) {
                 //System.out.println(visit.get_id( Integer.parseInt(pid), date));
-                employees.insertEmployeeInShift(Integer.parseInt(es[i]), shift.get_id(String.valueOf(java.time.LocalDate.now())));
+                employees.insertEmployeeInShift(Integer.parseInt(es[i]), shift.get_id(date));
             }
             request.getRequestDispatcher("employee.jsp").forward(request, response);
 

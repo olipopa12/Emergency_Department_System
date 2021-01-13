@@ -216,6 +216,34 @@
         <servlet-name>get_history</servlet-name>
         <servlet-class>servlets.get_history</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>give_date</servlet-name>
+        <servlet-class>servlets.give_date</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>get_shifts</servlet-name>
+        <servlet-class>servlets.get_shifts</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>see_date</servlet-name>
+        <servlet-class>servlets.see_date</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>see_visit_statistics</servlet-name>
+        <servlet-class>servlets.see_visit_statistics</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>get_visit_statistics</servlet-name>
+        <servlet-class>servlets.get_visit_statistics</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>see_covid_statistics</servlet-name>
+        <servlet-class>servlets.see_covid_statistics</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>get_covid_statistics</servlet-name>
+        <servlet-class>servlets.get_covid_statistics</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -431,6 +459,34 @@
     <servlet-mapping>
         <servlet-name>get_history</servlet-name>
         <url-pattern>/get_history</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>give_date</servlet-name>
+        <url-pattern>/give_date</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>get_shifts</servlet-name>
+        <url-pattern>/get_shifts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>see_date</servlet-name>
+        <url-pattern>/see_date</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>see_visit_statistics</servlet-name>
+        <url-pattern>/see_visit_statistics</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>get_visit_statistics</servlet-name>
+        <url-pattern>/get_visit_statistics</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>see_covid_statistics</servlet-name>
+        <url-pattern>/see_covid_statistics</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>get_covid_statistics</servlet-name>
+        <url-pattern>/get_covid_statistics</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
