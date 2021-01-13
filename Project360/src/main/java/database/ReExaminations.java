@@ -74,6 +74,7 @@ public class ReExaminations {
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
+       
         int id = 0;
         String kindof = null;
         String first = null;
@@ -100,7 +101,60 @@ public class ReExaminations {
                 hospital = rs.getBoolean("hospitalization");
                 date = rs.getString("date");
                 //sub = rs.getInt("substance");
-                Exam = (String.valueOf(id) + " " + kindof + " " + first + " " + last + " " + dis + " " + med + " " + String.valueOf(hospital) + " " + date + ",");
+                Exam = (String.valueOf(id) + " " +kindof+ " " + first + " " + last + " " + dis +" "+med+" "+String.valueOf(hospital)+" "+date + ",");
+                if (allExams == null) {
+                    allExams = Exam;
+                } else {
+                    allExams = allExams + Exam;
+                }
+
+            }
+
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ReExaminations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return allExams;
+    }
+    public String get_Covid() throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String exam = "SELECT P.patientID,P.firstname,P.lastname FROM PATIENTS P,RE_EXAMINATIONS E, "
+                + "DISEASES D WHERE P.patientID=E.patientID  AND E.diseaseID=D.disID AND D.kind=\"COVID-19\";";
+
+        //String med = "SELECT * FROM MEDICINES";
+        PreparedStatement pstmt = con.prepareStatement(exam);
+        ChronicDiseases cd=new ChronicDiseases();
+        int id = 0;
+        //String kindof = null;
+        String first = null;
+        String last = null;
+        String dis = null;
+        //String med = null;
+        //boolean hospital = false;
+        //String date = null;
+
+        String allExams = null;
+        String Exam = null;
+
+        try {
+            //pstmt.setInt(1, pid);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                id = rs.getInt("patientID");
+                //kindof = rs.getString("kindof");
+                first = rs.getString("firstname");
+                last = rs.getString("lastname");
+                //dis = rs.getString("kind");
+                //med = rs.getString("name");
+                //hospital = rs.getBoolean("hospitalization");
+                //date = rs.getString("date");
+                //sub = rs.getInt("substance");
+                Exam = (String.valueOf(id) + " " + " " + first + " " + last + " " + cd.get_Cdiseases(id) + " " + ",");
                 if (allExams == null) {
                     allExams = Exam;
                 } else {

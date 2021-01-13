@@ -78,5 +78,48 @@ public class Visits {
         }
         return r;
     }
+   public String get_Visits() throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String visits = "SELECT visitID,P.firstname,P.lastname FROM PATIENTS P,VISITS V WHERE "
+                +"P.patientID=V.patientID AND V.date=?;";
+        PreparedStatement pstmt = con.prepareStatement(visits);
+        int id = 0;
+        String first = null;
+        String last = null;
+        String allVisits = null;
+String visit=null;
+int records=0;
+        // ResultSet rs=null;
+        try {
+pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
+            ResultSet rs = pstmt.executeQuery();
+
+           while (rs.next()) {
+               records++;
+                id = rs.getInt("visitID");
+               first = rs.getString("firstname");
+                last = rs.getString("lastname");
+              //  disease = rs.getString("disease");
+               visit = (String.valueOf(id) + " " + first +" "+last+ ",");
+              // System.out.println(visit);
+                if (allVisits == null) {
+                    allVisits = visit;
+                } else {
+                    allVisits = allVisits + visit;
+                }
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Symptoms.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        allVisits=allVisits+String.valueOf(records);
+return allVisits;
+    }
+
 
 }

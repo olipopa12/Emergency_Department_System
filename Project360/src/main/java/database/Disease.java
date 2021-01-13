@@ -86,4 +86,42 @@ public class Disease {
         }
         return allDis;
     }
+     public String get_Covid() throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String dis = "SELECT disID,kind FROM DISEASES ";
+
+        //String med = "SELECT * FROM MEDICINES";
+        PreparedStatement pstmt = con.prepareStatement(dis);
+        int id = 0;
+        String kind = null;
+        String allDis = null;
+        String Dis = null;
+        // ResultSet rs=null;
+        try {
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                id = rs.getInt("disID");
+                kind = rs.getString("kind");
+                Dis = (String.valueOf(id) + " " + kind + ",");
+                if (allDis == null) {
+                    allDis = Dis;
+                } else {
+                    allDis += Dis;
+                }
+
+                // System.out.println(id + " " + did + " " + name + " " + kind + " " + sub);
+            }
+            //System.out.println(allMed);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Disease.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return allDis;
+    }
 }

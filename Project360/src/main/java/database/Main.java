@@ -170,7 +170,7 @@ public class Main {
             //user.get_Info();
             employee.get_Employees();
             dis.insertDisease(1, "Stroke");
-            dis.insertDisease(2, "Covid-19");
+            dis.insertDisease(2, "COVID-19");
             dis.insertDisease(3, "Pneumonia");
             dis.insertDisease(4, "Asthma");
             dis.insertDisease(5, "Fracture");
@@ -199,22 +199,23 @@ public class Main {
             patientInShift.insertPatientInShift(3, 1);
             patientInShift.insertPatientInShift(5, 1);
 
-            visit.insertVisit(3, "2020-01-12");
-            visit.insertVisit(5, "2020-01-12");
+            visit.insertVisit(3, "2021-01-13");
+            visit.insertVisit(5, "2021-01-13");
 
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
             chronicDis.insertCdisease(3, "Osteoarthritis");
-            System.out.println(empInShift.get_EmpInShift());
+             chronicDis.insertCdisease(3, "Diabetes");
+            //System.out.println(empInShift.get_EmpInShift());
 
             exam.insertExam(3, 1, "aimatologikes", 2, 8, 1,"covid");
-            /*exam.insertExam(3, 1, "aimatologikes", 2, 8, 1);
+           // exam.insertExam(3, 1, "aimatologikes", 2, 8, 1);
             nexam.insertExamFromNurse(4, 5, "covid_test", 1);
             nexam.insertExamFromNurse(4, 5, "covid_test", 1);
-            rexam.insertReExam(10, 3, "aksonikh", 3, 3, 1, true);
-            rexam.insertReExam(10, 3, "aksonikh", 3, 3, 1, true);
-            System.out.println(shift.get_id("13/1/21"));
-            System.out.println(rexam.get_ReExams(3));*/
+            rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
+            rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
+           // System.out.println(visit.get_Visits());
+            System.out.println(exam.get_Exams(1));
             //sym.get_Symptoms();
             //patient.get_Patients();
             //med.get_Medicines();

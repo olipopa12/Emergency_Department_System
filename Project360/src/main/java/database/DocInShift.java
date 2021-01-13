@@ -89,4 +89,46 @@ pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
         }
         return allDocs;
     }
+    public String get_DocShifts(int id,String date1,String date2) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String doc = "SELECT S.date FROM DOCS_IN_SHIFT DS,SHIFTS S "
+                + "WHERE S.shiftID=DS.shiftID AND DS.docID=? AND S.date between 'date1' AND 'date2';";
+        PreparedStatement pstmt = con.prepareStatement(doc);
+        int did = 0;
+        int sid = 0;
+
+        String first = null;
+        String last = null;
+        String docs = null;
+        String allDocs = null;
+        // ResultSet rs=null;
+        try {
+pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                did = rs.getInt("docID");
+                sid = rs.getInt("shiftID");
+                first = rs.getString("firstname");
+                last = rs.getString("lastname");
+                docs = (String.valueOf(did) + " " + first + " " + last + " " + String.valueOf(sid) + ",");
+                if (allDocs == null) {
+                    allDocs = docs;
+                } else {
+                    allDocs = allDocs + docs;
+                }
+                //phone = rs.getString("phone");
+                //System.out.println(id + " " + symp);
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DocInShift.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return allDocs;
+    }
 }
