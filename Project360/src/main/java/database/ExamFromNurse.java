@@ -105,4 +105,55 @@ public class ExamFromNurse {
         }
         return allExams;
     }
+    public String get_NursesExamsForMonth(int month,int year) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String exam = "SELECT kindof,N.firstname,N.lastname,V.date FROM NURSES N,EXAMINATIONS_FROM_NURSES E,VISITS V "
+                + " WHERE E.nurseID=N.nurseID AND E.visitID=V.visitID AND MONTH(V.date)=? AND YEAR(V.date)=?;";
+
+        //String med = "SELECT * FROM MEDICINES";
+        PreparedStatement pstmt = con.prepareStatement(exam);
+        //int id = 0;
+        String kindof = null;
+        String first = null;
+        String last = null;
+        String name = null;
+        String date = null;
+        // int sub = 0;
+        String allExams = null;
+        String Exam = null;
+        // ResultSet rs=null;
+        try {
+            pstmt.setInt(1, month);
+             pstmt.setInt(2, year);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                //id = rs.getInt("examID");
+                kindof = rs.getString("kindof");
+                first = rs.getString("firstname");
+                last = rs.getString("lastname");
+               // name = rs.getString("kind");
+                date = rs.getString("date");
+                //sub = rs.getInt("substance");
+                Exam = ( kindof + " " + first + " " + last + " " + date + ",");
+                //System.out.println(Exam);
+                if (allExams == null) {
+                    allExams = Exam;
+                } else {
+                    allExams = allExams + Exam;
+                }
+
+                // System.out.println(id + " " + did + " " + name + " " + kind + " " + sub);
+            }
+            //System.out.println(allMed);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamFromNurse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return allExams;
+    }
 }

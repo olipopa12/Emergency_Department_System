@@ -205,7 +205,7 @@ public class Main {
             patientInShift.insertPatientInShift(5, 1);
 
             visit.insertVisit(3, "2021-01-13");
-            visit.insertVisit(5, "2021-01-13");
+            visit.insertVisit(5, "2021-02-15");
 
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
@@ -214,13 +214,13 @@ public class Main {
             //System.out.println(empInShift.get_EmpInShift());
 
             exam.insertExam(3, 1, "aimatologikes", 2, 8, 1, "covid");
-            // exam.insertExam(3, 1, "aimatologikes", 2, 8, 1);
+             exam.insertExam(3, 1, "aimatologikes", 2, 8, 2,"kati");
             nexam.insertExamFromNurse(4, 5, "covid_test", 1);
-            //nexam.insertExamFromNurse(4, 5, "covid_test", 1);
+            nexam.insertExamFromNurse(4, 5, "covid_test", 3);
             rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
-            //rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
+            rexam.insertReExam(10, 3, "aksonikh", 2, 3, 2, true);
              //System.out.println(visit.get_Visits(1,2021));
-            System.out.println(docInShift.get_DocsInShift());
+            System.out.println(rexam.get_ReExamsForMonth(1,2021));
             //sym.get_Symptoms();
             //patient.get_Patients();
             //med.get_Medicines();

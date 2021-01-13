@@ -118,12 +118,12 @@ public class Examinations {
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String exam = "SELECT examID,kindof,D.firstname,D.lastname,DIS.kind,V.date FROM DOCTORS D,EXAMINATIONS E,VISITS V, "
-                + "DISEASES DIS WHERE E.docID=D.docID AND E.visitID=V.visitID AND E.diseaseID=DIS.disID AND E.patientID=?;";
+        String exam = "SELECT kindof,D.firstname,D.lastname,DIS.kind,V.date FROM DOCTORS D,EXAMINATIONS E,VISITS V, "
+                + "DISEASES DIS WHERE E.docID=D.docID AND E.visitID=V.visitID AND E.diseaseID=DIS.disID AND MONTH(V.date)=? AND YEAR(V.date)=?;";
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
-        int id = 0;
+        //int id = 0;
         String kindof = null;
         String first = null;
         String last = null;
@@ -139,14 +139,15 @@ public class Examinations {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                id = rs.getInt("examID");
+                //id = rs.getInt("examID");
                 kindof = rs.getString("kindof");
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
                 name = rs.getString("kind");
                 date = rs.getString("date");
                 //sub = rs.getInt("substance");
-                Exam = (String.valueOf(id) + " " + kindof + " " + first + " " + last + " " + name + " " + date + ",");
+                Exam = ( kindof + " " + first + " " + last + " " + name + " " + date + ",");
+                //System.out.println(Exam);
                 if (allExams == null) {
                     allExams = Exam;
                 } else {
