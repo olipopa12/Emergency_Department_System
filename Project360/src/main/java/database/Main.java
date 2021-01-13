@@ -183,7 +183,7 @@ public class Main {
             med.insertMedicine(5, 6, "Betadine", "Gel", 150);
             med.insertMedicine(6, 4, "Alamycin", "Injectable", 100);
 
-            visit.insertVisit(1, "2020-01-15");
+            visit.insertVisit(1, "2021-01-15");
 
             //sym.insertSymptom(1, "vixas");
             //sym.insertSymptom(1, "pyretos");
@@ -219,8 +219,8 @@ public class Main {
             //nexam.insertExamFromNurse(4, 5, "covid_test", 1);
             rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
             //rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
-            // System.out.println(visit.get_Visits());
-            //System.out.println(docInShift.get_DocShifts(3, "2021-01-01", "2021-01-13"));
+             //System.out.println(visit.get_Visits(1,2021));
+            System.out.println(docInShift.get_DocsInShift());
             //sym.get_Symptoms();
             //patient.get_Patients();
             //med.get_Medicines();

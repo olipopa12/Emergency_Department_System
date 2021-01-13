@@ -54,7 +54,7 @@ public class PatientsInShift {
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
         String patient = "SELECT PS.patID,P.firstname,P.lastname,PS.shiftID FROM PATIENTS P,PATIENTS_IN_SHIFT PS,SHIFTS S "
-                + "WHERE P.patientID=PS.patID AND S.date=?;";
+                + "WHERE P.patientID=PS.patID AND PS.shiftID=S.shiftID AND S.date=?;";
         PreparedStatement pstmt = con.prepareStatement(patient);
         int pid = 0;
         int sid = 0;

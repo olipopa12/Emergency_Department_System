@@ -54,7 +54,7 @@ public class DocInShift {
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
         String doc = "SELECT DS.docID,D.firstname,D.lastname,DS.shiftID FROM DOCTORS D,DOCS_IN_SHIFT DS,SHIFTS S "
-                + "WHERE D.docID=DS.docID AND S.date=?;";
+                + "WHERE D.docID=DS.docID AND DS.shiftID=S.shiftID AND S.date=?;";
         PreparedStatement pstmt = con.prepareStatement(doc);
         int did = 0;
         int sid = 0;

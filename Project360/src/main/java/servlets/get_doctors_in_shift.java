@@ -34,7 +34,9 @@ public class get_doctors_in_shift extends HttpServlet {
             throws ServletException, IOException {
         String all = "";
         try {
+             //System.out.println(String.valueOf(java.time.LocalDate.now()));
             all += doctors.get_DocsInShift();
+            System.out.println(doctors.get_DocsInShift());
             String arr = URLEncoder.encode(all, "utf-8");
             //System.out.println(all);
         } catch (Exception ex) {

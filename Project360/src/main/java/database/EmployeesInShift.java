@@ -54,7 +54,7 @@ public class EmployeesInShift {
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
         String emp = "SELECT ES.employeeID,E.firstname,E.lastname,ES.shiftID FROM EMPLOYEES E,EMPLOYEES_IN_SHIFT ES,SHIFTS S "
-                + "WHERE E.employeeID=ES.employeeID AND S.date=?;";
+                + "WHERE E.employeeID=ES.employeeID AND ES.shiftID=S.shiftID AND S.date=?;";
         PreparedStatement pstmt = con.prepareStatement(emp);
         int eid = 0;
         int sid = 0;
