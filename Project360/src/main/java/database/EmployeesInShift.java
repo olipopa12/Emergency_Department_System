@@ -89,4 +89,40 @@ pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
         }
         return allEmp;
     }
+    public String get_EmpShifts(int id,String date1,String date2) throws ClassNotFoundException, SQLException {
+        //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String shifts = "SELECT S.date FROM EMPLOYEES_IN_SHIFT ES,SHIFTS S "
+                + "WHERE S.shiftID=ES.shiftID AND ES.employeeID=? AND S.date between ? AND ?;";
+        PreparedStatement pstmt = con.prepareStatement(shifts);
+        //int did = 0;
+        //int sid = 0;
+
+        String date = null;
+        String allShifts = null;
+        // ResultSet rs=null;
+        try {
+pstmt.setInt(1, id);
+pstmt.setString(2, date1);
+pstmt.setString(3, date2);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                date = rs.getString("date");
+                if (allShifts == null) {
+                    allShifts = date+",";
+                } else {
+                    allShifts = allShifts + date+",";
+                }
+            }
+            // System.out.println(r);
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeesInShift.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return allShifts;
+    }
 }

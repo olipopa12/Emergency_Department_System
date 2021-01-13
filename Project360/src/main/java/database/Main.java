@@ -188,8 +188,13 @@ public class Main {
             //sym.insertSymptom(1, "vixas");
             //sym.insertSymptom(1, "pyretos");
             //sym.insertSymptom(1, "ponolaimos");
-            shift.insertShift();
+            shift.insertShift("2021-01-10");
+            shift.insertShift("2021-01-11");
+             shift.insertShift("2021-01-12");
+             shift.insertShift();
             docInShift.insertDocInShift(3, 1);
+             docInShift.insertDocInShift(3, 2);
+              docInShift.insertDocInShift(3, 3);
             docInShift.insertDocInShift(5, 1);
             docInShift.insertDocInShift(8, 1);
             empInShift.insertEmployeeInShift(3, 1);
@@ -215,7 +220,7 @@ public class Main {
             rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
             rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
            // System.out.println(visit.get_Visits());
-            System.out.println(exam.get_Exams(1));
+            System.out.println(docInShift.get_DocShifts(3,"2021-01-01","2021-01-13"));
             //sym.get_Symptoms();
             //patient.get_Patients();
             //med.get_Medicines();

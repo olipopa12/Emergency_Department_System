@@ -71,5 +71,22 @@ public class Shift {
         }
         return r;
     }
+ public void insertShift(String date) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String shift = "INSERT IGNORE INTO SHIFTS VALUES (default,?)";
+        PreparedStatement pstmt = con.prepareStatement(shift);
+        try {
 
+           // pstmt.setInt(1, id);
+            pstmt.setString(1, date);
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Shift.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }

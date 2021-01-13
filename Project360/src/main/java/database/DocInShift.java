@@ -95,40 +95,34 @@ pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String doc = "SELECT S.date FROM DOCS_IN_SHIFT DS,SHIFTS S "
-                + "WHERE S.shiftID=DS.shiftID AND DS.docID=? AND S.date between 'date1' AND 'date2';";
-        PreparedStatement pstmt = con.prepareStatement(doc);
-        int did = 0;
-        int sid = 0;
+        String shifts = "SELECT S.date FROM DOCS_IN_SHIFT DS,SHIFTS S "
+                + "WHERE S.shiftID=DS.shiftID AND DS.docID=? AND S.date between ? AND ?;";
+        PreparedStatement pstmt = con.prepareStatement(shifts);
+        //int did = 0;
+        //int sid = 0;
 
-        String first = null;
-        String last = null;
-        String docs = null;
-        String allDocs = null;
+        String date = null;
+        String allShifts = null;
         // ResultSet rs=null;
         try {
-pstmt.setString(1, String.valueOf(java.time.LocalDate.now()));
+pstmt.setInt(1, id);
+pstmt.setString(2, date1);
+pstmt.setString(3, date2);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                did = rs.getInt("docID");
-                sid = rs.getInt("shiftID");
-                first = rs.getString("firstname");
-                last = rs.getString("lastname");
-                docs = (String.valueOf(did) + " " + first + " " + last + " " + String.valueOf(sid) + ",");
-                if (allDocs == null) {
-                    allDocs = docs;
+                date = rs.getString("date");
+                if (allShifts == null) {
+                    allShifts = date+",";
                 } else {
-                    allDocs = allDocs + docs;
+                    allShifts = allShifts + date+",";
                 }
-                //phone = rs.getString("phone");
-                //System.out.println(id + " " + symp);
             }
             // System.out.println(r);
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(DocInShift.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return allDocs;
+        return allShifts;
     }
 }

@@ -64,7 +64,7 @@ public class ExamFromNurse {
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
         String exam = "SELECT examID,kindof,N.firstname,N.lastname,V.date FROM NURSES N,EXAMINATIONS_FROM_NURSES E,VISITS V "
-                + " WHERE E.nurseID=N.nurseID AND E.patientID=?;";
+                + " WHERE E.nurseID=N.nurseID AND V.visitID=E.visitID AND E.patientID=?;";
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);

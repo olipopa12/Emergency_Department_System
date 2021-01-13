@@ -70,7 +70,7 @@ public class ReExaminations {
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
         String exam = "SELECT examID,E.kindof,D.firstname,D.lastname,DIS.kind,M.name,hospitalization,V.date FROM DOCTORS D,RE_EXAMINATIONS E,VISITS V, "
-                + "DISEASES DIS,MEDICINES M WHERE E.docID=D.docID AND E.diseaseID=DIS.disID AND E.medID=M.medID AND E.patientID=?;";
+                + "DISEASES DIS,MEDICINES M WHERE E.docID=D.docID AND V.visitID=E.visitID AND E.diseaseID=DIS.disID AND E.medID=M.medID AND E.patientID=?;";
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
@@ -123,7 +123,7 @@ public class ReExaminations {
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
         String exam = "SELECT P.patientID,P.firstname,P.lastname FROM PATIENTS P,RE_EXAMINATIONS E, "
-                + "DISEASES D WHERE P.patientID=E.patientID  AND E.diseaseID=D.disID AND D.kind=\"COVID-19\";";
+                + "DISEASES D WHERE P.patientID=E.patientID AND E.diseaseID=D.disID AND D.kind=\"COVID-19\";";
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
