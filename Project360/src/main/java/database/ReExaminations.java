@@ -154,7 +154,7 @@ public class ReExaminations {
                 //hospital = rs.getBoolean("hospitalization");
                 //date = rs.getString("date");
                 //sub = rs.getInt("substance");
-                Exam = (String.valueOf(id) + " " + " " + first + " " + last + " " + cd.get_Cdiseases(id) + " " + ",");
+                Exam = (String.valueOf(id) + " " + first + " " + last + " " + cd.get_Cdiseases(id));
                 if (allExams == null) {
                     allExams = Exam;
                 } else {
