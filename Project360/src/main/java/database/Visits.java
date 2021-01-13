@@ -132,10 +132,11 @@ public class Visits {
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
         //stmt = con.createStatement();
-        String visits = "SELECT visitID,P.firstname,P.lastname FROM PATIENTS P,VISITS V WHERE "
+        String visits = "SELECT V.date,P.firstname,P.lastname FROM PATIENTS P,VISITS V WHERE "
                 + "P.patientID=V.patientID AND MONTH(V.date)=? AND YEAR(V.date)=?;";
         PreparedStatement pstmt = con.prepareStatement(visits);
-        int id = 0;
+        //int id = 0;
+        String date=null;
         String first = null;
         String last = null;
         String allVisits = null;
@@ -149,11 +150,11 @@ public class Visits {
 
             while (rs.next()) {
                 records++;
-                id = rs.getInt("visitID");
+                date = rs.getString("date");
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
                 //  disease = rs.getString("disease");
-                visit = (String.valueOf(id) + " " + first + " " + last + ",");
+                visit = (date + " " + first + " " + last + ",");
                 // System.out.println(visit);
                 if (allVisits == null) {
                     allVisits = visit;

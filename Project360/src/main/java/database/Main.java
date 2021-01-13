@@ -226,7 +226,7 @@ public class Main {
             nexam.insertExamFromNurse(4, 5, "covid_test", 3);
             rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
             rexam.insertReExam(10, 3, "aksonikh", 2, 3, 2, true);
-            //System.out.println(visit.get_Visits(1,2021));
+            System.out.println(visit.get_Visits(1,2021));
             //System.out.println(rexam.get_ReExamsForMonth(1, 2021));
             //sym.get_Symptoms();
             //patient.get_Patients();
