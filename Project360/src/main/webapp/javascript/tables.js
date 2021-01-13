@@ -237,6 +237,130 @@ function Report() {
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
     xhttp.send();
 }
+
+function Statistics() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            event.preventDefault();
+            var i = 0;
+            var j = 0;
+            var lu = 1;
+            var ld = 1;
+            var ru = 1;
+            var rd = 1;
+            var str = xhttp.responseText;
+            console.log(str);
+            var row = str.split("|");
+            /*console.log(row[0]);
+             console.log(row[1]);
+             console.log(row[2]);
+             console.log(row[3]);*/
+            var row2 = "";
+            var col = "";
+            var length_row = row.length;
+            //console.log(length_row);
+            while (i < (length_row)) {
+                j = 0;
+                row = str.split("|");
+                row2 = row[i].split(",");
+                var length_row2 = row2.length;
+                /*  console.log(length_row2);
+                 console.log(row2[0]);
+                 console.log(row2[1]);
+                 console.log(row2[2]);
+                 console.log(row2[3]);
+                 console.log(row2[4]);
+                 console.log(row2[5]);
+                 console.log(row2[6]);
+                 console.log(row2[7]);*/
+                while (j < (length_row2 - 1)) {
+                    row2 = row[i].split(",");
+                    //var row = str.split("|");
+                    col = "";
+                    col = row2[j].split(" ");
+                    if (i === 0) {
+                        var f1 = col[0];
+                        var f2 = col[1];
+                        var f3 = col[2];
+                        var f4 = col[3];
+                        var f5 = col[4];
+                        var table = document.getElementById("lu");
+                        var r = table.insertRow(lu);
+                        var c1 = r.insertCell(0);
+                        var c2 = r.insertCell(1);
+                        var c3 = r.insertCell(2);
+                        var c4 = r.insertCell(3);
+                        var c5 = r.insertCell(4);
+                        c1.innerHTML = f1;
+                        c2.innerHTML = f2;
+                        c3.innerHTML = f3;
+                        c4.innerHTML = f4;
+                        c5.innerHTML = f5;
+                        lu++;
+                    } else if (i === 1) {
+                        var f1 = col[0];
+                        var f2 = col[1];
+                        var f3 = col[2];
+                        var f4 = col[3];
+                        var table = document.getElementById("ru");
+                        var r = table.insertRow(ru);
+                        var c1 = r.insertCell(0);
+                        var c2 = r.insertCell(1);
+                        var c3 = r.insertCell(2);
+                        var c4 = r.insertCell(3);
+                        c1.innerHTML = f1;
+                        c2.innerHTML = f2;
+                        c3.innerHTML = f3;
+                        c4.innerHTML = f4;
+                        ru++;
+                    } else if (i === 2) {
+                        var f1 = col[0];
+                        var f2 = col[1];
+                        var f3 = col[2];
+                        var f4 = col[3];
+                        var f5 = col[4];
+                        var f6 = col[5];
+                        var table = document.getElementById("ld");
+                        var r = table.insertRow(ld);
+                        var c1 = r.insertCell(0);
+                        var c2 = r.insertCell(1);
+                        var c3 = r.insertCell(2);
+                        var c4 = r.insertCell(3);
+                        var c5 = r.insertCell(4);
+                        var c6 = r.insertCell(5);
+                        c1.innerHTML = f1;
+                        c2.innerHTML = f2;
+                        c3.innerHTML = f3;
+                        c4.innerHTML = f4;
+                        c5.innerHTML = f5;
+                        c6.innerHTML = f6;
+                        ld++;
+                    } else {
+                        var f1 = col[0];
+                        var f2 = col[1];
+                        var f3 = col[2];
+                        var table = document.getElementById("rd");
+                        var r = table.insertRow(rd);
+                        var c1 = r.insertCell(0);
+                        var c2 = r.insertCell(1);
+                        var c3 = r.insertCell(2);
+                        c1.innerHTML = f1;
+                        c2.innerHTML = f2;
+                        c3.innerHTML = f3;
+                        rd++;
+                    }
+                    j++;
+                }
+                i++;
+            }
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/get_statistics");
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send();
+}
+
 function Medicines() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {

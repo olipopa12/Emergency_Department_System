@@ -112,7 +112,7 @@ public class Examinations {
         return allExams;
     }
 
-    public String get_ExamsForMonth(int month,int year) throws ClassNotFoundException, SQLException {
+    public String get_ExamsForMonth(int month, int year) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -135,7 +135,7 @@ public class Examinations {
         // ResultSet rs=null;
         try {
             pstmt.setInt(1, month);
-             pstmt.setInt(2, year);
+            pstmt.setInt(2, year);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -146,7 +146,7 @@ public class Examinations {
                 name = rs.getString("kind");
                 date = rs.getString("date");
                 //sub = rs.getInt("substance");
-                Exam = ( kindof + " " + first + " " + last + " " + name + " " + date + ",");
+                Exam = (kindof + " " + first + " " + last + " " + name + " " + date + ",");
                 //System.out.println(Exam);
                 if (allExams == null) {
                     allExams = Exam;
