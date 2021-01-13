@@ -107,7 +107,7 @@ public class get_queries extends HttpServlet {
                 ex.printStackTrace();
             }
             con.close();
-            System.out.println(all);
+            //System.out.println(all);
             response.getOutputStream().println(all); //finish
             /*System.out.println(queries);
             PreparedStatement pstmt = con.prepareStatement(queries);

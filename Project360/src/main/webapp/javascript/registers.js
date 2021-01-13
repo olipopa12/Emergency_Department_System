@@ -242,3 +242,22 @@ function registerExamNurse() {
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
     xhttp.send(name);
 }
+
+function ID() {
+    var xhttp = new XMLHttpRequest();
+    var name = "";
+    name += "id=";
+    name += document.getElementById("id").value;
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            // Typical action to be performed when the document is ready:
+            //document.getElementById("demo").innerHTML = xhttp.responseText;
+            // window.alert(xhttp.responseText);
+            //console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open("POST", "http://localhost:8080/Project360/see_id");
+    //event.preventDefault();
+    xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+    xhttp.send(name);
+}

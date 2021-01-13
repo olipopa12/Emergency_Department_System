@@ -36,18 +36,18 @@ public class newFormExamDoc extends HttpServlet {
             String telephone = (String) request.getSession(false).getAttribute("telephone");
             String firstname = (String) request.getSession(false).getAttribute("firstname");
             String lastname = (String) request.getSession(false).getAttribute("lastname");
-            System.out.println(telephone);
+            /*System.out.println(telephone);
             System.out.println(firstname);
             System.out.println(lastname);
             System.out.println(pid);
             System.out.println(kind);
             System.out.println(did);
             System.out.println(nid);
-            System.out.println(exa);
+            System.out.println(exa);*/
             int ID = doc.get_id(firstname, lastname, telephone);
             int vid = visit.get_id(Integer.parseInt(pid), String.valueOf(java.time.LocalDate.now()));
-            System.out.println(ID);
-             System.out.println(vid);
+            /*System.out.println(ID);
+             System.out.println(vid);*/
             exam.insertExam(ID, Integer.parseInt(pid), kind, Integer.parseInt(did), Integer.parseInt(nid), vid, exa);
 
             request.getRequestDispatcher("doctor.jsp").forward(request, response);

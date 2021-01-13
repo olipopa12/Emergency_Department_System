@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="javascript/registers.js"></script>
-        <title>Register Doctor</title>
+        <title>Doctor re examination</title>
         <style>
 
             .box {
@@ -97,7 +97,7 @@
                     <td align="left"><input type="text" id="mid" name="mid" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Hospital treatment:</td>
+                    <td align="right">Hospitalization:</td>
                     <td align="left"><input type="text" id="hosp" name="hosp" value="" placeholder="true or false" /></td>
                 </tr>
                 <tr>

@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,6 +36,8 @@ public class changeNurse extends HttpServlet {
             oldlastname += request.getSession(false).getAttribute("lastname");
             oldtelephone += request.getSession(false).getAttribute("telephone");
             // read form fields
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
             String telephone = request.getParameter("telephone");
@@ -48,8 +51,14 @@ public class changeNurse extends HttpServlet {
             int ID = nurse.get_id(oldfirstname, oldlastname, oldtelephone);
             nurse.updateNurse(ID, firstname, lastname, telephone);
 
-           
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            HttpSession session = request.getSession(); //Creating a session
+
+            session.setAttribute("firstname", firstname);
+            session.setAttribute("lastname", lastname);
+            session.setAttribute("telephone", telephone);
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
+            request.getRequestDispatcher("nurse.jsp").forward(request, response);
 
             //con.close();
         } catch (Exception e) {

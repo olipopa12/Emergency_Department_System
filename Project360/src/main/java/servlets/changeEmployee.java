@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,6 +40,8 @@ public class changeEmployee extends HttpServlet {
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
             String telephone = request.getParameter("telephone");
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
 
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
             Statement stmt = con.createStatement();
@@ -46,8 +49,14 @@ public class changeEmployee extends HttpServlet {
             int ID = employee.get_id(oldfirstname, oldlastname, oldtelephone);
             employee.updateEmployee(ID, firstname, lastname, telephone);
 
-           
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            HttpSession session = request.getSession(); //Creating a session
+
+            session.setAttribute("firstname", firstname);
+            session.setAttribute("lastname", lastname);
+            session.setAttribute("telephone", telephone);
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
+            request.getRequestDispatcher("employee.jsp").forward(request, response);
             //con.close();
         } catch (Exception e) {
             System.out.println(e);

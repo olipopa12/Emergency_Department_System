@@ -5,10 +5,10 @@
  */
 package servlets;
 
-import database.PatientsInShift;
 import java.io.IOException;
-import java.net.URLEncoder;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,12 +17,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author kater
  */
-public class get_patients_in_shift extends HttpServlet {
-
-    private PatientsInShift patients = new PatientsInShift();
+@WebServlet(name = "give_id", urlPatterns = {"/give_id"})
+public class give_id extends HttpServlet {
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -32,16 +31,7 @@ public class get_patients_in_shift extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String all = "";
-        try {
-            all += patients.get_PatientsInShift();
-            String arr = URLEncoder.encode(all, "utf-8");
-            //System.out.println(all);
-        } catch (Exception ex) {
-            System.out.println(ex);
-            ex.printStackTrace();
-        }
-        response.getOutputStream().println(all); //finish
-
+        request.getRequestDispatcher("patient_id.jsp").forward(request, response);
     }
+
 }

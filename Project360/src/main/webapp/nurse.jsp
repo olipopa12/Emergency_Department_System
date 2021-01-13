@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,7 +21,7 @@
                 background: #97c984;
                 text-align: center;
             }
-            
+
             body {
                 background: url(back.jpg) no-repeat fixed;
                 -webkit-background-size: cover;
@@ -29,7 +29,7 @@
                 -o-background-size: cover;
                 background-size: cover;
             }
-            
+
             .box h1 {
                 color: rgb(3, 2, 2);
                 font-family: 'comic sans ms';
@@ -37,7 +37,7 @@
                 margin: 0px;
                 padding: 0px;
             }
-            
+
             input[type="text"] {
                 color: rgb(3, 2, 2);
                 font-family: 'comic sans ms';
@@ -53,7 +53,7 @@
                 transition: 0.20s;
                 cursor: pointer;
             }
-            
+
             .box input[type="submit"] {
                 border: 0;
                 background: none;
@@ -68,12 +68,12 @@
                 transition: 0.20s;
                 cursor: pointer;
             }
-            
+
             .box input[type="submit"]:hover {
                 background: #123672;
                 border: 2px solid #123672;
             }
-            
+
             .lboxes input[type="submit"] {
                 background: #97c984;
                 border: 2px solid #006d67;
@@ -84,12 +84,12 @@
                 transition: 0.20s;
                 cursor: pointer;
             }
-            
+
             .lboxes {
                 width: 5%;
                 height: 5vh;
             }
-            
+
             .lboxes input[type="submit"]:hover {
                 background: #123672;
                 border: 2px solid #123672;
@@ -136,7 +136,12 @@
                     <input type="submit" name=""  value="See patients' list">
                 </form>
             </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"   action="http://localhost:8080/Project360/give_id" >
+                    <input type="submit" name=""   value="Give id to see patient's medical history">
+                </form> 
+            </div>
         </div>
     </body>
 
-    </html>
+</html>

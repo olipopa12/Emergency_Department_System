@@ -140,8 +140,8 @@
                 </form>
             </div>
             <div class="lboxes" style="margin-top:5%; margin-left:5%; text-align: center;">
-                <form class=" lbox" method="post"   >
-                    <input type="submit" name=""   value="See my history">
+                <form class=" lbox" method="post"    action="http://localhost:8080/Project360/see_history">
+                    <input type="submit" name=""   value="See my medical history">
                 </form>
             </div>
         </div>

@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -51,7 +52,19 @@ public class changePatient extends HttpServlet {
             int ID = patient.get_id(oldfirstname, oldlastname, oldtelephone);
             patient.updatePatient(ID, amka, firstname, lastname, insurance, road, Integer.parseInt(num), Integer.parseInt(tk), telephone);
 
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            HttpSession session = request.getSession(); //Creating a session
+
+            session.setAttribute("firstname", firstname);
+            session.setAttribute("lastname", lastname);
+            session.setAttribute("telephone", telephone);
+            session.setAttribute("tk", tk);
+            session.setAttribute("number", num);
+            session.setAttribute("road", road);
+            session.setAttribute("amka", amka);
+            session.setAttribute("insurance", insurance);
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
+            request.getRequestDispatcher("employee.jsp").forward(request, response);
 
             //con.close();
         } catch (Exception e) {

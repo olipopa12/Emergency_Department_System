@@ -44,7 +44,6 @@ public class doctor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String all = "";
-
         all += request.getSession(false).getAttribute("firstname");
         all += ",";
         all += request.getSession(false).getAttribute("lastname");

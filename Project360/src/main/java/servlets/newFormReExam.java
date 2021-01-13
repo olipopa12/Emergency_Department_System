@@ -36,13 +36,14 @@ public class newFormReExam extends HttpServlet {
             String telephone = (String) request.getSession(false).getAttribute("telephone");
             String firstname = (String) request.getSession(false).getAttribute("firstname");
             String lastname = (String) request.getSession(false).getAttribute("lastname");
-            /* System.out.println(telephone);
+            /*System.out.println(telephone);
             System.out.println(firstname);
             System.out.println(lastname);
             System.out.println(pid);
             System.out.println(kind);
             System.out.println(did);
-            System.out.println(nid);*/
+            System.out.println(mid);
+            System.out.println(hosp);*/
             int ID = doc.get_id(firstname, lastname, telephone);
             int vid = visit.get_id(Integer.parseInt(pid), String.valueOf(java.time.LocalDate.now()));
             exam.insertReExam(ID, Integer.parseInt(pid), kind, Integer.parseInt(did), Integer.parseInt(mid), vid, Boolean.parseBoolean(hosp));
