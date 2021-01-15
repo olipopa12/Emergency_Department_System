@@ -33,6 +33,36 @@ public class ExamFromNurse {
                 + " FOREIGN KEY(nurseID) REFERENCES NURSES(nurseID))";
         return exam;
     }
+    public void updateExamFromNurse(int id, int nid, int pid, String kind, int vid) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String update = new String(
+                "UPDATE EXAMINATIONS_FROM_NURSES"
+                + " SET nurseID= ?,"
+                + " patientID= ?,"
+                + " kindof= ?,"
+                + " visitID= ?"
+                + " WHERE examID= ?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(update);
+        try {
+
+            pstmt.setInt(1, nid);
+            pstmt.setInt(2, pid);
+            pstmt.setString(3, kind);
+            pstmt.setInt(4, vid);
+           // pstmt.setString(7, exa);
+            //  pstmt.setString(4, phone);
+            pstmt.setInt(5, id);
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ExamFromNurse.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public void insertExamFromNurse(int nid, int pid, String kind, int vid) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");

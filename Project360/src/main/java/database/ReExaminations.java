@@ -38,6 +38,42 @@ public class ReExaminations {
         return exam;
     }
 
+    public void updateReExam(int id, int did, int pid, String kind, int disID, int mid, int vid, boolean hospital) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String update = new String(
+                "UPDATE RE_EXAMINATIONS"
+                + " SET docID= ?,"
+                + " patientID= ?,"
+                + " kindof= ?,"
+                + " diseaseID= ?,"
+                + " medID= ?,"
+                + " visitID= ?,"
+                + " hospitalization= ?"
+                + " WHERE examID= ?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(update);
+        try {
+
+            pstmt.setInt(1, did);
+            pstmt.setInt(2, pid);
+            pstmt.setString(3, kind);
+            pstmt.setInt(4, disID);
+            pstmt.setInt(5, mid);
+            pstmt.setInt(6, vid);
+            pstmt.setBoolean(7, hospital);
+            //  pstmt.setString(4, phone);
+            pstmt.setInt(8, id);
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Examinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     public void insertReExam(int did, int pid, String kind, int disID, int mid, int vid, boolean hospital) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -212,7 +248,7 @@ public class ReExaminations {
                 } else {
                     allExams = allExams + Exam;
                 }
-i++;
+                i++;
                 // System.out.println(id + " " + did + " " + name + " " + kind + " " + sub);
             }
             //System.out.println(allMed);
@@ -220,7 +256,7 @@ i++;
         } catch (SQLException ex) {
             Logger.getLogger(ReExaminations.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return allExams+i;
+        return allExams + i;
     }
 
 }

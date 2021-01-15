@@ -23,8 +23,8 @@ public class Main {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/", "root", "");
             Statement stmt = con.createStatement();
-            String delete = "DROP DATABASE IF EXISTS EMERGENCY_DEPARTMENT";
-            stmt.executeUpdate(delete);
+            //String delete = "DROP DATABASE IF EXISTS EMERGENCY_DEPARTMENT";
+            //stmt.executeUpdate(delete);
             String create = "CREATE DATABASE IF NOT EXISTS EMERGENCY_DEPARTMENT";
 //here sonoo is database name, root is username and password  
             stmt.executeUpdate(create);
@@ -167,15 +167,13 @@ public class Main {
             user.insertLoginInfo(9, "nurse", "manolis", "manolis123");
             user.insertLoginInfo(10, "nurse", "iwanna", "iwanna123");
 
-            //user.get_Info();
-            employee.get_Employees();
             dis.insertDisease(1, "Stroke");
             dis.insertDisease(2, "COVID-19");
             dis.insertDisease(3, "Pneumonia");
             dis.insertDisease(4, "Asthma");
             dis.insertDisease(5, "Fracture");
             dis.insertDisease(6, "Burn");
-            // med.insertMedicine(8, "ntepon", "hapi", 135, 23);
+
             med.insertMedicine(1, 2, "Depon", "Pill", 500);
             med.insertMedicine(2, 3, "Hydroxyzine", "Pill", 135);
             med.insertMedicine(3, 5, "Voltaren", "Gel", 75);
@@ -183,16 +181,28 @@ public class Main {
             med.insertMedicine(5, 6, "Betadine", "Gel", 150);
             med.insertMedicine(6, 4, "Alamycin", "Injectable", 100);
 
-            visit.insertVisit(1, "2021-01-15");
+           // shift.insertShift("2021-01-10");
+            //shift.insertShift("2021-01-11");
+            //shift.insertShift("2021-01-12");
+            //shift.insertShift("2021-01-13");
+            //shift.insertShift("2021-01-14");
 
-            //sym.insertSymptom(1, "vixas");
-            //sym.insertSymptom(1, "pyretos");
-            //sym.insertSymptom(1, "ponolaimos");
-            shift.insertShift("2021-01-10");
-            shift.insertShift("2021-01-11");
-            shift.insertShift("2021-01-12");
-            shift.insertShift();
-            docInShift.insertDocInShift(3, 1);
+           // visit.insertVisit(1, "2021-01-10");
+            //visit.insertVisit(2, "2021-01-11");
+            //visit.insertVisit(3, "2021-01-12");
+            //visit.insertVisit(4, "2021-01-13");
+            //visit.insertVisit(5, "2021-01-14");
+
+            sym.insertSymptom(5, "Ponolaimos");
+            sym.insertSymptom(8, "Ponokoilos");
+            sym.insertSymptom(8, "Zalada");
+            sym.insertSymptom(1, "Adia8esia");
+            sym.insertSymptom(1, "Entonos_pyretos");
+            //shift.insertShift("2021-01-10");
+            //shift.insertShift("2021-01-11");
+            //shift.insertShift("2021-01-12");
+            //shift.insertShift();
+           /* docInShift.insertDocInShift(3, 1);
             docInShift.insertDocInShift(3, 2);
             docInShift.insertDocInShift(3, 3);
             docInShift.insertDocInShift(5, 1);
@@ -212,7 +222,7 @@ public class Main {
             nurseInShift.insertNurseInShift(4, 4);
             patientInShift.insertPatientInShift(5, 4);
             visit.insertVisit(3, "2021-01-13");
-            visit.insertVisit(5, "2021-02-15");
+            visit.insertVisit(5, "2021-02-15");*/
 
             chronicDis.insertCdisease(2, "Asthma");
             chronicDis.insertCdisease(2, "Diabetes");
@@ -220,13 +230,16 @@ public class Main {
             chronicDis.insertCdisease(3, "Diabetes");
             //System.out.println(empInShift.get_EmpInShift());
 
-            exam.insertExam(3, 1, "aimatologikes", 2, 8, 1, "covid");
-            exam.insertExam(3, 1, "aimatologikes", 2, 8, 2, "kati");
-            nexam.insertExamFromNurse(4, 5, "covid_test", 1);
-            nexam.insertExamFromNurse(4, 5, "covid_test", 3);
-            rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
-            rexam.insertReExam(10, 3, "aksonikh", 2, 3, 2, true);
-            System.out.println(exam.get_ExamsForMonth(1,2021));
+           // exam.insertExam(3, 1, "aimatologikes", 2, 8, 1, "covid");
+            //exam.insertExam(3, 1, "aimatologikes", 2, 8, 2, "kati");
+            //nexam.insertExamFromNurse(4, 5, "covid_test", 1);
+            //nexam.insertExamFromNurse(4, 5, "covid_test", 3);
+            //rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
+            //rexam.insertReExam(10, 3, "aksonikh", 2, 3, 2, true);
+            // exam.updateExam(2, 4,1, "covid_test", 2, 7, 1, "kati");
+            // nexam.updateExamFromNurse(1, 5, 3, "kati", 1);
+            rexam.updateReExam(1, 5, 2, "kati", 2, 2, 1, false);
+            System.out.println(exam.get_ExamsForMonth(1, 2021));
             //docInShift.deleteDocInShift(4);
             //empInShift.deleteEmpInShift(4);
             //nurseInShift.deleteNurseInShift(4);
