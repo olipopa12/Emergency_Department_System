@@ -125,4 +125,27 @@ pstmt.setString(3, date2);
         }
         return allShifts;
     }
+    
+     public void deleteNurseInShift(int sid ) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String delete = new String(
+                "DELETE FROM NURSES_IN_SHIFT "
+                + " WHERE shiftID=?;");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(delete);
+        try {
+            //pstmt.setInt(1, id);
+            pstmt.setInt(1, sid);
+            //pstmt.setString(3, lname);
+
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NursesInShift.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }

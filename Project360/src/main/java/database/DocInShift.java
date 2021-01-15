@@ -46,7 +46,7 @@ public class DocInShift {
         }
 
     }
-
+  
     public String get_DocsInShift() throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -124,5 +124,27 @@ pstmt.setString(3, date2);
             Logger.getLogger(DocInShift.class.getName()).log(Level.SEVERE, null, ex);
         }
         return allShifts;
+    }
+    public void deleteDocInShift(int sid ) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String delete = new String(
+                "DELETE FROM DOCS_IN_SHIFT "
+                + " WHERE shiftID=?;");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(delete);
+        try {
+            //pstmt.setInt(1, id);
+            pstmt.setInt(1, sid);
+            //pstmt.setString(3, lname);
+
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DocInShift.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

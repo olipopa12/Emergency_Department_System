@@ -68,6 +68,7 @@ public class ExamFromNurse {
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
+       
         int id = 0;
         String kindof = null;
         String first = null;
@@ -116,7 +117,7 @@ public class ExamFromNurse {
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
-        //int id = 0;
+        int i = 0;
         String kindof = null;
         String first = null;
         String last = null;
@@ -146,7 +147,7 @@ public class ExamFromNurse {
                 } else {
                     allExams = allExams + Exam;
                 }
-
+i++;
                 // System.out.println(id + " " + did + " " + name + " " + kind + " " + sub);
             }
             //System.out.println(allMed);
@@ -154,6 +155,6 @@ public class ExamFromNurse {
         } catch (SQLException ex) {
             Logger.getLogger(ExamFromNurse.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return allExams;
+        return allExams+i;
     }
 }
