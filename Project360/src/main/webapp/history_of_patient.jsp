@@ -32,12 +32,12 @@
                 padding: 0px;
             }
             .lubox {
-                width: 575px;
+                width: 635px;
                 height: 400px;
                 padding: 40px;
                 position: absolute;
                 top: 38%;
-                left: 25%;
+                left: 28%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
@@ -49,19 +49,19 @@
                 padding: 40px;
                 position: absolute;
                 top: 38%;
-                left: 75%;
+                left: 80%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
                 text-align: center;
             }
             .ldbox {
-                width: 845px;
+                width: 920px;
                 height: 400px;
                 padding: 40px;
                 position: absolute;
-                top: 116.5%;
-                left: 35%;
+                top: 118%;
+                left: 38%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
@@ -72,8 +72,8 @@
                 height: 400px;
                 padding: 40px;
                 position: absolute;
-                top: 116.5%;
-                left: 85%;
+                top: 118%;
+                left: 90%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
