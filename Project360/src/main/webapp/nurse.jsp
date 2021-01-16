@@ -121,13 +121,19 @@
             <div class="lboxes" style="margin-top:15%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post">
                     </br>
-                    <input type="submit" name="" onclick="changeNurse()" value="Change my infos">
+                    <input type="submit" name="" onclick="changeNurse()" value="Update my infos">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post" action="http://localhost:8080/Project360/registerExamNurse">
                     </br>
                     <input type="submit" name=""  value="Add new clinic examination">
+                </form>
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post" action="http://localhost:8080/Project360/ch_nurse_exams">
+                    </br>
+                    <input type="submit" name=""  value="Update clinic examination">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">

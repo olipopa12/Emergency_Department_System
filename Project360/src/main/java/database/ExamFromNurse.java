@@ -33,6 +33,7 @@ public class ExamFromNurse {
                 + " FOREIGN KEY(nurseID) REFERENCES NURSES(nurseID))";
         return exam;
     }
+
     public void updateExamFromNurse(int id, int nid, int pid, String kind, int vid) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -53,7 +54,7 @@ public class ExamFromNurse {
             pstmt.setInt(2, pid);
             pstmt.setString(3, kind);
             pstmt.setInt(4, vid);
-           // pstmt.setString(7, exa);
+            // pstmt.setString(7, exa);
             //  pstmt.setString(4, phone);
             pstmt.setInt(5, id);
             pstmt.executeUpdate();
@@ -98,7 +99,7 @@ public class ExamFromNurse {
 
         //String med = "SELECT * FROM MEDICINES";
         PreparedStatement pstmt = con.prepareStatement(exam);
-       
+
         int id = 0;
         String kindof = null;
         String first = null;
@@ -136,7 +137,8 @@ public class ExamFromNurse {
         }
         return allExams;
     }
-    public String get_NursesExamsForMonth(int month,int year) throws ClassNotFoundException, SQLException {
+
+    public String get_NursesExamsForMonth(int month, int year) throws ClassNotFoundException, SQLException {
         //String id = "SELECT role FROM LOGIN_INFOS WHERE username=\"kate\" AND password=\"kate1234\"";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(
@@ -159,7 +161,7 @@ public class ExamFromNurse {
         // ResultSet rs=null;
         try {
             pstmt.setInt(1, month);
-             pstmt.setInt(2, year);
+            pstmt.setInt(2, year);
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
@@ -167,17 +169,17 @@ public class ExamFromNurse {
                 kindof = rs.getString("kindof");
                 first = rs.getString("firstname");
                 last = rs.getString("lastname");
-               // name = rs.getString("kind");
+                // name = rs.getString("kind");
                 date = rs.getString("date");
                 //sub = rs.getInt("substance");
-                Exam = ( kindof + " " + first + " " + last + " " + date + ",");
+                Exam = (kindof + " " + first + " " + last + " " + date + ",");
                 //System.out.println(Exam);
                 if (allExams == null) {
                     allExams = Exam;
                 } else {
                     allExams = allExams + Exam;
                 }
-i++;
+                i++;
                 // System.out.println(id + " " + did + " " + name + " " + kind + " " + sub);
             }
             //System.out.println(allMed);
@@ -185,6 +187,6 @@ i++;
         } catch (SQLException ex) {
             Logger.getLogger(ExamFromNurse.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return allExams+i;
+        return allExams + i;
     }
 }

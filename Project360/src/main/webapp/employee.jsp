@@ -122,7 +122,7 @@
 
             <div class="lboxes" style="margin-top:1.5%; margin-left:5%; text-align: center;">
                 <form  method="post" >
-                    <input type="submit" name="" onclick="changeEmployee()" value="Change my info">
+                    <input type="submit" name="" onclick="changeEmployee()" value="Update my infos">
                 </form>
             </div>
 
@@ -156,6 +156,11 @@
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
                 <form  method="post" action="http://localhost:8080/Project360/registerShift">
                     <input type="submit" name=""  value="Add new shift">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">
+                <form  method="post" action="http://localhost:8080/Project360/ch_shifts">
+                    <input type="submit" name=""  value="Update shift">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2%; margin-left:5%; text-align: center;">

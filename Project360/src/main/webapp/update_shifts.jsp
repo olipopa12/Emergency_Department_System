@@ -1,6 +1,6 @@
 <%-- 
-    Document   : DocReExam
-    Created on : 12 Ιαν 2021, 9:43:47 μμ
+    Document   : update_shifts
+    Created on : 15 Ιαν 2021, 5:19:09 μμ
     Author     : kater
 --%>
 
@@ -10,12 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="javascript/updates.js"></script>
-        <title>Doctor re-examination</title>
+        <title>Update Shift</title>
         <style>
 
             .box {
-                width: 450px;
-                height: 550px;
+                width: 500px;
+                height: 450px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
@@ -74,38 +74,34 @@
                 border: 2px solid #123672;
             }
         </style>
-
     </head>
     <body>
-        <form class="box" method="post" action="http://localhost:8080/Project360/newFormReExam" >
-            <h1>Εγγραφή νέας επανεξέτασης από τον γιατρό</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/change_shifts" >
+            <h1>Αλλαγή δεδομένων κάποιας βάρδιας</h1>
             <table>
                 <tr>
-                    <td align="right">Patient ID:</td>
-                    <td align="left"><input type="text" id="pid" name="pid" value=""  /></td>
+                    <td align="right">Date of shift to update:</td>
+                    <td align="left"><input type="text" id="date" name="date" value=""  placeholder="Year-Month-Day"/></td>
                 </tr>
                 <tr>
-                    <td align="right">Kind:</td>
-                    <td align="left"><input type="text" id="kind" name="kind" value=""  /></td>
+                    <td align="right">Doctors ids:</td>
+                    <td align="left"><input type="text" id="doctors" name="doctors" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Disease ID:</td>
-                    <td align="left"><input type="text" id="did" name="did" value=""  /></td>
+                    <td align="right">Nurses ids:</td>
+                    <td align="left"><input type="text" id="nurses" name="nurses" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Medicine ID:</td>
-                    <td align="left"><input type="text" id="mid" name="mid" value=""  /></td>
-                </tr>
-                <tr>
-                    <td align="right">Hospitalization:</td>
-                    <td align="left"><input type="text" id="hosp" name="hosp" value="" placeholder="true or false" /></td>
+                    <td align="right">Employees ids:</td>
+                    <td align="left"><input type="text" id="employees" name="employees" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>
-                    <td align="center"> <input type="submit" name="" value="Ready"  /></td>
+                    <td align="center"> <input type="submit" name="" value="Update"  /></td>
                 </tr>
             </table>
         </form>
 
     </body>
 </html>
+

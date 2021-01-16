@@ -136,7 +136,7 @@
             </form>
             <div class="lboxes" style="margin-top:25%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   >
-                    <input type="submit" name="" onclick="changePatient()"  value="Change my infos">
+                    <input type="submit" name="" onclick="changePatient()"  value="Update my infos">
                 </form>
             </div>
             <div class="lboxes" style="margin-top:5%; margin-left:5%; text-align: center;">

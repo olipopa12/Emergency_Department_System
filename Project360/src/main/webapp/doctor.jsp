@@ -125,7 +125,7 @@
             </form>
             <div class="lboxes" style="margin-top:3%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   >
-                    <input type="submit" name="" onclick="changeDoctor()" value="Change my infos">
+                    <input type="submit" name="" onclick="changeDoctor()" value="Update my infos">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
@@ -134,8 +134,18 @@
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"  action="http://localhost:8080/Project360/ch_exams"  >
+                    <input type="submit" name=""  value="Update examination">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   action="http://localhost:8080/Project360/registerReExam" >
                     <input type="submit" name=""  value="Add new re-examination">
+                </form> 
+            </div>
+            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+                <form class=" lbox" method="post"  action="http://localhost:8080/Project360/ch_re_exams"  >
+                    <input type="submit" name=""  value="Update re-examination">
                 </form> 
             </div>
             <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">

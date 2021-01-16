@@ -250,7 +250,7 @@ function Statistics() {
             var ru = 1;
             var rd = 1;
             var str = xhttp.responseText;
-            console.log(str);
+            console.log("str: " + str);
             var row = str.split("|");
             /*console.log(row[0]);
              console.log(row[1]);
@@ -259,14 +259,14 @@ function Statistics() {
             var row2 = "";
             var col = "";
             var length_row = row.length;
-            //console.log(length_row);
+            console.log("len: " + length_row);
             while (i < (length_row)) {
                 j = 0;
                 row = str.split("|");
                 row2 = row[i].split(",");
                 var length_row2 = row2.length;
-                /*  console.log(length_row2);
-                 console.log(row2[0]);
+                console.log(length_row2);
+                /*console.log(row2[0]);
                  console.log(row2[1]);
                  console.log(row2[2]);
                  console.log(row2[3]);
@@ -274,12 +274,19 @@ function Statistics() {
                  console.log(row2[5]);
                  console.log(row2[6]);
                  console.log(row2[7]);*/
-                while (j < (length_row2 - 1)) {
+                while (j < length_row2-1) {
                     row2 = row[i].split(",");
                     //var row = str.split("|");
                     col = "";
                     col = row2[j].split(" ");
                     if (i === 0) {
+                        if (row2.length > 1) {
+                            document.getElementById("lub").innerHTML = "Examinations from doctors: " + row2[row2.length - 1];
+                        } else {
+                            document.getElementById("lub").innerHTML = "Examinations from doctors: 0";
+                            j++;
+                            continue;
+                        }
                         var f1 = col[0];
                         var f2 = col[1];
                         var f3 = col[2];
@@ -299,6 +306,14 @@ function Statistics() {
                         c5.innerHTML = f5;
                         lu++;
                     } else if (i === 1) {
+                        if (row2.length > 1) {
+                            document.getElementById("rub").innerHTML = "Examinations from nurses: " + row2[row2.length - 1];
+                        } else {
+                            document.getElementById("rub").innerHTML = "Examinations from nurses: 0";
+                            j++;
+                            continue;
+
+                        }
                         var f1 = col[0];
                         var f2 = col[1];
                         var f3 = col[2];
@@ -315,6 +330,13 @@ function Statistics() {
                         c4.innerHTML = f4;
                         ru++;
                     } else if (i === 2) {
+                        if (row2.length > 1) {
+                            document.getElementById("ldb").innerHTML = "Re-examinations from doctors: " + row2[row2.length - 1];
+                        } else {
+                            document.getElementById("ldb").innerHTML = "Re-examinations from doctors: 0";
+                            j++;
+                            continue;
+                        }
                         var f1 = col[0];
                         var f2 = col[1];
                         var f3 = col[2];
@@ -352,6 +374,7 @@ function Statistics() {
                     }
                     j++;
                 }
+                console.log("i= " + i);
                 i++;
             }
         }

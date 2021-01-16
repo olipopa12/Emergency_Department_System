@@ -79,7 +79,7 @@
                     <th>ID</th>
                     <th>FIRSTNAME </th>
                     <th>LASTNAME </th>
-                    <th>DISEASES </th>
+                    <th>CHRONIC DISEASES </th>
                 </tr>
             </table>
         </div>

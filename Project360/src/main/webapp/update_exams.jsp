@@ -1,6 +1,6 @@
 <%-- 
-    Document   : DocReExam
-    Created on : 12 Ιαν 2021, 9:43:47 μμ
+    Document   : update_exams
+    Created on : 15 Ιαν 2021, 5:18:56 μμ
     Author     : kater
 --%>
 
@@ -10,18 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="javascript/updates.js"></script>
-        <title>Doctor re-examination</title>
+        <title>Update examination</title>
         <style>
 
             .box {
                 width: 450px;
-                height: 550px;
+                height: 700px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
-                top:50%;
+                top:65%;
                 left: 50%;
                 text-align: center;
             }
@@ -77,11 +77,19 @@
 
     </head>
     <body>
-        <form class="box" method="post" action="http://localhost:8080/Project360/newFormReExam" >
-            <h1>Εγγραφή νέας επανεξέτασης από τον γιατρό</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/change_exams" >
+            <h1>Αλλαγή δεδομένων κάποιας εξέτασης </h1>
             <table>
                 <tr>
-                    <td align="right">Patient ID:</td>
+                    <td align="right">Examination ID :</td>
+                    <td align="left"><input type="text" id="eid" name="eid" value=""  /></td>
+                </tr>
+                <tr>
+                    <td align="right">Visit id:</td>
+                    <td align="left"><input type="text" id="vid" name="vid" value=""  /></td>
+                </tr>
+                <tr>
+                    <td align="right">Patient ID :</td>
                     <td align="left"><input type="text" id="pid" name="pid" value=""  /></td>
                 </tr>
                 <tr>
@@ -93,12 +101,12 @@
                     <td align="left"><input type="text" id="did" name="did" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Medicine ID:</td>
-                    <td align="left"><input type="text" id="mid" name="mid" value=""  /></td>
+                    <td align="right">Order kind of exam:</td>
+                    <td align="left"><input type="text" id="ex" name="ex" value=""  /></td>
                 </tr>
                 <tr>
-                    <td align="right">Hospitalization:</td>
-                    <td align="left"><input type="text" id="hosp" name="hosp" value="" placeholder="true or false" /></td>
+                    <td align="right">Nurse ID:</td>
+                    <td align="left"><input type="text" id="nid" name="nid" value=""  /></td>
                 </tr>
                 <tr>
                     <td align="right"></td>

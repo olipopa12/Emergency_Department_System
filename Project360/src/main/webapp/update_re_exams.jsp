@@ -1,6 +1,6 @@
 <%-- 
-    Document   : DocReExam
-    Created on : 12 Ιαν 2021, 9:43:47 μμ
+    Document   : update_re_exams
+    Created on : 15 Ιαν 2021, 5:19:22 μμ
     Author     : kater
 --%>
 
@@ -10,18 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="javascript/updates.js"></script>
-        <title>Doctor re-examination</title>
+        <title>Update re-examination</title>
         <style>
 
             .box {
-                width: 450px;
-                height: 550px;
+                width: 465px;
+                height: 700px;
                 padding: 40px;
                 position: absolute;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
                 background: #97c984;
-                top:50%;
+                top:65%;
                 left: 50%;
                 text-align: center;
             }
@@ -77,9 +77,17 @@
 
     </head>
     <body>
-        <form class="box" method="post" action="http://localhost:8080/Project360/newFormReExam" >
-            <h1>Εγγραφή νέας επανεξέτασης από τον γιατρό</h1>
+        <form class="box" method="post" action="http://localhost:8080/Project360/change_re_exams" >
+            <h1>Αλλαγή δεδομένων κάποιας επανεξέτασης </h1>
             <table>
+                <tr>
+                    <td align="right">Examination ID:</td>
+                    <td align="left"><input type="text" id="id" name="id" value=""  /></td>
+                </tr>
+                <tr>
+                    <td align="right">Visit ID:</td>
+                    <td align="left"><input type="text" id="vid" name="vid" value=""  /></td>
+                </tr>
                 <tr>
                     <td align="right">Patient ID:</td>
                     <td align="left"><input type="text" id="pid" name="pid" value=""  /></td>

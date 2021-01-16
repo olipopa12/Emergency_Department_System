@@ -60,7 +60,7 @@
                 height: 500px;
                 padding: 40px;
                 position: absolute;
-                top: 136%;
+                top: 141.5%;
                 left: 36%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
@@ -72,7 +72,7 @@
                 height: 500px;
                 padding: 40px;
                 position: absolute;
-                top: 136%;
+                top: 141.5%;
                 left: 91%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
@@ -108,7 +108,7 @@
     <body onload="Statistics()">
         <div class="container ">
             <div class="lubox">
-                <h2> Examinations from doctors</h2>   
+                <h2 id="lub">Examinations from doctors: 0 </h2>   
                 <table id="lu">
                     <tr>
                         <th>EXAMINATION KIND</th>
@@ -120,7 +120,7 @@
                 </table>
             </div>
             <div class="rubox">
-                <h2> Examinations from nurses</h2> 
+                <h2 id="rub"> Examinations from nurses: 0</h2> 
                 <table id="ru">
                     <tr>
                         <th>EXAMINATION KIND</th>
@@ -131,20 +131,20 @@
                 </table>
             </div>
             <div class="ldbox">
-                <h2> Re-examinations from doctors</h2>  
+                <h2 id="ldb">Re-examinations from doctors: 0 </h2> 
                 <table id="ld">
                     <tr>
                         <th>EXAMINATION KIND</th>
                         <th>FIRSTNAME DOC</th>
                         <th>LASTNAME DOC</th>
-                        <th>TREATMENT</th>
-                        <th>DATE</th>
                         <th>FINAL DIAGNOSIS</th>
+                        <th>MEDICINES</th>
+                        <th>DATE</th>
                     </tr>
                 </table>
             </div>
             <div class="rdbox">
-                <h2> Visits </h2> 
+                <h2 id="rdb">Total visits: 0 </h2> 
                 <table id="rd">
                     <tr>
                         <th>DATE</th>
