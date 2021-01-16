@@ -142,7 +142,7 @@
                     <input type="submit" name=""  value="See patients' list">
                 </form>
             </div>
-            <div class="lboxes" style="margin-top:2.5%; margin-left:5%; text-align: center;">
+            <div class="lboxes" style="margin-top:4%; margin-left:5%; text-align: center;">
                 <form class=" lbox" method="post"   action="http://localhost:8080/Project360/give_id" >
                     <input type="submit" name=""   value="Give id to see patient's medical history">
                 </form> 
