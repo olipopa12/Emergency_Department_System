@@ -32,7 +32,7 @@
                 padding: 0px;
             }
             .lubox {
-                width: 570px;
+                width: 575px;
                 height: 400px;
                 padding: 40px;
                 position: absolute;
@@ -56,11 +56,11 @@
                 text-align: center;
             }
             .ldbox {
-                width: 835px;
+                width: 845px;
                 height: 400px;
                 padding: 40px;
                 position: absolute;
-                top: 113%;
+                top: 116.5%;
                 left: 35%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
@@ -72,7 +72,7 @@
                 height: 400px;
                 padding: 40px;
                 position: absolute;
-                top: 113%;
+                top: 116.5%;
                 left: 85%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);

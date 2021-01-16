@@ -90,11 +90,14 @@ function Shift() {
             var r = 0;
             var pou = 1;
             var str = xhttp.responseText;
+           // console.log(str);
             var row = str.split(",");
             var length_row = row.length;
+            console.log(length_row);
             while (r < (length_row - 1)) {
                 var row = str.split(",");
-                var f1 = row[0];
+               // console.log(row);
+                var f1 = row[r];
                 var table = document.getElementById("s");
                 var row1 = table.insertRow(pou);
                 var c1 = row1.insertCell(0);
@@ -274,7 +277,7 @@ function Statistics() {
                  console.log(row2[5]);
                  console.log(row2[6]);
                  console.log(row2[7]);*/
-                while (j < length_row2-1) {
+                while (j < length_row2 - 1) {
                     row2 = row[i].split(",");
                     //var row = str.split("|");
                     col = "";
@@ -359,6 +362,13 @@ function Statistics() {
                         c6.innerHTML = f6;
                         ld++;
                     } else {
+                        if (row2.length > 1) {
+                            document.getElementById("rdb").innerHTML = "Total visits: " + row2[row2.length - 1];
+                        } else {
+                            document.getElementById("rdb").innerHTML = "Total visits: 0";
+                            j++;
+                            continue;
+                        }
                         var f1 = col[0];
                         var f2 = col[1];
                         var f3 = col[2];

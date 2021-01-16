@@ -33,10 +33,10 @@
             }
             .lubox {
                 width: 700px;
-                height: 500px;
+                height: 610px;
                 padding: 40px;
                 position: absolute;
-                top: 44%;
+                top: 52%;
                 left: 30%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
@@ -45,10 +45,10 @@
             }
             .rubox {
                 width: 600px;
-                height: 500px;
+                height: 610px;
                 padding: 40px;
                 position: absolute;
-                top: 44%;
+                top: 52%;
                 left:85%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
@@ -57,10 +57,10 @@
             }
             .ldbox {
                 width: 860px;
-                height: 500px;
+                height: 650px;
                 padding: 40px;
                 position: absolute;
-                top: 141.5%;
+                top: 169%;
                 left: 36%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
@@ -69,10 +69,10 @@
             }
             .rdbox {
                 width: 415px;
-                height: 500px;
+                height: 650px;
                 padding: 40px;
                 position: absolute;
-                top: 141.5%;
+                top: 169%;
                 left: 91%;
                 border-radius: 50px;
                 transform: translate(-50%, -50%);
