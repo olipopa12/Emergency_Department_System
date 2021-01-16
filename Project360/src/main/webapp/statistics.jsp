@@ -108,7 +108,7 @@
     <body onload="Statistics()">
         <div class="container ">
             <div class="lubox">
-                <h2 id="lub">Examinations from doctors: 0 </h2>   
+                <h2 id="lub">Examinations from doctors (total: 0)</h2>   
                 <table id="lu">
                     <tr>
                         <th>EXAMINATION KIND</th>
@@ -120,7 +120,7 @@
                 </table>
             </div>
             <div class="rubox">
-                <h2 id="rub"> Examinations from nurses: 0</h2> 
+                <h2 id="rub"> Examinations from nurses (total: 0)</h2> 
                 <table id="ru">
                     <tr>
                         <th>EXAMINATION KIND</th>
@@ -131,7 +131,7 @@
                 </table>
             </div>
             <div class="ldbox">
-                <h2 id="ldb">Re-examinations from doctors: 0 </h2> 
+                <h2 id="ldb">Re-examinations from doctors (total: 0) </h2> 
                 <table id="ld">
                     <tr>
                         <th>EXAMINATION KIND</th>
@@ -144,7 +144,7 @@
                 </table>
             </div>
             <div class="rdbox">
-                <h2 id="rdb">Total visits: 0 </h2> 
+                <h2 id="rdb">Visits (total: 0) </h2> 
                 <table id="rd">
                     <tr>
                         <th>DATE</th>

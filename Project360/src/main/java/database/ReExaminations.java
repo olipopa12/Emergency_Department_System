@@ -176,7 +176,7 @@ public class ReExaminations {
 
         String allExams = null;
         String Exam = null;
-
+        int i = 0;
         try {
             //pstmt.setInt(1, pid);
             ResultSet rs = pstmt.executeQuery();
@@ -197,14 +197,14 @@ public class ReExaminations {
                 } else {
                     allExams = allExams + Exam;
                 }
-
+                i++;
             }
 
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(ReExaminations.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return allExams;
+        return allExams + i;
     }
 
     public String get_ReExamsForMonth(int month, int year) throws ClassNotFoundException, SQLException {

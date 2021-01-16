@@ -72,7 +72,7 @@
 
     <body onload="Covid()">
         <div class="box ">
-            <h2> Covid report</h2>  
+            <h2 id="s"> Covid report (total:0)</h2>  
             </br>
             <table id="st">
                 <tr>

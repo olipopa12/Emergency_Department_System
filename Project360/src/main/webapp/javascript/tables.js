@@ -17,6 +17,14 @@ function Covid() {
             var col = "";
             while (r < (length_row - 1)) {
                 var row = str.split("?");
+                console.log(row.length);
+                if (row.length > 1) {
+                    document.getElementById("s").innerHTML = "Covid report  (total: " + row[row.length - 1] + ")";
+                } else {
+                    document.getElementById("s").innerHTML = "Covid report (total: 0)";
+                    i++;
+                    continue;
+                }
                 col = "";
                 col = row[r].split(" ");
                 var f1 = col[0];
@@ -33,7 +41,6 @@ function Covid() {
                 c2.innerHTML = f2;
                 c3.innerHTML = f3;
                 c4.innerHTML = f4;
-
                 pou++;
                 r++;
             }
@@ -55,10 +62,16 @@ function Visits_Statistics() {
             var row = str.split(",");
             var length_row = row.length;
             console.log(str);
-            document.getElementById("s").innerHTML = "Total visits today: " + row[length_row - 1];
             var col = "";
             while (r < (length_row - 1)) {
                 var row = str.split(",");
+                if (row2.length > 1) {
+                    document.getElementById("s").innerHTML = "Visits today(total: " + row2[row2.length - 1] + ")";
+                } else {
+                    document.getElementById("s").innerHTML = "Visits today(total:0)";
+                    j++;
+                    continue;
+                }
                 col = "";
                 col = row[r].split(" ");
                 var f1 = col[0];
@@ -90,13 +103,13 @@ function Shift() {
             var r = 0;
             var pou = 1;
             var str = xhttp.responseText;
-           // console.log(str);
+            // console.log(str);
             var row = str.split(",");
             var length_row = row.length;
             console.log(length_row);
             while (r < (length_row - 1)) {
                 var row = str.split(",");
-               // console.log(row);
+                // console.log(row);
                 var f1 = row[r];
                 var table = document.getElementById("s");
                 var row1 = table.insertRow(pou);
@@ -284,9 +297,9 @@ function Statistics() {
                     col = row2[j].split(" ");
                     if (i === 0) {
                         if (row2.length > 1) {
-                            document.getElementById("lub").innerHTML = "Examinations from doctors: " + row2[row2.length - 1];
+                            document.getElementById("lub").innerHTML = "Examinations from doctors (total: " + row2[row2.length - 1]+")";
                         } else {
-                            document.getElementById("lub").innerHTML = "Examinations from doctors: 0";
+                            document.getElementById("lub").innerHTML = "Examinations from doctors (total: 0)";
                             j++;
                             continue;
                         }
@@ -310,12 +323,11 @@ function Statistics() {
                         lu++;
                     } else if (i === 1) {
                         if (row2.length > 1) {
-                            document.getElementById("rub").innerHTML = "Examinations from nurses: " + row2[row2.length - 1];
+                            document.getElementById("rub").innerHTML = "Examinations from nurses (total: " + row2[row2.length - 1]+")";
                         } else {
-                            document.getElementById("rub").innerHTML = "Examinations from nurses: 0";
+                            document.getElementById("rub").innerHTML = "Examinations from nurses (total: 0)";
                             j++;
                             continue;
-
                         }
                         var f1 = col[0];
                         var f2 = col[1];
@@ -334,9 +346,9 @@ function Statistics() {
                         ru++;
                     } else if (i === 2) {
                         if (row2.length > 1) {
-                            document.getElementById("ldb").innerHTML = "Re-examinations from doctors: " + row2[row2.length - 1];
+                            document.getElementById("ldb").innerHTML = "Re-examinations from doctors (total: " + row2[row2.length - 1]+")";
                         } else {
-                            document.getElementById("ldb").innerHTML = "Re-examinations from doctors: 0";
+                            document.getElementById("ldb").innerHTML = "Re-examinations from doctors(total:0)";
                             j++;
                             continue;
                         }
@@ -363,9 +375,9 @@ function Statistics() {
                         ld++;
                     } else {
                         if (row2.length > 1) {
-                            document.getElementById("rdb").innerHTML = "Total visits: " + row2[row2.length - 1];
+                            document.getElementById("rdb").innerHTML = "Visits (total: " + row2[row2.length - 1]+")";
                         } else {
-                            document.getElementById("rdb").innerHTML = "Total visits: 0";
+                            document.getElementById("rdb").innerHTML = "Visits (total: 0)";
                             j++;
                             continue;
                         }

@@ -72,7 +72,7 @@
 
     <body onload="Visits_Statistics()">
         <div class="box ">
-            <h2 id="s"> </h2>   
+            <h2 id="s"> Visits today(total:0)</h2>   
             <table id="st">
                 <tr>
                     <th>ID</th>
