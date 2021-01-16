@@ -83,5 +83,27 @@ public class ChronicDiseases {
         }
         return allDis;
     }
+public void deleteCDis(int pid) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/EMERGENCY_DEPARTMENT", "root", "");
+        //stmt = con.createStatement();
+        String delete = new String(
+                "DELETE FROM CHRONIC_DISEASES"
+                + " WHERE patientID=?");
+        //String doc = "INSERT IGNORE INTO DOCTORS VALUES (?,?,?,?,?)";
+        PreparedStatement pstmt = con.prepareStatement(delete);
+        try {
+            pstmt.setInt(1, pid);
+           // pstmt.setString(2, fname);
+           // pstmt.setString(3, lname);
+
+            pstmt.executeUpdate();
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ChronicDiseases.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
 }

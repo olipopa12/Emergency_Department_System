@@ -193,11 +193,11 @@ public class Main {
             //visit.insertVisit(4, "2021-01-13");
             //visit.insertVisit(5, "2021-01-14");
 
-            sym.insertSymptom(5, "Ponolaimos");
-            sym.insertSymptom(8, "Ponokoilos");
-            sym.insertSymptom(8, "Zalada");
-            sym.insertSymptom(1, "Adia8esia");
-            sym.insertSymptom(1, "Entonos_pyretos");
+            //sym.insertSymptom(5, "Ponolaimos");
+            //sym.insertSymptom(8, "Ponokoilos");
+            //sym.insertSymptom(8, "Zalada");
+            //sym.insertSymptom(1, "Adia8esia");
+            //sym.insertSymptom(1, "Entonos_pyretos");
             //shift.insertShift("2021-01-10");
             //shift.insertShift("2021-01-11");
             //shift.insertShift("2021-01-12");
@@ -223,23 +223,42 @@ public class Main {
             patientInShift.insertPatientInShift(5, 4);
             visit.insertVisit(3, "2021-01-13");
             visit.insertVisit(5, "2021-02-15");*/
-
-            chronicDis.insertCdisease(2, "Asthma");
-            chronicDis.insertCdisease(2, "Diabetes");
-            chronicDis.insertCdisease(3, "Osteoarthritis");
-            chronicDis.insertCdisease(3, "Diabetes");
+/*patientInShift.insertPatientInShift(3, 1);
+patientInShift.insertPatientInShift(5, 1);
+patientInShift.insertPatientInShift(2, 1);
+patientInShift.insertPatientInShift(1, 1);
+patientInShift.insertPatientInShift(3, 1);
+patientInShift.insertPatientInShift(1, 2);
+patientInShift.insertPatientInShift(2, 2);
+patientInShift.insertPatientInShift(3, 3);
+patientInShift.insertPatientInShift(4, 4);
+patientInShift.insertPatientInShift(5, 5);
+patientInShift.insertPatientInShift(5, 6);
+patientInShift.insertPatientInShift(1, 6);
+patientInShift.insertPatientInShift(2, 6);
+patientInShift.insertPatientInShift(3, 6);
+patientInShift.insertPatientInShift(4, 6);
+patientInShift.insertPatientInShift(5, 6);*/
+//patientInShift.insertPatientInShift(3, 1);
+           // chronicDis.insertCdisease(2, "Kystikh_inwsh");
+           //chronicDis.insertCdisease(4, "XAP");
+            //chronicDis.insertCdisease(3, "Asthma");
+            //chronicDis.insertCdisease(1, "Diabetes");
+            //chronicDis.insertCdisease(5, "Osteoarthritis");
+            //chronicDis.insertCdisease(3, "Diabetes");
             //System.out.println(empInShift.get_EmpInShift());
 
            // exam.insertExam(3, 1, "aimatologikes", 2, 8, 1, "covid");
             //exam.insertExam(3, 1, "aimatologikes", 2, 8, 2, "kati");
-            //nexam.insertExamFromNurse(4, 5, "covid_test", 1);
+           // nexam.insertExamFromNurse(4, 5, "covid_test", 1);
             //nexam.insertExamFromNurse(4, 5, "covid_test", 3);
-            //rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
+           // rexam.insertReExam(10, 3, "aksonikh", 2, 3, 1, true);
             //rexam.insertReExam(10, 3, "aksonikh", 2, 3, 2, true);
             // exam.updateExam(2, 4,1, "covid_test", 2, 7, 1, "kati");
             // nexam.updateExamFromNurse(1, 5, 3, "kati", 1);
-            rexam.updateReExam(1, 5, 2, "kati", 2, 2, 1, false);
-            System.out.println(exam.get_ExamsForMonth(1, 2021));
+            //rexam.updateReExam(1, 5, 2, "kati", 2, 2, 1, false);
+           // chronicDis.deleteCDis(2);
+            //System.out.println(exam.get_ExamsForMonth(1, 2021));
             //docInShift.deleteDocInShift(4);
             //empInShift.deleteEmpInShift(4);
             //nurseInShift.deleteNurseInShift(4);

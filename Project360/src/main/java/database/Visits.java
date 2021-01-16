@@ -135,7 +135,7 @@ public class Visits {
         String visits = "SELECT V.date,P.firstname,P.lastname FROM PATIENTS P,VISITS V WHERE "
                 + "P.patientID=V.patientID AND MONTH(V.date)=? AND YEAR(V.date)=?;";
         PreparedStatement pstmt = con.prepareStatement(visits);
-        //int id = 0;
+        int i = 0;
         String date=null;
         String first = null;
         String last = null;
@@ -161,6 +161,7 @@ public class Visits {
                 } else {
                     allVisits = allVisits + visit;
                 }
+                i++;
             }
             // System.out.println(r);
             con.close();
@@ -168,7 +169,7 @@ public class Visits {
             Logger.getLogger(Symptoms.class.getName()).log(Level.SEVERE, null, ex);
         }
         //allVisits=allVisits+String.valueOf(records);
-        return allVisits;
+        return allVisits+i;
     }
 
 }
